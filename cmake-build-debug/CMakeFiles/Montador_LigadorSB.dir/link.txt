@@ -1,1 +1,0 @@
-/usr/lib64/ccache/c++   -g   CMakeFiles/Montador_LigadorSB.dir/main.cpp.o  -o Montador_LigadorSB 

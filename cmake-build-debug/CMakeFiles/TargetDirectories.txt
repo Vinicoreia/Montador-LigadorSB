@@ -1,3 +1,0 @@
-/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/Montador_LigadorSB.dir
