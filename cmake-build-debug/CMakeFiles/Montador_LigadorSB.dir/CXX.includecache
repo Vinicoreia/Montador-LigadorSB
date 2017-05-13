@@ -29,6 +29,12 @@ iostream
 -
 fstream
 -
+sstream
+-
 string
+-
+cstring
+-
+tic.h
 -
 

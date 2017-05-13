@@ -3,7 +3,11 @@
 //
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <string>
+#include <cstring>
+#include <tic.h>
+
 using namespace std;
 /*
  * A função do pre-processador eh tirar espacos em branco desnecessarios, comentarios, e processar as macros EQU e IF.
@@ -24,8 +28,21 @@ void RemoveComentarios(ifstream& assembly, ofstream& semComentarios){ // porque 
     }
 }
 
-void RemoveEspacosEmBranco(ifstream& assembly, ofstream& semComentarios){
-
+void RemoveEspacosEmBranco(ifstream& assembly, ofstream& semEspacos){
+    string line;
+    string novaLinha;
+    istringstream is(line);
+    string token;
+    int posicao;
+    while(getline(assembly, line)){
+        while(getline(is, token, ' ')){
+            novaLinha.append(token);
+            novaLinha.append(" ");
+        }
+        novaLinha.erase(novaLinha.end()-1 );
+        novaLinha.append("\n");
+    }
+    novaLinha.erase(novaLinha.end()-1 ); //apaga o ultimo \n
 }
 void ExpandeMacros(){
 

@@ -23,6 +23,8 @@ int main(int argc, char* argv[]) {
         if(assembly.is_open()){
             //chama preprocessador
 
+
+
             assembly.close();
         }
         /*
