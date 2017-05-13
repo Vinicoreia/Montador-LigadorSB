@@ -2,6 +2,9 @@
 // Created by Vinicius on 13/05/17.
 //
 
+#include <cstdio>
+#include <iostream>
+
 /*
  * A função do pre-processador eh tirar espacos em branco desnecessarios, comentarios, e processar as macros EQU e IF.
  * comentarios começam com ;

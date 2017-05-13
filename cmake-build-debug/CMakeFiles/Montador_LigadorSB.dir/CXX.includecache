@@ -6,7 +6,17 @@
 
 #IncludeRegexTransform: 
 
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisador semantico.cpp
+
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisador sintatico.cpp
+
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisadorLexico.cpp
+
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/ligador.cpp
+
 /home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/main.cpp
 iostream
 -
+
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/preprocessador.cpp
 

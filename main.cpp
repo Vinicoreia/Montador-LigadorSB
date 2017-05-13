@@ -1,6 +1,9 @@
 #include <iostream>
+#include <fstream>
+using namespace std;
+int main(int argc, char* argv[]) {
 
-int main() {
-    std::cout << "Hello, World!" << std::endl;
+    // nesse arquivo os argumentos serao os .asm ou . pre, dependendo do arquivo a execucao deve ser diferente
+
     return 0;
 }
