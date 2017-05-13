@@ -16,11 +16,27 @@ int main(int argc, char* argv[]) {
     // como o nome do arquivo ta em argv[1] basta definir o fluxo de acordo com a extensao, logo
     string extensao = GetFileExtension(argv[1]);
 
-    if (extensao == ".asm"){
-    ifstream assembly(argv[1]);
-        //chama preprocessador e depois o montador
+    if (extensao == "asm"){
+        //chama preprocessador e depois o montador (nao esquecer de setar working directory e program arguments no Clion)
+        string line;
+        ifstream assembly(argv[1]);
+        if(assembly.is_open()){
+            //chama preprocessador
+        }
+        /*
+
+        if(assembly.is_open()){
+            while(getline(assembly, line)){
+                cout << line << '\n';
+            }
+            assembly.close();
+        }
+        else
+            cout << "nao abriu";
+*/
+
     }
-    else if (extensao == ".pre"){
+    else if (extensao == "pre"){
         //chama somente o preprocessador, o preprocessador deve retirar linhas em branco, comentarios e espaçamentos
         //tambem deve expandir as macros IF e EQU
     }
