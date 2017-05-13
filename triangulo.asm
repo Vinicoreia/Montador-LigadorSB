@@ -1,4 +1,4 @@
-TRIANGULO: EQU 1 ;isto é uma constante
+TRIANGULO: EQU 1 ;isto ï¿½ uma constante
 SECTION TEXT
 INPUT		B
 INPUT		H

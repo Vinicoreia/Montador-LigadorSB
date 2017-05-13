@@ -31,18 +31,26 @@ void RemoveComentarios(ifstream& assembly, fstream& semComentarios){ // porque p
 void RemoveEspacosEmBranco(fstream& SemComentarios, fstream& semEspacos){
     string linha;
     string novaLinha;
-    istringstream is(linha);
     string token;
-    int posicao;
-    while(getline(SemComentarios, linha)){
-        while(getline(is, token, ' ')){
-            novaLinha.append(token);
-            novaLinha.append(" ");
+    string tokenSingular;
+    while (getline(SemComentarios, linha)) {
+        istringstream is(linha);
+        while (getline(is, token, '\t')) {
+            istringstream tokens(token);
+            while (getline(tokens, tokenSingular,' ')) {
+                cout<< tokenSingular;
+                novaLinha.append(tokenSingular);
+                novaLinha.append(" ");
+            }
         }
-        novaLinha.erase(novaLinha.end()-1 );
+        novaLinha.pop_back();
         novaLinha.append("\n");
     }
-    novaLinha.erase(novaLinha.end()-1 ); //apaga o ultimo \n
+    novaLinha.erase(novaLinha.end() - 1); //apaga o ultimo \n
+    semEspacos << novaLinha;
+    novaLinha.clear();
+    semEspacos.close();
+
 }
 
 
