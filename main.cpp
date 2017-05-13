@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 // Essa função retorna a extensão o arquivo
-string GetFileExtension(const string&FileName)
+string PegaExtensao(const string&FileName)
 {
     if(FileName.find_last_of(".") != string::npos)
         return FileName.substr(FileName.find_last_of(".")+1);
@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
 
     // nesse arquivo os arquivos serao .asm ou . pre, dependendo do arquivo a execucao deve ser diferente
     // como o nome do arquivo ta em argv[1] basta definir o fluxo de acordo com a extensao, logo
-    string extensao = GetFileExtension(argv[1]);
+    string extensao = PegaExtensao(argv[1]);
 
     if (extensao == "asm"){
         //chama preprocessador e depois o montador (nao esquecer de setar working directory e program arguments no Clion)
@@ -22,6 +22,8 @@ int main(int argc, char* argv[]) {
         ifstream assembly(argv[1]);
         if(assembly.is_open()){
             //chama preprocessador
+
+            assembly.close();
         }
         /*
 
@@ -31,9 +33,9 @@ int main(int argc, char* argv[]) {
             }
             assembly.close();
         }
-        else
-            cout << "nao abriu";
-*/
+        */else
+            cout << "Erro ao abrir arquivo";
+            return EXIT_FAILURE;
 
     }
     else if (extensao == "pre"){

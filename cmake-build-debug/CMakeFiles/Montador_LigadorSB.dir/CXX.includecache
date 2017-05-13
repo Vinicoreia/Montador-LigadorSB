@@ -22,9 +22,13 @@ fstream
 string
 -
 
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/montador.cpp
+
 /home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/preprocessador.cpp
-cstdio
--
 iostream
+-
+fstream
+-
+string
 -
 

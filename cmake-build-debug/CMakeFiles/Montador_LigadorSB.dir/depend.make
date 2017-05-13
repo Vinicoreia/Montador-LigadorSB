@@ -11,5 +11,7 @@ CMakeFiles/Montador_LigadorSB.dir/ligador.cpp.o: ../ligador.cpp
 
 CMakeFiles/Montador_LigadorSB.dir/main.cpp.o: ../main.cpp
 
+CMakeFiles/Montador_LigadorSB.dir/montador.cpp.o: ../montador.cpp
+
 CMakeFiles/Montador_LigadorSB.dir/preprocessador.cpp.o: ../preprocessador.cpp
 

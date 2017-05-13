@@ -258,6 +258,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/Montador_LigadorSB.dir/build.make CMakeFiles/Montador_LigadorSB.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+montador.o: montador.cpp.o
+
+.PHONY : montador.o
+
+# target to build an object file
+montador.cpp.o:
+	$(MAKE) -f CMakeFiles/Montador_LigadorSB.dir/build.make CMakeFiles/Montador_LigadorSB.dir/montador.cpp.o
+.PHONY : montador.cpp.o
+
+montador.i: montador.cpp.i
+
+.PHONY : montador.i
+
+# target to preprocess a source file
+montador.cpp.i:
+	$(MAKE) -f CMakeFiles/Montador_LigadorSB.dir/build.make CMakeFiles/Montador_LigadorSB.dir/montador.cpp.i
+.PHONY : montador.cpp.i
+
+montador.s: montador.cpp.s
+
+.PHONY : montador.s
+
+# target to generate assembly for a file
+montador.cpp.s:
+	$(MAKE) -f CMakeFiles/Montador_LigadorSB.dir/build.make CMakeFiles/Montador_LigadorSB.dir/montador.cpp.s
+.PHONY : montador.cpp.s
+
 preprocessador.o: preprocessador.cpp.o
 
 .PHONY : preprocessador.o
@@ -309,6 +336,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... montador.o"
+	@echo "... montador.i"
+	@echo "... montador.s"
 	@echo "... preprocessador.o"
 	@echo "... preprocessador.i"
 	@echo "... preprocessador.s"

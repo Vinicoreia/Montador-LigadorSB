@@ -95,6 +95,9 @@
 		<Unit filename="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/main.cpp">
 			<Option target="Montador_LigadorSB"/>
 		</Unit>
+		<Unit filename="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/montador.cpp">
+			<Option target="Montador_LigadorSB"/>
+		</Unit>
 		<Unit filename="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/preprocessador.cpp">
 			<Option target="Montador_LigadorSB"/>
 		</Unit>
