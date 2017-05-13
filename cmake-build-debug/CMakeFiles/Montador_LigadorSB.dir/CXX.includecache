@@ -17,6 +17,14 @@
 /home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/main.cpp
 iostream
 -
+fstream
+-
+string
+-
 
 /home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/preprocessador.cpp
+cstdio
+-
+iostream
+-
 
