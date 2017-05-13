@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
+
 using namespace std;
 // Essa função retorna a extensão o arquivo
 string PegaExtensao(const string&FileName)
@@ -23,10 +25,29 @@ int main(int argc, char* argv[]) {
         if(assembly.is_open()){
             //chama preprocessador
 
-
-
-            assembly.close();
-        }
+            //TESTAR FUNCAO ABAIXO
+//
+//            fstream preprocessado("preprocessado.pre");string linha;
+//            string novaLinha;
+//
+//            string token;
+//            while(getline(assembly, linha)){
+//                istringstream is(linha);
+//                cout << linha<<'\n';
+//                while(getline(is, token, ' ')){
+//                    novaLinha.append(token);
+//                    novaLinha.append(" ");
+//                }
+//                novaLinha.pop_back();
+//                novaLinha.append("\n");
+//            }
+//            novaLinha.erase(novaLinha.end()-1 ); //apaga o ultimo \n
+//            preprocessado << novaLinha;
+//            novaLinha.clear();
+//            preprocessado.close();
+//
+//            assembly.close();
+//        }
         /*
 
         if(assembly.is_open()){

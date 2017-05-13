@@ -15,26 +15,26 @@ using namespace std;
  * Caso o programa receba o comando -p deve gerar apenas o arquivo de pre-processamento com extensão .pre
  **/
 
-void RemoveComentarios(ifstream& assembly, ofstream& semComentarios){ // porque precisa do &?
-    string line;
+void RemoveComentarios(ifstream& assembly, fstream& semComentarios){ // porque precisa do &?
+    string linha;
     int posicao;
-    while(getline(assembly, line)){
-        posicao = (int) line.find_first_of(';');
+    while(getline(assembly, linha)){
+        posicao = (int) linha.find_first_of(';');
         if(posicao >= 0) {
             //se existe ; na string, remove e coloca no arquivo de saida
-            line.erase(posicao, string::npos); // apaga do ; até o final da linha
+            linha.erase(posicao, string::npos); // apaga do ; até o final da linha
         }
-        semComentarios << line <<'\n';
+        semComentarios << linha <<'\n';
     }
 }
 
-void RemoveEspacosEmBranco(ifstream& assembly, ofstream& semEspacos){
-    string line;
+void RemoveEspacosEmBranco(fstream& SemComentarios, fstream& semEspacos){
+    string linha;
     string novaLinha;
-    istringstream is(line);
+    istringstream is(linha);
     string token;
     int posicao;
-    while(getline(assembly, line)){
+    while(getline(SemComentarios, linha)){
         while(getline(is, token, ' ')){
             novaLinha.append(token);
             novaLinha.append(" ");
@@ -44,12 +44,15 @@ void RemoveEspacosEmBranco(ifstream& assembly, ofstream& semEspacos){
     }
     novaLinha.erase(novaLinha.end()-1 ); //apaga o ultimo \n
 }
+
+
 void ExpandeMacros(){
 
 }
 int PreProcessaAssembly(ifstream& assembly){
-    ofstream preprocessado("preprocessado.pre");
+    fstream preprocessado("preprocessado.pre");
     RemoveComentarios(assembly, preprocessado);
+    RemoveEspacosEmBranco(preprocessado, preprocessado);
     preprocessado << "testando se escreve no arquivo";
     preprocessado.close();
     return 1;
