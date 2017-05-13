@@ -16,6 +16,17 @@ int main(int argc, char* argv[]) {
     // como o nome do arquivo ta em argv[1] basta definir o fluxo de acordo com a extensao, logo
     string extensao = GetFileExtension(argv[1]);
 
+    if (extensao == ".asm"){
+        //chama preprocessador e depois o montador
+    }
+    else if (extensao == ".pre"){
+        //chama somente o preprocessador
+
+    }
+    else{
+        cout << "Arquivo incompativel";
+        return EXIT_FAILURE;
+    }
 
     return 0;
 }
