@@ -17,11 +17,12 @@ int main(int argc, char* argv[]) {
     string extensao = GetFileExtension(argv[1]);
 
     if (extensao == ".asm"){
+    ifstream assembly(argv[1]);
         //chama preprocessador e depois o montador
     }
     else if (extensao == ".pre"){
-        //chama somente o preprocessador
-
+        //chama somente o preprocessador, o preprocessador deve retirar linhas em branco, comentarios e espaçamentos
+        //tambem deve expandir as macros IF e EQU
     }
     else{
         cout << "Arquivo incompativel";
