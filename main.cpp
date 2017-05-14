@@ -30,34 +30,6 @@ int main(int argc, char *argv[]) {
             //TESTAR FUNCAO ABAIXO
 
             fstream preprocessado("preprocessado.pre");
-            string linha;
-            char flagIF;
-            int posicao;
-            while (getline(assembly, linha)) {
-                posicao = (int)linha.find("IF");
-                if(posicao>=0){
-                    cout<<posicao;
-                    flagIF = linha.back();
-                    cout<<flagIF<<"teste";
-                    getline(assembly, linha);
-
-                }
-                if(flagIF == '0'){
-                    getline(assembly, linha);
-                    linha.append("\n");
-                    preprocessado << linha;
-                }
-                else{
-                    linha.append("\n");
-                    preprocessado << linha;
-                }
-                flagIF == '1';
-            }
-
-            preprocessado.close();
-
-
-
 
 
             preprocessado.close();

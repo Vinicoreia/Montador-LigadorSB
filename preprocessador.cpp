@@ -86,15 +86,23 @@ void removeEspacosEmBrancoESubstituiEQU(fstream &semcomentarios, fstream &semEsp
 
 void expandemacroIF(fstream &semEspacos, fstream &macroexpandido) {
     string linha;
-    char flagIF;
+    char flagIF = '1';
+    int posicao;
     while (getline(semEspacos, linha)) {
-        if(linha.find("IF")>=0){
+        posicao = (int)linha.find("IF");
+        if(posicao>=0){
             flagIF = linha.back();
+            getline(semEspacos, linha);
+
         }
         if(flagIF == '0'){
             getline(semEspacos, linha);
+            linha.append("\n");
+            macroexpandido << linha;
+            flagIF = '1';
         }
         else{
+            linha.append("\n");
             macroexpandido << linha;
         }
     }
