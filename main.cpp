@@ -2,6 +2,8 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <vector>
+#include <map>
 
 using namespace std;
 
@@ -29,25 +31,36 @@ int main(int argc, char *argv[]) {
 
             fstream preprocessado("preprocessado.pre");
             string linha;
-            string novaLinha;
-            string token;
-            string separado;
+            char flagIF;
+            int posicao;
             while (getline(assembly, linha)) {
-                istringstream is(linha);
-                while (getline(is, token, ' ')) {
-                    istringstream tokens(token);
-                    while (getline(tokens, separado,'\t')) {
-                        cout<< separado;
-                        novaLinha.append(separado);
-                        novaLinha.append(" ");
-                        }
-                    }
-                    novaLinha.pop_back(); // retira espaço do ultimo token
-                    novaLinha.append("\n");
-                    preprocessado<< novaLinha;
-                    novaLinha.clear();
+                posicao = (int)linha.find("IF");
+                if(posicao>=0){
+                    cout<<posicao;
+                    flagIF = linha.back();
+                    cout<<flagIF<<"teste";
+                    getline(assembly, linha);
+
                 }
-                preprocessado.close();
+                if(flagIF == '0'){
+                    getline(assembly, linha);
+                    linha.append("\n");
+                    preprocessado << linha;
+                }
+                else{
+                    linha.append("\n");
+                    preprocessado << linha;
+                }
+                flagIF == '1';
+            }
+
+            preprocessado.close();
+
+
+
+
+
+            preprocessado.close();
 
                 assembly.close();
             }
