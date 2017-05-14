@@ -6,7 +6,6 @@
 #include <sstream>
 #include <string>
 #include <cstring>
-#include <tic.h>
 
 using namespace std;
 /*
@@ -17,6 +16,7 @@ using namespace std;
 
 void RemoveComentarios(ifstream& assembly, fstream& semComentarios){ // porque precisa do &?
     string linha;
+    cout << "Removendo Comentarios";
     int posicao;
     while(getline(assembly, linha)){
         posicao = (int) linha.find_first_of(';');
@@ -28,27 +28,26 @@ void RemoveComentarios(ifstream& assembly, fstream& semComentarios){ // porque p
     }
 }
 
-void RemoveEspacosEmBranco(fstream& SemComentarios, fstream& semEspacos){
+void RemoveEspacosEmBranco(fstream& semComentarios, fstream& semEspacos){
     string linha;
     string novaLinha;
     string token;
-    string tokenSingular;
-    while (getline(SemComentarios, linha)) {
+    string separado;
+    cout << "Removendo espacos em branco";
+    while (getline(semComentarios, linha)) {
         istringstream is(linha);
-        while (getline(is, token, '\t')) {
+        while (getline(is, token, ' ')) {
             istringstream tokens(token);
-            while (getline(tokens, tokenSingular,' ')) {
-                cout<< tokenSingular;
-                novaLinha.append(tokenSingular);
+            while (getline(tokens, separado,'\t')) {
+                novaLinha.append(separado);
                 novaLinha.append(" ");
             }
         }
-        novaLinha.pop_back();
+        novaLinha.pop_back(); // retira espaço do ultimo token
         novaLinha.append("\n");
+        semEspacos<< novaLinha;
+        novaLinha.clear();
     }
-    novaLinha.erase(novaLinha.end() - 1); //apaga o ultimo \n
-    semEspacos << novaLinha;
-    novaLinha.clear();
     semEspacos.close();
 
 }

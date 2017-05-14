@@ -34,9 +34,9 @@ int main(int argc, char *argv[]) {
             string separado;
             while (getline(assembly, linha)) {
                 istringstream is(linha);
-                while (getline(is, token, '\t')) {
+                while (getline(is, token, ' ')) {
                     istringstream tokens(token);
-                    while (getline(tokens, separado,' ')) {
+                    while (getline(tokens, separado,'\t')) {
                         cout<< separado;
                         novaLinha.append(separado);
                         novaLinha.append(" ");
@@ -44,10 +44,9 @@ int main(int argc, char *argv[]) {
                     }
                     novaLinha.pop_back(); // retira espaço do ultimo token
                     novaLinha.append("\n");
+                    preprocessado<< novaLinha;
+                    novaLinha.clear();
                 }
-                novaLinha.erase(novaLinha.end() - 1); //apaga o ultimo \n
-                preprocessado << novaLinha;
-                novaLinha.clear();
                 preprocessado.close();
 
                 assembly.close();
