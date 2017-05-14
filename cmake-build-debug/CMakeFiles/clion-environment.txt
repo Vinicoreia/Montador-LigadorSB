@@ -1,2 +1,2 @@
 Options: 
-CMake: 3.7.1@/home/Vinicoreia/Área de trabalho/C++/clion-2017.1.1/bin/cmake/bin/cmake
+CMake: 3.7.1@/home/Vinicius/Documentos/Área de trabalho/Vinicius/IDE's/clion-2017.1.1/bin/cmake/bin/cmake

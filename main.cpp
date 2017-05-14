@@ -4,6 +4,7 @@
 #include <sstream>
 #include <vector>
 #include <map>
+#include <algorithm>
 
 using namespace std;
 
@@ -24,26 +25,15 @@ int main(int argc, char *argv[]) {
         //chama preprocessador e depois o montador (nao esquecer de setar working directory e program arguments no Clion)
         string line;
         ifstream assembly(argv[1]);
+        string linha
         if (assembly.is_open()) {
             //chama preprocessador
-
-            //TESTAR FUNCAO ABAIXO
-
             fstream preprocessado("preprocessado.pre");
-
 
             preprocessado.close();
 
                 assembly.close();
             }
-            /*
-
-            if(assembly.is_open()){
-                while(getline(assembly, line)){
-                    cout << line << '\n';
-                }
-                assembly.close();
-            }*/
             else
             cout << "Erro ao abrir arquivo";
             return EXIT_FAILURE;

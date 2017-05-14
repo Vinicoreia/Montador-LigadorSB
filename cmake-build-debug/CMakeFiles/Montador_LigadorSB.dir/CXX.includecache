@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/Vinicoreia/Documentos/github/Montador-LigadorSB/analisador semantico.cpp
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisador semantico.cpp
 
-/home/Vinicoreia/Documentos/github/Montador-LigadorSB/analisador sintatico.cpp
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisador sintatico.cpp
 
-/home/Vinicoreia/Documentos/github/Montador-LigadorSB/analisadorLexico.cpp
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisadorLexico.cpp
 
-/home/Vinicoreia/Documentos/github/Montador-LigadorSB/ligador.cpp
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/ligador.cpp
 
-/home/Vinicoreia/Documentos/github/Montador-LigadorSB/main.cpp
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/main.cpp
 iostream
 -
 fstream
@@ -27,10 +27,12 @@ vector
 -
 map
 -
+algorithm
+-
 
-/home/Vinicoreia/Documentos/github/Montador-LigadorSB/montador.cpp
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/montador.cpp
 
-/home/Vinicoreia/Documentos/github/Montador-LigadorSB/preprocessador.cpp
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/preprocessador.cpp
 iostream
 -
 fstream
@@ -42,5 +44,7 @@ string
 cstring
 -
 map
+-
+algorithm
 -
 

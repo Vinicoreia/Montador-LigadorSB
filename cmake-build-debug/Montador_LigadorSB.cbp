@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug"/>
+				<Option working_dir="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/Vinicius/Documentos/Área\ de\ trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/Vinicius/Documentos/Área\ de\ trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicius/Documentos/Área\ de\ trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicius/Documentos/Área\ de\ trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug"/>
+				<Option working_dir="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/Vinicius/Documentos/Área\ de\ trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/Vinicius/Documentos/Área\ de\ trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicius/Documentos/Área\ de\ trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicius/Documentos/Área\ de\ trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug"/>
+				<Option working_dir="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/Vinicius/Documentos/Área\ de\ trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/Vinicius/Documentos/Área\ de\ trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicius/Documentos/Área\ de\ trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicius/Documentos/Área\ de\ trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Montador_LigadorSB">
-				<Option output="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Montador_LigadorSB" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug"/>
+				<Option output="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/Montador_LigadorSB" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -52,15 +52,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 Montador_LigadorSB"/>
-					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/Vinicius/Documentos/Área\ de\ trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 Montador_LigadorSB"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/Vinicius/Documentos/Área\ de\ trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicius/Documentos/Área\ de\ trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicius/Documentos/Área\ de\ trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Montador_LigadorSB/fast">
-				<Option output="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Montador_LigadorSB" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug"/>
+				<Option output="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/Montador_LigadorSB" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -73,35 +73,35 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 Montador_LigadorSB/fast"/>
-					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/Vinicius/Documentos/Área\ de\ trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 Montador_LigadorSB/fast"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/Vinicius/Documentos/Área\ de\ trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicius/Documentos/Área\ de\ trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicius/Documentos/Área\ de\ trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/analisador semantico.cpp">
+		<Unit filename="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisador semantico.cpp">
 			<Option target="Montador_LigadorSB"/>
 		</Unit>
-		<Unit filename="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/analisador sintatico.cpp">
+		<Unit filename="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisador sintatico.cpp">
 			<Option target="Montador_LigadorSB"/>
 		</Unit>
-		<Unit filename="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/analisadorLexico.cpp">
+		<Unit filename="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisadorLexico.cpp">
 			<Option target="Montador_LigadorSB"/>
 		</Unit>
-		<Unit filename="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/ligador.cpp">
+		<Unit filename="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/ligador.cpp">
 			<Option target="Montador_LigadorSB"/>
 		</Unit>
-		<Unit filename="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/main.cpp">
+		<Unit filename="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/main.cpp">
 			<Option target="Montador_LigadorSB"/>
 		</Unit>
-		<Unit filename="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/montador.cpp">
+		<Unit filename="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/montador.cpp">
 			<Option target="Montador_LigadorSB"/>
 		</Unit>
-		<Unit filename="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/preprocessador.cpp">
+		<Unit filename="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/preprocessador.cpp">
 			<Option target="Montador_LigadorSB"/>
 		</Unit>
-		<Unit filename="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/CMakeLists.txt">
+		<Unit filename="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

@@ -7,6 +7,7 @@
 #include <string>
 #include <cstring>
 #include <map>
+#include <algorithm>
 
 using namespace std;
 /*
@@ -18,6 +19,11 @@ using namespace std;
 // lembrar que não é case sensitive, logo precisamos criar uma função pra jogar o codigo pra uppercase
 
 void transformaemuppercase(ifstream &assembly, fstream &semcomentarios) {
+    string linha;
+    while(getline(assembly, linha)){
+        transform(linha.begin(), linha.end(), linha.begin(), ::toupper);
+        semcomentarios << linha;
+    }
 }
 
 
