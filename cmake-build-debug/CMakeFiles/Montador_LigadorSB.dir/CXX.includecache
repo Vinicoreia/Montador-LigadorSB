@@ -49,6 +49,12 @@ map
 -
 algorithm
 -
+boost/algorithm/string.hpp
+-
+vector
+-
+numeric
+-
 
 /home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/preprocessador.h
 fstream

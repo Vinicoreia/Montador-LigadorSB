@@ -8,6 +8,9 @@
 #include <cstring>
 #include <map>
 #include <algorithm>
+#include <boost/algorithm/string.hpp>
+#include <vector>
+#include <numeric>
 
 using namespace std;
 /*
@@ -51,7 +54,7 @@ map<string, string> removeComentariosEAchaEqu(fstream &uppertexto, fstream &semc
         }
         temMacro = (int) linha.find("EQU");
         if (temMacro >= 0) {
-            cout << linha;
+            cout << linha<<"\n";
             posicaoMacro = (int) linha.find_first_of(':');
             macro = linha.substr(0, posicaoMacro);
             posicaoFimValor = (int) linha.find_last_not_of(' ');
@@ -59,6 +62,7 @@ map<string, string> removeComentariosEAchaEqu(fstream &uppertexto, fstream &semc
             valorMacro = linha.substr(posicaoInicioValor, posicaoFimValor);
             cout << valorMacro;
             macroValor.insert(pair<string, string>(macro, valorMacro));
+            getline(uppertexto, linha);
         }
         semcomentarios << linha << '\n';
     }
@@ -70,24 +74,24 @@ void removeEspacosEmBrancoESubstituiEQU(fstream &semcomentarios, fstream &semEsp
     string novalinha;
     string token;
     string separado;
+    vector<string> v;
     cout << "removendo espacos em branco";
-    while (getline(semcomentarios, linha)) {
-        istringstream is(linha);
-        while (getline(is, token, ' ')) {
-            istringstream tokens(token);
-            while (getline(tokens, separado, '\t')) {
-                if (macros.find(separado) != macros.end()) {
-                    separado = macros[separado];
-                }
-                novalinha.append(separado + " ");
+    while (getline(semcomentarios, linha)){
+        boost::split(v, linha, boost::is_any_of(" \t"));
+        for (int i=0; i<v.size();i++){
+            if (!v[i].empty()){
+                novalinha.append(v[i]);
+                novalinha.append(" ");
             }
         }
-        novalinha.pop_back(); // retira espaço do ultimo token
-        novalinha.append("\n");
+        if (novalinha.size () > 0) {
+            novalinha.erase(novalinha.end() - 1);
+            novalinha.append("\n");
+        }
+        semEspacos << novalinha;
+        novalinha.clear();
+
     }
-    novalinha.pop_back();
-    semEspacos << novalinha;
-    novalinha.clear();
 }
 
 
@@ -138,7 +142,15 @@ int preprocessa(ifstream&assembly){
     arqA.open("preprocessando.pre", fstream::in);
     arqB.open("preprocessado.pre", fstream::out | fstream::trunc); //trunc cria o arquivo mesmo que n exista
     removeEspacosEmBrancoESubstituiEQU(arqA, arqB, retornoMacros);
-
+    arqA.close();
+    arqB.close();
+    remove("preprocessando.pre");
+    rename("preprocessado.pre","preprocessando.pre");
+    arqA.open("preprocessando.pre", fstream::in);
+    arqB.open("preprocessado.pre", fstream::out | fstream::trunc); //trunc cria o arquivo mesmo que n exista
+    expandemacroIF(arqA, arqB);
+    arqA.close();
+    arqB.close();
    return 1;
 }
 // eh mais facil de expandir macros com os tokens separados.

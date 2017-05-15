@@ -1,11 +1,11 @@
-TRIANGULO: EQU 100 ;isto � uma constante
+TRIANGULO: EQU 1 ;isto � uma constante
 SECTION TEXT
 INPUT		B
 INPUT		H
 LOAD		B
 MULT		H
-IF 0
-DIV		DOIS
+IF TRIANGULO
+DIV		 DOIS
 STORE		R
 OUTPUT	R
 STOP
@@ -14,6 +14,4 @@ B:		SPACE
 H:		SPACE
 R:		SPACE
 DOIS:	CONST		2
-
-
 
