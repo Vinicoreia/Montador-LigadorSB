@@ -22,12 +22,13 @@ void transformaemuppercase(ifstream &assembly, fstream &semcomentarios) {
     string linha;
     while(getline(assembly, linha)){
         transform(linha.begin(), linha.end(), linha.begin(), ::toupper);
+        linha.append("\n");
         semcomentarios << linha;
     }
 }
 
 
-map<string, string> removecomentarios(fstream &uppertexto, fstream &semcomentarios) { // porque precisa do &?
+map<string, string> removeComentariosEAchaEqu(fstream &uppertexto, fstream &semcomentarios) { // porque precisa do &?
     string linha;
     cout << "expandindo macros";
     int temMacro;
@@ -78,15 +79,15 @@ void removeEspacosEmBrancoESubstituiEQU(fstream &semcomentarios, fstream &semEsp
                 if (macros.find(separado) != macros.end()) {
                     separado = macros[separado];
                 }
-                novalinha.append(separado);
-                novalinha.append(" ");
+                novalinha.append(separado + " ");
             }
         }
         novalinha.pop_back(); // retira espaço do ultimo token
         novalinha.append("\n");
-        semEspacos << novalinha;
-        novalinha.clear();
     }
+    novalinha.pop_back();
+    semEspacos << novalinha;
+    novalinha.clear();
 }
 
 
@@ -113,14 +114,31 @@ void expandemacroIF(fstream &semEspacos, fstream &macroexpandido) {
         }
     }
 }
-// eh mais facil de expandir macros com os tokens separados.
 
+int preprocessa(ifstream&assembly){
+    //essa função chama os outros metodos para preprocessar o arquivo
+    fstream arqA;
+    fstream arqB; // dependendo da operação o arquivo A é o de saída ou de entrada
+    map<string,string> retornoMacros;
+    //abrir o arquivo de acordo com a função;
 
-int preprocessaassembly(ifstream &assembly) {
-    fstream preprocessado("preprocessado.pre");
-    transformaemuppercase(assembly, preprocessado);
-    removecomentarios(preprocessado, preprocessado);
-    preprocessado << "testando se escreve no arquivo";
-    preprocessado.close();
-    return 1;
+    arqA.open("preprocessando.pre", fstream::out | fstream::in | fstream::trunc);
+    transformaemuppercase(assembly, arqA);
+    arqA.clear();// limpa failbit
+    arqA.seekg(0, arqA.beg);// volta para o inicio do arquivo
+
+    arqB.open("preprocessado.pre", fstream::out | fstream::in | fstream::trunc); //trunc cria o arquivo mesmo que n exista
+    retornoMacros = removeComentariosEAchaEqu(arqA, arqB);
+
+    arqA.close();
+    arqB.close();
+    remove("preprocessando.pre");
+    rename("preprocessado.pre","preprocessando.pre");
+
+    arqA.open("preprocessando.pre", fstream::in);
+    arqB.open("preprocessado.pre", fstream::out | fstream::trunc); //trunc cria o arquivo mesmo que n exista
+    removeEspacosEmBrancoESubstituiEQU(arqA, arqB, retornoMacros);
+
+   return 1;
 }
+// eh mais facil de expandir macros com os tokens separados.

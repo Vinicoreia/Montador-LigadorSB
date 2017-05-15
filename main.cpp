@@ -5,6 +5,7 @@
 #include <vector>
 #include <map>
 #include <algorithm>
+#include "preprocessador.h"
 
 using namespace std;
 
@@ -25,14 +26,11 @@ int main(int argc, char *argv[]) {
         //chama preprocessador e depois o montador (nao esquecer de setar working directory e program arguments no Clion)
         string line;
         ifstream assembly(argv[1]);
-        string linha
+        string linha;
         if (assembly.is_open()) {
             //chama preprocessador
-            fstream preprocessado("preprocessado.pre");
-
-            preprocessado.close();
-
-                assembly.close();
+            preprocessa(assembly);
+            assembly.close();
             }
             else
             cout << "Erro ao abrir arquivo";

@@ -1,4 +1,4 @@
-TRIANGULO: EQU 100 ;isto � uma constante
+TRIANGULO: EQU 100
 SECTION TEXT
 INPUT		B
 INPUT		H
@@ -17,3 +17,4 @@ DOIS:	CONST		2
 
 
 
+         

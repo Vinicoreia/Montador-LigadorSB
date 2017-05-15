@@ -101,6 +101,9 @@
 		<Unit filename="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/preprocessador.cpp">
 			<Option target="Montador_LigadorSB"/>
 		</Unit>
+		<Unit filename="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/preprocessador.h">
+			<Option target="Montador_LigadorSB"/>
+		</Unit>
 		<Unit filename="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

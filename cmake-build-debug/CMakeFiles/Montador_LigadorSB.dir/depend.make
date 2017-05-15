@@ -10,6 +10,7 @@ CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.o: ../analisador\ sin
 CMakeFiles/Montador_LigadorSB.dir/ligador.cpp.o: ../ligador.cpp
 
 CMakeFiles/Montador_LigadorSB.dir/main.cpp.o: ../main.cpp
+CMakeFiles/Montador_LigadorSB.dir/main.cpp.o: ../preprocessador.h
 
 CMakeFiles/Montador_LigadorSB.dir/montador.cpp.o: ../montador.cpp
 
