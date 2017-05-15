@@ -23,7 +23,7 @@ using namespace std;
 
 void transformaemuppercase(ifstream &assembly, fstream &semcomentarios) {
     string linha;
-    while(getline(assembly, linha)){
+    while (getline(assembly, linha)) {
         transform(linha.begin(), linha.end(), linha.begin(), ::toupper);
         linha.append("\n");
         semcomentarios << linha;
@@ -33,7 +33,7 @@ void transformaemuppercase(ifstream &assembly, fstream &semcomentarios) {
 
 map<string, string> removeComentariosEAchaEqu(fstream &uppertexto, fstream &semcomentarios) { // porque precisa do &?
     string linha;
-    cout << "expandindo macros";
+    cout << "Procurando macros";
     int temMacro;
     int posicaoMacro;
     string macro;
@@ -42,7 +42,7 @@ map<string, string> removeComentariosEAchaEqu(fstream &uppertexto, fstream &semc
     int posicaoValor;
     int posicaoFimValor;
     int posicaoInicioValor;
-    cout << "removendo comentarios";
+    cout << "\nRemovendo comentarios";
     int posicao;
 
     while (getline(uppertexto, linha)) {
@@ -54,13 +54,11 @@ map<string, string> removeComentariosEAchaEqu(fstream &uppertexto, fstream &semc
         }
         temMacro = (int) linha.find("EQU");
         if (temMacro >= 0) {
-            cout << linha<<"\n";
             posicaoMacro = (int) linha.find_first_of(':');
             macro = linha.substr(0, posicaoMacro);
             posicaoFimValor = (int) linha.find_last_not_of(' ');
             posicaoInicioValor = (int) linha.find_last_of(' ');
             valorMacro = linha.substr(posicaoInicioValor, posicaoFimValor);
-            cout << valorMacro;
             macroValor.insert(pair<string, string>(macro, valorMacro));
             getline(uppertexto, linha);
         }
@@ -75,16 +73,22 @@ void removeEspacosEmBrancoESubstituiEQU(fstream &semcomentarios, fstream &semEsp
     string token;
     string separado;
     vector<string> v;
-    cout << "removendo espacos em branco";
-    while (getline(semcomentarios, linha)){
-        boost::split(v, linha, boost::is_any_of(" \t"));
-        for (int i=0; i<v.size();i++){
-            if (!v[i].empty()){
-                novalinha.append(v[i]);
-                novalinha.append(" ");
+    cout << "\nRemovendo espacos em branco";
+    while (getline(semcomentarios, linha)) {
+        boost::split(v, linha, boost::is_any_of(" \t")); // essa funcao tokeniza o codigo.
+        for (int i = 0; i < v.size(); i++) {
+            if (!v[i].empty()) {
+                if (macros.find(v[i]) != macros.end()) { // se a palavra lida no momento for macro
+                    cout << "\nMacro encontrada... expandindo...";
+                    novalinha.append(macros[v[i]]);
+                    novalinha.append(" ");
+                } else {
+                    novalinha.append(v[i]);
+                    novalinha.append(" ");
+                }
             }
         }
-        if (novalinha.size () > 0) {
+        if (novalinha.size() > 0) {
             novalinha.erase(novalinha.end() - 1);
             novalinha.append("\n");
         }
@@ -97,33 +101,41 @@ void removeEspacosEmBrancoESubstituiEQU(fstream &semcomentarios, fstream &semEsp
 
 void expandemacroIF(fstream &semEspacos, fstream &macroexpandido) {
     string linha;
-    char flagIF = '1';
+    string flagIF = "1";
     int posicao;
     while (getline(semEspacos, linha)) {
-        posicao = (int)linha.find("IF");
-        if(posicao>=0){
-            flagIF = linha.back();
+        flagIF = "1";
+        posicao = (int) linha.find("IF");
+        if (posicao >= 0) {
+            posicao = (int) linha.find_last_of(' ');
+            flagIF = linha.substr(posicao + 1);
+            cout<< flagIF;
             getline(semEspacos, linha);
+        }
+        cout<< linha;
+        if (flagIF == "0") {
+            getline(semEspacos, linha);
+            linha.append("\n");
+            macroexpandido << linha;
+        } else if (flagIF == "1") {
+            linha.append("\n");
+            macroexpandido << linha;
+        } else {// caso seja uma flag invalida o codigo nao eh gerado.
+            cout << "\n\nErro: Diretiva IF associada a valor inválido";
+            macroexpandido.close();
+            macroexpandido.open("preprocessado.pre", fstream::out | fstream::trunc);
+            macroexpandido.close();
+            break;
+        }
 
-        }
-        if(flagIF == '0'){
-            getline(semEspacos, linha);
-            linha.append("\n");
-            macroexpandido << linha;
-            flagIF = '1';
-        }
-        else{
-            linha.append("\n");
-            macroexpandido << linha;
-        }
     }
 }
 
-int preprocessa(ifstream&assembly){
+int preprocessa(ifstream &assembly) {
     //essa função chama os outros metodos para preprocessar o arquivo
     fstream arqA;
     fstream arqB; // dependendo da operação o arquivo A é o de saída ou de entrada
-    map<string,string> retornoMacros;
+    map<string, string> retornoMacros;
     //abrir o arquivo de acordo com a função;
 
     arqA.open("preprocessando.pre", fstream::out | fstream::in | fstream::trunc);
@@ -131,13 +143,14 @@ int preprocessa(ifstream&assembly){
     arqA.clear();// limpa failbit
     arqA.seekg(0, arqA.beg);// volta para o inicio do arquivo
 
-    arqB.open("preprocessado.pre", fstream::out | fstream::in | fstream::trunc); //trunc cria o arquivo mesmo que n exista
+    arqB.open("preprocessado.pre",
+              fstream::out | fstream::in | fstream::trunc); //trunc cria o arquivo mesmo que n exista
     retornoMacros = removeComentariosEAchaEqu(arqA, arqB);
 
     arqA.close();
     arqB.close();
     remove("preprocessando.pre");
-    rename("preprocessado.pre","preprocessando.pre");
+    rename("preprocessado.pre", "preprocessando.pre");
 
     arqA.open("preprocessando.pre", fstream::in);
     arqB.open("preprocessado.pre", fstream::out | fstream::trunc); //trunc cria o arquivo mesmo que n exista
@@ -145,12 +158,12 @@ int preprocessa(ifstream&assembly){
     arqA.close();
     arqB.close();
     remove("preprocessando.pre");
-    rename("preprocessado.pre","preprocessando.pre");
+    rename("preprocessado.pre", "preprocessando.pre");
     arqA.open("preprocessando.pre", fstream::in);
     arqB.open("preprocessado.pre", fstream::out | fstream::trunc); //trunc cria o arquivo mesmo que n exista
     expandemacroIF(arqA, arqB);
     arqA.close();
     arqB.close();
-   return 1;
+    return 1;
 }
 // eh mais facil de expandir macros com os tokens separados.
