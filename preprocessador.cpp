@@ -109,10 +109,8 @@ void expandemacroIF(fstream &semEspacos, fstream &macroexpandido) {
         if (posicao >= 0) {
             posicao = (int) linha.find_last_of(' ');
             flagIF = linha.substr(posicao + 1);
-            cout<< flagIF;
             getline(semEspacos, linha);
         }
-        cout<< linha;
         if (flagIF == "0") {
             getline(semEspacos, linha);
             linha.append("\n");
