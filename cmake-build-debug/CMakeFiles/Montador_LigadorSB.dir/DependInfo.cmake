@@ -4,9 +4,6 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisadorLexico.cpp" "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.o"
-  "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisador semantico.cpp" "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.o"
-  "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisador sintatico.cpp" "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.o"
   "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/ligador.cpp" "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/Montador_LigadorSB.dir/ligador.cpp.o"
   "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/main.cpp" "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/Montador_LigadorSB.dir/main.cpp.o"
   "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/montador.cpp" "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/Montador_LigadorSB.dir/montador.cpp.o"

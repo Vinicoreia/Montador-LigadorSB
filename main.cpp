@@ -30,6 +30,9 @@ int main(int argc, char *argv[]) {
         if (assembly.is_open()) {
             //chama preprocessador
             preprocessa(assembly);
+
+            // Agora precisamos desenvolver o montador e
+
             assembly.close();
             }
             else

@@ -81,33 +81,9 @@ CMakeFiles/Montador_LigadorSB.dir/main.cpp.o.provides: CMakeFiles/Montador_Ligad
 CMakeFiles/Montador_LigadorSB.dir/main.cpp.o.provides.build: CMakeFiles/Montador_LigadorSB.dir/main.cpp.o
 
 
-CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.o: CMakeFiles/Montador_LigadorSB.dir/flags.make
-CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.o: ../analisadorLexico.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.o"
-	/usr/lib64/ccache/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.o -c "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisadorLexico.cpp"
-
-CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.i"
-	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisadorLexico.cpp" > CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.i
-
-CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.s"
-	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisadorLexico.cpp" -o CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.s
-
-CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.o.requires:
-
-.PHONY : CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.o.requires
-
-CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.o.provides: CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Montador_LigadorSB.dir/build.make CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.o.provides.build
-.PHONY : CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.o.provides
-
-CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.o.provides.build: CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.o
-
-
 CMakeFiles/Montador_LigadorSB.dir/preprocessador.cpp.o: CMakeFiles/Montador_LigadorSB.dir/flags.make
 CMakeFiles/Montador_LigadorSB.dir/preprocessador.cpp.o: ../preprocessador.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Montador_LigadorSB.dir/preprocessador.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Montador_LigadorSB.dir/preprocessador.cpp.o"
 	/usr/lib64/ccache/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Montador_LigadorSB.dir/preprocessador.cpp.o -c "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/preprocessador.cpp"
 
 CMakeFiles/Montador_LigadorSB.dir/preprocessador.cpp.i: cmake_force
@@ -129,57 +105,9 @@ CMakeFiles/Montador_LigadorSB.dir/preprocessador.cpp.o.provides: CMakeFiles/Mont
 CMakeFiles/Montador_LigadorSB.dir/preprocessador.cpp.o.provides.build: CMakeFiles/Montador_LigadorSB.dir/preprocessador.cpp.o
 
 
-CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.o: CMakeFiles/Montador_LigadorSB.dir/flags.make
-CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.o: ../analisador\ sintatico.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.o"
-	/usr/lib64/ccache/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.o -c "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisador sintatico.cpp"
-
-CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.i"
-	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisador sintatico.cpp" > CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.i
-
-CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.s"
-	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisador sintatico.cpp" -o CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.s
-
-CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.o.requires:
-
-.PHONY : CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.o.requires
-
-CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.o.provides: CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Montador_LigadorSB.dir/build.make CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.o.provides.build
-.PHONY : CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.o.provides
-
-CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.o.provides.build: CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.o
-
-
-CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.o: CMakeFiles/Montador_LigadorSB.dir/flags.make
-CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.o: ../analisador\ semantico.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.o"
-	/usr/lib64/ccache/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.o -c "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisador semantico.cpp"
-
-CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.i"
-	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisador semantico.cpp" > CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.i
-
-CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.s"
-	/usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisador semantico.cpp" -o CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.s
-
-CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.o.requires:
-
-.PHONY : CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.o.requires
-
-CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.o.provides: CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Montador_LigadorSB.dir/build.make CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.o.provides.build
-.PHONY : CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.o.provides
-
-CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.o.provides.build: CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.o
-
-
 CMakeFiles/Montador_LigadorSB.dir/ligador.cpp.o: CMakeFiles/Montador_LigadorSB.dir/flags.make
 CMakeFiles/Montador_LigadorSB.dir/ligador.cpp.o: ../ligador.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Montador_LigadorSB.dir/ligador.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Montador_LigadorSB.dir/ligador.cpp.o"
 	/usr/lib64/ccache/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Montador_LigadorSB.dir/ligador.cpp.o -c "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/ligador.cpp"
 
 CMakeFiles/Montador_LigadorSB.dir/ligador.cpp.i: cmake_force
@@ -203,7 +131,7 @@ CMakeFiles/Montador_LigadorSB.dir/ligador.cpp.o.provides.build: CMakeFiles/Monta
 
 CMakeFiles/Montador_LigadorSB.dir/montador.cpp.o: CMakeFiles/Montador_LigadorSB.dir/flags.make
 CMakeFiles/Montador_LigadorSB.dir/montador.cpp.o: ../montador.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Montador_LigadorSB.dir/montador.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Montador_LigadorSB.dir/montador.cpp.o"
 	/usr/lib64/ccache/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Montador_LigadorSB.dir/montador.cpp.o -c "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/montador.cpp"
 
 CMakeFiles/Montador_LigadorSB.dir/montador.cpp.i: cmake_force
@@ -228,10 +156,7 @@ CMakeFiles/Montador_LigadorSB.dir/montador.cpp.o.provides.build: CMakeFiles/Mont
 # Object files for target Montador_LigadorSB
 Montador_LigadorSB_OBJECTS = \
 "CMakeFiles/Montador_LigadorSB.dir/main.cpp.o" \
-"CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.o" \
 "CMakeFiles/Montador_LigadorSB.dir/preprocessador.cpp.o" \
-"CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.o" \
-"CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.o" \
 "CMakeFiles/Montador_LigadorSB.dir/ligador.cpp.o" \
 "CMakeFiles/Montador_LigadorSB.dir/montador.cpp.o"
 
@@ -239,15 +164,12 @@ Montador_LigadorSB_OBJECTS = \
 Montador_LigadorSB_EXTERNAL_OBJECTS =
 
 Montador_LigadorSB: CMakeFiles/Montador_LigadorSB.dir/main.cpp.o
-Montador_LigadorSB: CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.o
 Montador_LigadorSB: CMakeFiles/Montador_LigadorSB.dir/preprocessador.cpp.o
-Montador_LigadorSB: CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.o
-Montador_LigadorSB: CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.o
 Montador_LigadorSB: CMakeFiles/Montador_LigadorSB.dir/ligador.cpp.o
 Montador_LigadorSB: CMakeFiles/Montador_LigadorSB.dir/montador.cpp.o
 Montador_LigadorSB: CMakeFiles/Montador_LigadorSB.dir/build.make
 Montador_LigadorSB: CMakeFiles/Montador_LigadorSB.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Montador_LigadorSB"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Montador_LigadorSB"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Montador_LigadorSB.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -256,10 +178,7 @@ CMakeFiles/Montador_LigadorSB.dir/build: Montador_LigadorSB
 .PHONY : CMakeFiles/Montador_LigadorSB.dir/build
 
 CMakeFiles/Montador_LigadorSB.dir/requires: CMakeFiles/Montador_LigadorSB.dir/main.cpp.o.requires
-CMakeFiles/Montador_LigadorSB.dir/requires: CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.o.requires
 CMakeFiles/Montador_LigadorSB.dir/requires: CMakeFiles/Montador_LigadorSB.dir/preprocessador.cpp.o.requires
-CMakeFiles/Montador_LigadorSB.dir/requires: CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.o.requires
-CMakeFiles/Montador_LigadorSB.dir/requires: CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.o.requires
 CMakeFiles/Montador_LigadorSB.dir/requires: CMakeFiles/Montador_LigadorSB.dir/ligador.cpp.o.requires
 CMakeFiles/Montador_LigadorSB.dir/requires: CMakeFiles/Montador_LigadorSB.dir/montador.cpp.o.requires
 

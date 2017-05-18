@@ -80,15 +80,6 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisador semantico.cpp">
-			<Option target="Montador_LigadorSB"/>
-		</Unit>
-		<Unit filename="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisador sintatico.cpp">
-			<Option target="Montador_LigadorSB"/>
-		</Unit>
-		<Unit filename="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/analisadorLexico.cpp">
-			<Option target="Montador_LigadorSB"/>
-		</Unit>
 		<Unit filename="/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/ligador.cpp">
 			<Option target="Montador_LigadorSB"/>
 		</Unit>

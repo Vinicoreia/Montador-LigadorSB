@@ -147,6 +147,7 @@ int preprocessa(ifstream &assembly) {
 
     arqA.close();
     arqB.close();
+
     remove("preprocessando.pre");
     rename("preprocessado.pre", "preprocessando.pre");
 
@@ -155,8 +156,10 @@ int preprocessa(ifstream &assembly) {
     removeEspacosEmBrancoESubstituiEQU(arqA, arqB, retornoMacros);
     arqA.close();
     arqB.close();
+
     remove("preprocessando.pre");
     rename("preprocessado.pre", "preprocessando.pre");
+
     arqA.open("preprocessando.pre", fstream::in);
     arqB.open("preprocessado.pre", fstream::out | fstream::trunc); //trunc cria o arquivo mesmo que n exista
     expandemacroIF(arqA, arqB);

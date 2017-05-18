@@ -123,87 +123,6 @@ Montador_LigadorSB/fast:
 	$(MAKE) -f CMakeFiles/Montador_LigadorSB.dir/build.make CMakeFiles/Montador_LigadorSB.dir/build
 .PHONY : Montador_LigadorSB/fast
 
-analisadorLexico.o: analisadorLexico.cpp.o
-
-.PHONY : analisadorLexico.o
-
-# target to build an object file
-analisadorLexico.cpp.o:
-	$(MAKE) -f CMakeFiles/Montador_LigadorSB.dir/build.make CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.o
-.PHONY : analisadorLexico.cpp.o
-
-analisadorLexico.i: analisadorLexico.cpp.i
-
-.PHONY : analisadorLexico.i
-
-# target to preprocess a source file
-analisadorLexico.cpp.i:
-	$(MAKE) -f CMakeFiles/Montador_LigadorSB.dir/build.make CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.i
-.PHONY : analisadorLexico.cpp.i
-
-analisadorLexico.s: analisadorLexico.cpp.s
-
-.PHONY : analisadorLexico.s
-
-# target to generate assembly for a file
-analisadorLexico.cpp.s:
-	$(MAKE) -f CMakeFiles/Montador_LigadorSB.dir/build.make CMakeFiles/Montador_LigadorSB.dir/analisadorLexico.cpp.s
-.PHONY : analisadorLexico.cpp.s
-
-analisador_semantico.o: analisador_semantico.cpp.o
-
-.PHONY : analisador_semantico.o
-
-# target to build an object file
-analisador_semantico.cpp.o:
-	$(MAKE) -f CMakeFiles/Montador_LigadorSB.dir/build.make CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.o
-.PHONY : analisador_semantico.cpp.o
-
-analisador_semantico.i: analisador_semantico.cpp.i
-
-.PHONY : analisador_semantico.i
-
-# target to preprocess a source file
-analisador_semantico.cpp.i:
-	$(MAKE) -f CMakeFiles/Montador_LigadorSB.dir/build.make CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.i
-.PHONY : analisador_semantico.cpp.i
-
-analisador_semantico.s: analisador_semantico.cpp.s
-
-.PHONY : analisador_semantico.s
-
-# target to generate assembly for a file
-analisador_semantico.cpp.s:
-	$(MAKE) -f CMakeFiles/Montador_LigadorSB.dir/build.make CMakeFiles/Montador_LigadorSB.dir/analisador_semantico.cpp.s
-.PHONY : analisador_semantico.cpp.s
-
-analisador_sintatico.o: analisador_sintatico.cpp.o
-
-.PHONY : analisador_sintatico.o
-
-# target to build an object file
-analisador_sintatico.cpp.o:
-	$(MAKE) -f CMakeFiles/Montador_LigadorSB.dir/build.make CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.o
-.PHONY : analisador_sintatico.cpp.o
-
-analisador_sintatico.i: analisador_sintatico.cpp.i
-
-.PHONY : analisador_sintatico.i
-
-# target to preprocess a source file
-analisador_sintatico.cpp.i:
-	$(MAKE) -f CMakeFiles/Montador_LigadorSB.dir/build.make CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.i
-.PHONY : analisador_sintatico.cpp.i
-
-analisador_sintatico.s: analisador_sintatico.cpp.s
-
-.PHONY : analisador_sintatico.s
-
-# target to generate assembly for a file
-analisador_sintatico.cpp.s:
-	$(MAKE) -f CMakeFiles/Montador_LigadorSB.dir/build.make CMakeFiles/Montador_LigadorSB.dir/analisador_sintatico.cpp.s
-.PHONY : analisador_sintatico.cpp.s
-
 ligador.o: ligador.cpp.o
 
 .PHONY : ligador.o
@@ -321,15 +240,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Montador_LigadorSB"
-	@echo "... analisadorLexico.o"
-	@echo "... analisadorLexico.i"
-	@echo "... analisadorLexico.s"
-	@echo "... analisador_semantico.o"
-	@echo "... analisador_semantico.i"
-	@echo "... analisador_semantico.s"
-	@echo "... analisador_sintatico.o"
-	@echo "... analisador_sintatico.i"
-	@echo "... analisador_sintatico.s"
 	@echo "... ligador.o"
 	@echo "... ligador.i"
 	@echo "... ligador.s"
