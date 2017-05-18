@@ -8,7 +8,6 @@
 #include <cstring>
 #include <map>
 #include <algorithm>
-#include <boost/algorithm/string.hpp>
 #include <vector>
 #include <numeric>
 
@@ -58,7 +57,7 @@ map<string, string> removeComentariosEAchaEqu(fstream &uppertexto, fstream &semc
             macro = linha.substr(0, posicaoMacro);
             posicaoFimValor = (int) linha.find_last_not_of(' ');
             posicaoInicioValor = (int) linha.find_last_of(' ');
-            valorMacro = linha.substr(posicaoInicioValor, posicaoFimValor);
+            valorMacro = linha.substr(posicaoInicioValor+1, posicaoFimValor);
             macroValor.insert(pair<string, string>(macro, valorMacro));
             getline(uppertexto, linha);
         }
@@ -75,7 +74,14 @@ void removeEspacosEmBrancoESubstituiEQU(fstream &semcomentarios, fstream &semEsp
     vector<string> v;
     cout << "\nRemovendo espacos em branco";
     while (getline(semcomentarios, linha)) {
-        boost::split(v, linha, boost::is_any_of(" \t")); // essa funcao tokeniza o codigo.
+        istringstream is(linha);
+        while (getline(is, token, '\t')) {
+            istringstream tokens(token);
+            while (getline(tokens, separado, ' ')) {
+                v.insert(v.end(), separado);
+            }
+        }
+
         for (int i = 0; i < v.size(); i++) {
             if (!v[i].empty()) {
                 if (macros.find(v[i]) != macros.end()) { // se a palavra lida no momento for macro
@@ -94,9 +100,9 @@ void removeEspacosEmBrancoESubstituiEQU(fstream &semcomentarios, fstream &semEsp
         }
         semEspacos << novalinha;
         novalinha.clear();
-
+        v.clear();
     }
-}
+    }
 
 
 void expandemacroIF(fstream &semEspacos, fstream &macroexpandido) {

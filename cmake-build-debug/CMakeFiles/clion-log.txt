@@ -1,4 +1,4 @@
-"/home/Vinicius/Documentos/Área de trabalho/Vinicius/IDE's/clion-2017.1.1/bin/cmake/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB"
+"/home/Vinicoreia/Área de trabalho/C++/clion-2017.1.1/bin/cmake/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/Vinicoreia/Documentos/github/Montador-LigadorSB
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug
+-- Build files have been written to: /home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug
