@@ -25,43 +25,43 @@ int flagModulo = 0;
 int contadorDefinicoes = 0;
 int contadorUso = 0;
 int contadorSimbolos = 0;
+vector<tabInstrucaoOuDiretiva> vetorInstrucao;
+vector<tabInstrucaoOuDiretiva> vetorDiretiva;
 /*
  * Como o número de instruções e diretivas é pequeno resolvemos criar a tabela ao invés de ler a tabela de um arquivo.
  * */
-void GeraTabelaInstrucoesEDiretivas(vector<tabInstrucaoOuDiretiva> tabInstrucao,
-                                    vector<tabInstrucaoOuDiretiva> tabDiretiva) {
+void GeraTabelaInstrucoesEDiretivas() {
     /*
      * VETOR DE DIRETIVAS
 //     * */
 
 
-    tabDiretiva.push_back({"SECTION",0});
-    tabDiretiva.push_back({"SPACE",1});
-    tabDiretiva.push_back({"CONST",1});
-    tabDiretiva.push_back({"EQU",1});
-    tabDiretiva.push_back({"IF",1});
-    tabDiretiva.push_back({"BEGIN",0});
-    tabDiretiva.push_back({"END",0});
-    tabDiretiva.push_back({"PUBLIC",0});
-    tabDiretiva.push_back({"EXTERN",0});
+    vetorDiretiva.push_back({"SECTION",0});
+    vetorDiretiva.push_back({"SPACE",1});
+    vetorDiretiva.push_back({"CONST",1});
+    vetorDiretiva.push_back({"EQU",1});
+    vetorDiretiva.push_back({"IF",1});
+    vetorDiretiva.push_back({"BEGIN",0});
+    vetorDiretiva.push_back({"END",0});
+    vetorDiretiva.push_back({"PUBLIC",0});
+    vetorDiretiva.push_back({"EXTERN",0});
 
 //    /* Inicializando as instruções como um vetor de struct permite que o código da instrução seja o indice+1*/
 //    /*Da mesma maneira o tamaho da instrução será o número de operandos + 1*/
-    tabInstrucao.push_back({"ADD", 1});
-    tabInstrucao.push_back({"SUB", 1});
-    tabInstrucao.push_back({"MULT", 1});
-    tabInstrucao.push_back({"DIV", 1});
-    tabInstrucao.push_back({"JMP", 1});
-    tabInstrucao.push_back({"JMPN", 1});
-    tabInstrucao.push_back({"JMPP", 1});
-    tabInstrucao.push_back({"JMPZ", 1});
-    tabInstrucao.push_back({"COPY", 1});
-    tabInstrucao.push_back({"LOAD", 1});
-    tabInstrucao.push_back({"STORE", 1});
-    tabInstrucao.push_back({"INPUT", 1});
-    tabInstrucao.push_back({"OUTPUT", 1});
-    tabInstrucao.push_back({"STOP", 1});
-
+    vetorInstrucao.push_back({"ADD", 1});
+    vetorInstrucao.push_back({"SUB", 1});
+    vetorInstrucao.push_back({"MULT", 1});
+    vetorInstrucao.push_back({"DIV", 1});
+    vetorInstrucao.push_back({"JMP", 1});
+    vetorInstrucao.push_back({"JMPN", 1});
+    vetorInstrucao.push_back({"JMPP", 1});
+    vetorInstrucao.push_back({"JMPZ", 1});
+    vetorInstrucao.push_back({"COPY", 1});
+    vetorInstrucao.push_back({"LOAD", 1});
+    vetorInstrucao.push_back({"STORE", 1});
+    vetorInstrucao.push_back({"INPUT", 1});
+    vetorInstrucao.push_back({"OUTPUT", 1});
+    vetorInstrucao.push_back({"STOP", 1});
 }
 
 size_t VerificaSeLinhaValida(string checaCaracter) {
@@ -81,10 +81,8 @@ size_t VerificaSeLinhaValida(string checaCaracter) {
 int PesquisaInstrucaoEDiretiva(string instrOuDiretiva, vector<tabInstrucaoOuDiretiva> vetorInstOuDiretiva) {
     vector<tabInstrucaoOuDiretiva>::iterator it;
     /*O predicado abaixo é usado para a funcao find_if*/
-    cout<<"\n\ninstrucao "<< instrOuDiretiva<<endl;
 
     auto predicado = [&instrOuDiretiva](const tabInstrucaoOuDiretiva &item) {
-        cout <<"TESTE "<< (item.instrucaoOuDiretiva == instrOuDiretiva);
         return item.instrucaoOuDiretiva == instrOuDiretiva;
     };
     it = find_if(vetorInstOuDiretiva.begin(), vetorInstOuDiretiva.end(), predicado);
@@ -96,7 +94,6 @@ int PesquisaInstrucaoEDiretiva(string instrOuDiretiva, vector<tabInstrucaoOuDire
 
 // a pesquisa nao pode ser igual pois os tipos dos iteradores sao diferentes
 int PesquisaSimbolo(string simbol, vector<tabSimbolos> vetorSimbolos) {
-    cout<< "SIMBOLO"<<simbol;
     vector<tabSimbolos>::iterator it;
     auto predicado = [simbol](tabSimbolos &item) {
         return item.simbolo == simbol;
@@ -139,10 +136,7 @@ void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<ta
     string EXTERN = "EXTERN";
     string PUBLIC = "PUBLIC";
     string SECTION = "SECTION";
-    vector<tabInstrucaoOuDiretiva> vetorInstrucao;
-    vector<tabInstrucaoOuDiretiva> vetorDiretiva;
     flagErros = (int) VerificaSeLinhaValida(linha);
-    GeraTabelaInstrucoesEDiretivas(vetorInstrucao, vetorDiretiva);
 
     if (ProcuraRotulo(linha)) {
         /*Caso ache um rótulo, verifica se ta na tabela de simbolos, se não tiver adicione*/
@@ -213,7 +207,6 @@ void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<ta
             contadorDefinicoes++;
         } else {
             retorno = PesquisaInstrucaoEDiretiva(proxtoken, vetorInstrucao);
-            cout<<endl<<retorno<<endl;
             if (retorno != -1) {
                 posicao = posicao + vetorInstrucao[retorno].operando + 1;
             } else {
@@ -251,7 +244,7 @@ int Monta(fstream &preprocessado) {
     vector<tabSimbolos> vetorSimbolos;
     vector<tabDef> vetorDef;
     vector<tabUso> vetorUso;
-
+    GeraTabelaInstrucoesEDiretivas();
     numLinha = 1;
     while (getline(preprocessado, linha)) {
 
