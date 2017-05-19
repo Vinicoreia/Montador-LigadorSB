@@ -16,6 +16,7 @@
 #include <algorithm>
 #include <vector>
 #include <numeric>
+#include "montador.h"
 
 using namespace std;
 int numLinha;
@@ -24,28 +25,6 @@ int flagModulo = 0;
 int contadorDefinicoes = 0;
 int contadorUso = 0;
 int contadorSimbolos = 0;
-typedef struct {
-    string instrucaoOuDiretiva;
-    int operando;
-} tabInstrucaoOuDiretiva;
-
-typedef struct {
-    string simbolo;
-    int posicao;
-    int externo; /*0 ou 1*/
-    int secdados;
-} tabSimbolos;
-
-typedef struct {
-    string simbolo;
-    int posicao;
-} tabUso;
-
-typedef struct {
-    string simbolo;
-    int posicao;
-} tabDef;
-
 /*
  * Como o número de instruções e diretivas é pequeno resolvemos criar a tabela ao invés de ler a tabela de um arquivo.
  * */
@@ -53,56 +32,36 @@ void GeraTabelaInstrucoesEDiretivas(vector<tabInstrucaoOuDiretiva> tabInstrucao,
                                     vector<tabInstrucaoOuDiretiva> tabDiretiva) {
     /*
      * VETOR DE DIRETIVAS
-     * */
-    tabInstrucao[0].instrucaoOuDiretiva = "SECTION";
-    tabDiretiva[0].operando = 0;
-    tabInstrucao[1].instrucaoOuDiretiva = "SPACE";
-    tabDiretiva[1].operando = 1;
-    tabDiretiva[2].instrucaoOuDiretiva = "CONST";
-    tabDiretiva[2].operando = 1;
-    tabDiretiva[3].instrucaoOuDiretiva = "EQU";
-    tabDiretiva[3].operando = 1;
-    tabDiretiva[4].instrucaoOuDiretiva = "IF";
-    tabDiretiva[4].operando = 1;
-    tabDiretiva[5].instrucaoOuDiretiva = "BEGIN";
-    tabDiretiva[5].operando = 0;
-    tabDiretiva[6].instrucaoOuDiretiva = "END";
-    tabDiretiva[6].operando = 0;
-    tabDiretiva[7].instrucaoOuDiretiva = "PUBLIC";
-    tabDiretiva[7].operando = 0;
-    tabDiretiva[8].instrucaoOuDiretiva = "EXTERN";
-    tabDiretiva[8].operando = 0;
+//     * */
 
-    /* Inicializando as instruções como um vetor de struct permite que o código da instrução seja o indice+1*/
-    /*Da mesma maneira o tamaho da instrução será o número de operandos + 1*/
-    tabInstrucao[0].instrucaoOuDiretiva = "ADD";
-    tabInstrucao[0].operando = 1;
-    tabInstrucao[1].instrucaoOuDiretiva = "SUB";
-    tabInstrucao[1].operando = 1;
-    tabInstrucao[2].instrucaoOuDiretiva = "MULT";
-    tabInstrucao[2].operando = 1;
-    tabInstrucao[3].instrucaoOuDiretiva = "DIV";
-    tabInstrucao[3].operando = 1;
-    tabInstrucao[4].instrucaoOuDiretiva = "JMP";
-    tabInstrucao[4].operando = 1;
-    tabInstrucao[5].instrucaoOuDiretiva = "JMPN";
-    tabInstrucao[5].operando = 1;
-    tabInstrucao[6].instrucaoOuDiretiva = "JMPP";
-    tabInstrucao[6].operando = 1;
-    tabInstrucao[7].instrucaoOuDiretiva = "JMPZ";
-    tabInstrucao[7].operando = 1;
-    tabInstrucao[8].instrucaoOuDiretiva = "COPY";
-    tabInstrucao[8].operando = 2;
-    tabInstrucao[9].instrucaoOuDiretiva = "LOAD";
-    tabInstrucao[9].operando = 1;
-    tabInstrucao[10].instrucaoOuDiretiva = "STORE";
-    tabInstrucao[10].operando = 1;
-    tabInstrucao[11].instrucaoOuDiretiva = "INPUT";
-    tabInstrucao[11].operando = 1;
-    tabInstrucao[12].instrucaoOuDiretiva = "OUTPUT";
-    tabInstrucao[12].operando = 1;
-    tabInstrucao[13].instrucaoOuDiretiva = "STOP";
-    tabInstrucao[13].operando = 0;
+
+    tabDiretiva.push_back({"SECTION",0});
+    tabDiretiva.push_back({"SPACE",1});
+    tabDiretiva.push_back({"CONST",1});
+    tabDiretiva.push_back({"EQU",1});
+    tabDiretiva.push_back({"IF",1});
+    tabDiretiva.push_back({"BEGIN",0});
+    tabDiretiva.push_back({"END",0});
+    tabDiretiva.push_back({"PUBLIC",0});
+    tabDiretiva.push_back({"EXTERN",0});
+
+//    /* Inicializando as instruções como um vetor de struct permite que o código da instrução seja o indice+1*/
+//    /*Da mesma maneira o tamaho da instrução será o número de operandos + 1*/
+    tabInstrucao.push_back({"ADD", 1});
+    tabInstrucao.push_back({"SUB", 1});
+    tabInstrucao.push_back({"MULT", 1});
+    tabInstrucao.push_back({"DIV", 1});
+    tabInstrucao.push_back({"JMP", 1});
+    tabInstrucao.push_back({"JMPN", 1});
+    tabInstrucao.push_back({"JMPP", 1});
+    tabInstrucao.push_back({"JMPZ", 1});
+    tabInstrucao.push_back({"COPY", 1});
+    tabInstrucao.push_back({"LOAD", 1});
+    tabInstrucao.push_back({"STORE", 1});
+    tabInstrucao.push_back({"INPUT", 1});
+    tabInstrucao.push_back({"OUTPUT", 1});
+    tabInstrucao.push_back({"STOP", 1});
+
 }
 
 size_t VerificaSeLinhaValida(string checaCaracter) {
@@ -112,7 +71,7 @@ size_t VerificaSeLinhaValida(string checaCaracter) {
     size_t posicaoChar = checaCaracter.find_first_not_of(
             "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789+-*/=|&!?#%(){}[]_\'\",.:;<>\n ");
     if (posicaoChar != string::npos) {
-        cout << "Erro lexico na linha " << numLinha << " caractere invalido" << endl;
+        cout << "\nErro lexico na linha " << numLinha << " caractere invalido" << endl;
         return posicaoChar;
     } else
         return 10000; // retorno se não existe caractere especial
@@ -122,7 +81,10 @@ size_t VerificaSeLinhaValida(string checaCaracter) {
 int PesquisaInstrucaoEDiretiva(string instrOuDiretiva, vector<tabInstrucaoOuDiretiva> vetorInstOuDiretiva) {
     vector<tabInstrucaoOuDiretiva>::iterator it;
     /*O predicado abaixo é usado para a funcao find_if*/
-    auto predicado = [instrOuDiretiva](const tabInstrucaoOuDiretiva &item) {
+    cout<<"\n\ninstrucao "<< instrOuDiretiva<<endl;
+
+    auto predicado = [&instrOuDiretiva](const tabInstrucaoOuDiretiva &item) {
+        cout <<"TESTE "<< (item.instrucaoOuDiretiva == instrOuDiretiva);
         return item.instrucaoOuDiretiva == instrOuDiretiva;
     };
     it = find_if(vetorInstOuDiretiva.begin(), vetorInstOuDiretiva.end(), predicado);
@@ -134,8 +96,9 @@ int PesquisaInstrucaoEDiretiva(string instrOuDiretiva, vector<tabInstrucaoOuDire
 
 // a pesquisa nao pode ser igual pois os tipos dos iteradores sao diferentes
 int PesquisaSimbolo(string simbol, vector<tabSimbolos> vetorSimbolos) {
+    cout<< "SIMBOLO"<<simbol;
     vector<tabSimbolos>::iterator it;
-    auto predicado = [simbol](const tabSimbolos &item) {
+    auto predicado = [simbol](tabSimbolos &item) {
         return item.simbolo == simbol;
     };
     it = find_if(vetorSimbolos.begin(), vetorSimbolos.end(), predicado);
@@ -153,12 +116,12 @@ bool ProcuraRotulo(string linha) {
 void checaSeRotuloValido(string rotulo) {
     //  se o rotulo tem mais de 100 caracteres
     if (rotulo.size() > 100) {
-        cout << "Erro Sintatico na linha " << numLinha << " Tamanho maximo permitido pro rotulo eh 100 caracteres";
+        cout << "\nErro Sintatico na linha " << numLinha << " Tamanho maximo permitido pro rotulo eh 100 caracteres";
 
     }
     // se rotulo comeca com numero
     if (rotulo.find_first_not_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ") == 0) {
-        cout << "Erro Sintatico na linha " << numLinha
+        cout << "\nErro Sintatico na linha " << numLinha
              << " Primeira letra do rotulo nao pode ser numero ou caractere especial";
 
     }
@@ -183,19 +146,17 @@ void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<ta
 
     if (ProcuraRotulo(linha)) {
         /*Caso ache um rótulo, verifica se ta na tabela de simbolos, se não tiver adicione*/
-        string rotulo = linha.substr(0, linha.find_first_of(":") - 1); // pega a primeira palavra como rotulo
+        string rotulo = linha.substr(0, linha.find_first_of(":")); // pega a primeira palavra como rotulo
+        linha = linha.substr(rotulo.size() + 1, linha.size()); // retira rotulo da linha
         checaSeRotuloValido(rotulo);
 
         if (PesquisaSimbolo(rotulo, vetorSimbolos) != -1) { // se eu procurar na tabela o simbolo e ele já estiver lá
-            cout << "Erro Semantico na linha " << numLinha << " Simbolo " << rotulo << " redefinido";
+            cout << "\nErro Semantico na linha " << numLinha << " Simbolo " << rotulo << " redefinido";
             flagErros++;
         } else { // insere o simbolo na tabela de simbolos
-            vetorSimbolos[contadorSimbolos].simbolo = rotulo;
-            vetorSimbolos[contadorSimbolos].posicao = posicao; // posicao vai ter que ser global depois
+            vetorSimbolos.push_back({rotulo, posicao});
             contadorSimbolos++;
-
-            linha = linha.substr(rotulo.size() + 1, linha.size()); // retira rotulo da linha
-            proxtoken = linha.substr(0, linha.find_first_of(" \n") - 1);
+            proxtoken = linha.substr(0, linha.find_first_of(" \n"));
             linha = linha.substr(proxtoken.size() + 1, linha.size());
 
             retorno = PesquisaInstrucaoEDiretiva(proxtoken, vetorInstrucao);
@@ -214,7 +175,7 @@ void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<ta
                         if (vetorDiretiva[retorno].instrucaoOuDiretiva == "SPACE") {
                             vetorSimbolos[contadorSimbolos - 1].secdados = 1;
                             if (!linha.empty()) {
-                                proxtoken = linha.substr(0, linha.find_first_of(" \n") - 1);
+                                proxtoken = linha.substr(0, linha.find_first_of(" \n"));
                                 linha = linha.substr(proxtoken.size() + 1, linha.size());
 
                                 stringstream tok(proxtoken);
@@ -230,7 +191,7 @@ void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<ta
                         }
                     }
                 } else {
-                    cout << "Erro Sintatico na linha " << numLinha << " Diretiva ou Instrucao " << rotulo
+                    cout << "\nErro Sintatico na linha " << numLinha << " Diretiva ou Instrucao " << rotulo
                          << " invalida";
                     flagErros++;
                 }
@@ -238,8 +199,10 @@ void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<ta
 
         }
     } else {/*Caso não ache um rótulo*/
-        proxtoken = linha.substr(0, linha.find_first_of(' \n') - 1);
-        linha = linha.substr(proxtoken.size() + 1, linha.size());
+        proxtoken = linha.substr(linha.find_first_not_of(" \n"), linha.find_first_of(" \n"));
+        linha = linha.substr(proxtoken.size(), linha.size());
+
+
         size_t posicaoChar;
         if (proxtoken == "SECTION") {
             //nao faz nada
@@ -250,24 +213,25 @@ void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<ta
             contadorDefinicoes++;
         } else {
             retorno = PesquisaInstrucaoEDiretiva(proxtoken, vetorInstrucao);
+            cout<<endl<<retorno<<endl;
             if (retorno != -1) {
                 posicao = posicao + vetorInstrucao[retorno].operando + 1;
             } else {
                 retorno = PesquisaInstrucaoEDiretiva(proxtoken, vetorDiretiva);
                 if (retorno != -1) {
                     if (retorno != 6) {
-                        cout << "Erro Sintatico na linha " << numLinha << " Diretiva " << proxtoken << " sem rotulo"
+                        cout << "\nErro Sintatico na linha " << numLinha << " Diretiva " << proxtoken << " sem rotulo"
                              << endl;
                         flagErros ++;
                     }
                     if ((retorno >= 1) && (retorno <= 3)) {
-                        cout << "Erro Semantico na linha " << numLinha << " Diretiva " << proxtoken << " fora da secao de dados"
+                        cout << "\nErro Semantico na linha " << numLinha << " Diretiva " << proxtoken << " fora da secao de dados"
                              << endl;
                         flagErros++;
                     }
                 } else {
 
-                    cout << "Erro Sintatico na linha " << numLinha << " Diretiva ou instrucao " << proxtoken << " nao identificada"
+                    cout << "\nErro Sintatico na linha " << numLinha << " Diretiva ou instrucao " << proxtoken << " nao identificada"
                          << endl;
                     flagErros++;
 

@@ -1,3 +1,3 @@
-/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/Montador_LigadorSB.dir
+D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/CMakeFiles/Montador_LigadorSB.dir
+D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/CMakeFiles/edit_cache.dir
