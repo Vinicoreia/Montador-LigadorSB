@@ -120,10 +120,10 @@ int
 PesquisaInstrucaoEDiretiva(string instrOuDiretiva, vector<tabInstrucaoOuDiretiva> vetorInstOuDiretiva) {
     vector<tabInstrucaoOuDiretiva>::iterator it;
     /*O predicado abaixo é usado para a funcao find_if*/
-    auto predicado = [instrOuDiretiva](const tabInstrucaoOuDiretiva & item){
+    auto predicado = [instrOuDiretiva](const tabInstrucaoOuDiretiva &item) {
         return item.instrucaoOuDiretiva == instrOuDiretiva;
     };
-    it = find_if(vetorInstOuDiretiva.begin(), vetorInstOuDiretiva.end(), predicado );
+    it = find_if(vetorInstOuDiretiva.begin(), vetorInstOuDiretiva.end(), predicado);
     if (it != vetorInstOuDiretiva.end())
         return (int) distance(vetorInstOuDiretiva.begin(), it); // retorna a posicao da instrucao ou diretiva
     else
@@ -133,7 +133,7 @@ PesquisaInstrucaoEDiretiva(string instrOuDiretiva, vector<tabInstrucaoOuDiretiva
 // a pesquisa nao pode ser igual pois os tipos dos iteradores sao diferentes
 int PesquisaSimbolo(string simbol, vector<tabSimbolos> vetorSimbolos) {
     vector<tabSimbolos>::iterator it;
-    auto predicado = [simbol](const tabSimbolos & item){
+    auto predicado = [simbol](const tabSimbolos &item) {
         return item.simbolo == simbol;
     };
     it = find_if(vetorSimbolos.begin(), vetorSimbolos.end(), predicado);
@@ -167,6 +167,7 @@ void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<ta
     int contadorSimbolos = 0;
     int i = 0, j = 0, chartoint = 0;
     int retorno;
+    int offset;
     char c;
     string proxtoken;
     string aux;
@@ -184,7 +185,7 @@ void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<ta
         checaSeRotuloValido(rotulo);
 
         if (PesquisaSimbolo(rotulo, vetorSimbolos) != -1) { // se eu procurar na tabela o simbolo e ele já estiver lá
-            cout << "Erro Semantico na linha " << numLinha << " Simbolo" << rotulo << "redefinido";
+            cout << "Erro Semantico na linha " << numLinha << " Simbolo " << rotulo << " redefinido";
             flagErros++;
         } else { // insere o simbolo na tabela de simbolos
             vetorSimbolos[contadorSimbolos].simbolo = rotulo;
@@ -207,12 +208,28 @@ void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<ta
                         vetorSimbolos[contadorSimbolos - 1].posicao = 0;
                         flagModulo = 1;
                     } else {
-                        vetorSimbolos[contadorSimbolos-1].externo = 0;
-                        if(vetorDiretiva[retorno].instrucaoOuDiretiva == "SPACE"){
-                            vetorSimbolos[contadorSimbolos-1].secdados = 1;
+                        vetorSimbolos[contadorSimbolos - 1].externo = 0;
+                        if (vetorDiretiva[retorno].instrucaoOuDiretiva == "SPACE") {
+                            vetorSimbolos[contadorSimbolos - 1].secdados = 1;
+                            if (!linha.empty()) {
+                                proxtoken = linha.substr(0, linha.find_first_of(" \n") - 1);
+                                linha = linha.substr(proxtoken.size() + 1, linha.size());
 
+                                stringstream tok(proxtoken);
+                                tok >> offset; // converte de string pra inteiro
+                                posicao = posicao + offset;
+                            } else
+                                posicao = posicao + 1;
+                        } else {
+                            if (retorno >= 1 && retorno < 3) {
+                                vetorSimbolos[contadorSimbolos - 1].secdados = 1;
+                            }
+                            posicao = posicao + vetorDiretiva[retorno].operando;
                         }
                     }
+                }else{
+                    cout << "Erro Sintatico na linha " << numLinha << " Diretiva ou Instrucao " << rotulo << " invalida";
+                    flagErros++;
                 }
             }
 
