@@ -34,8 +34,6 @@ void GeraTabelaInstrucoesEDiretivas() {
     /*
      * VETOR DE DIRETIVAS
 //     * */
-
-
     vetorDiretiva.push_back({"SECTION",0});
     vetorDiretiva.push_back({"SPACE",1});
     vetorDiretiva.push_back({"CONST",1});
@@ -141,7 +139,7 @@ void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<ta
     if (ProcuraRotulo(linha)) {
         /*Caso ache um rótulo, verifica se ta na tabela de simbolos, se não tiver adicione*/
         string rotulo = linha.substr(0, linha.find_first_of(":")); // pega a primeira palavra como rotulo
-        linha = linha.substr(rotulo.size() + 1, linha.size()); // retira rotulo da linha
+        linha = linha.substr(rotulo.size() + 1, linha.size()); // retira rotulo da linha e pula o : e o ' '
         checaSeRotuloValido(rotulo);
 
         if (PesquisaSimbolo(rotulo, vetorSimbolos) != -1) { // se eu procurar na tabela o simbolo e ele já estiver lá
@@ -152,12 +150,12 @@ void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<ta
             contadorSimbolos++;
             proxtoken = linha.substr(0, linha.find_first_of(" \n"));
             linha = linha.substr(proxtoken.size() + 1, linha.size());
-
             retorno = PesquisaInstrucaoEDiretiva(proxtoken, vetorInstrucao);
             if (retorno != -1) { /*Se encontrar a instrucao */
                 posicao = posicao + vetorInstrucao[retorno].operando;
             } else {//Se não encontrar instrucao
                 retorno = PesquisaInstrucaoEDiretiva(proxtoken, vetorDiretiva);
+                cout<< retorno;
                 if (retorno != -1) { // Existe diretiva
                     vetorSimbolos[contadorSimbolos - 1].secdados = 0;
                     if (vetorDiretiva[retorno].instrucaoOuDiretiva == "EXTERN") {
