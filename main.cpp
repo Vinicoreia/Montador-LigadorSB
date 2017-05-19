@@ -7,6 +7,7 @@
 #include <algorithm>
 #include "preprocessador.h"
 #include "montador.h"
+
 using namespace std;
 
 // Essa função retorna a extensão o arquivo
@@ -41,18 +42,17 @@ int main(int argc, char *argv[]) {
             preprocessado.close();
 
 
-            }
-            else
+        } else {
             cout << "Erro ao abrir arquivo";
             return EXIT_FAILURE;
-
-        } else if (extensao == "pre") {
-            //chama somente o preprocessador, o preprocessador deve retirar linhas em branco, comentarios e espaçamentos
-            //tambem deve expandir as macros IF e EQU
-        } else {
-            cout << "Arquivo incompativel";
-            return EXIT_FAILURE;
         }
-
-        return 0;
+    } else if (extensao == "pre") {
+        //chama somente o preprocessador, o preprocessador deve retirar linhas em branco, comentarios e espaçamentos
+        //tambem deve expandir as macros IF e EQU
+    } else {
+        cout << "Arquivo incompativel";
+        return EXIT_FAILURE;
     }
+
+    return 0;
+}
