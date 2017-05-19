@@ -139,19 +139,23 @@ bool ProcuraRotulo(string linha) {
     return posicao != string::npos;
 }
 
-void checaSeRotuloValido(string linha) {
+void checaSeRotuloValido(string rotulo) {
     //  se o rotulo tem mais de 100 caracteres
-    if (linha.size() > 100) {
-        cout << "Erro Sintatico na linha " << numLinha << " Primeira letra do rotulo nao pode ser numero";
+    if (rotulo.size() > 100) {
+        cout << "Erro Sintatico na linha " << numLinha << " Tamanho maximo permitido pro rotulo eh 100 caracteres";
+
     }
     // se rotulo comeca com numero
-    if (linha.find_first_of("0123456789") == 0) {
-        cout << "Erro Sintatico na linha " << numLinha << " Tamanho maximo permitido pro rotulo eh 100 caracteres";
+    if (rotulo.find_first_of("0123456789") == 0) {
+        cout << "Erro Sintatico na linha " << numLinha << " Primeira letra do rotulo nao pode ser numero";
+
     }
 }
 
 void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<tabDef> vetorDefinicoes,
                       vector<tabUso> tabelaUso) {
+    int posicao = 0;
+    int contadorSimbolos = 0;
     int i = 0, j = 0, chartoint = 0;
     int retorno;
     char c;
@@ -166,12 +170,18 @@ void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<ta
     GeraTabelaInstrucoesEDiretivas(vetorInstrucao, vetorDiretiva);
 
     if (ProcuraRotulo(linha)) {
-        istringstream is(linha);
-        string rotulo;
-        is >> rotulo; // passa apenas a primeira palavra pra string acima
-
+        string rotulo = linha.substr(0, linha.find_first_of(":")-1); // pega a primeira palavra como rotulo
         checaSeRotuloValido(rotulo);
 
+        if (PesquisaSimbolo(rotulo, vetorSimbolos) != -1) { // se eu procurar na tabela o simbolo e ele já estiver lá
+            cout << "Erro Semantico na linha " << numLinha << " Simbolo" << rotulo << "redefinido";
+            flagErros ++;
+        }
+        else{ // insere o simbolo na tabela de simbolos
+            vetorSimbolos[contadorSimbolos].simbolo = rotulo;
+            vetorSimbolos[contadorSimbolos].posicao = posicao; // posicao vai ter que ser global depois
+
+        }
 
     }
 
