@@ -20,6 +20,8 @@
 using namespace std;
 int numLinha;
 int flagErros = -1;
+int flagModulo = 0;
+
 typedef struct {
     string instrucaoOuDiretiva;
     int operando;
@@ -45,8 +47,8 @@ typedef struct {
 /*
  * Como o número de instruções e diretivas é pequeno resolvemos criar a tabela ao invés de ler a tabela de um arquivo.
  * */
-void GeraTabelaInstrucoesEDiretivas(std::vector<tabInstrucaoOuDiretiva> tabInstrucao,
-                                    std::vector<tabInstrucaoOuDiretiva> tabDiretiva) {
+void GeraTabelaInstrucoesEDiretivas(vector<tabInstrucaoOuDiretiva> tabInstrucao,
+                                    vector<tabInstrucaoOuDiretiva> tabDiretiva) {
     /*
      * VETOR DE DIRETIVAS
      * */
@@ -115,9 +117,13 @@ size_t VerificaSeLinhaValida(string checaCaracter) {
 
 // como vetor podemos usar a funcao find
 int
-PesquisaInstrucaoEDiretiva(std::string instrucaoOuDiretiva, std::vector<tabInstrucaoOuDiretiva> vetorInstOuDiretiva) {
+PesquisaInstrucaoEDiretiva(string instrOuDiretiva, vector<tabInstrucaoOuDiretiva> vetorInstOuDiretiva) {
     vector<tabInstrucaoOuDiretiva>::iterator it;
-    it = find(vetorInstOuDiretiva.begin(), vetorInstOuDiretiva.end(), instrucaoOuDiretiva);
+    /*O predicado abaixo é usado para a funcao find_if*/
+    auto predicado = [instrOuDiretiva](const tabInstrucaoOuDiretiva & item){
+        return item.instrucaoOuDiretiva == instrOuDiretiva;
+    };
+    it = find_if(vetorInstOuDiretiva.begin(), vetorInstOuDiretiva.end(), predicado );
     if (it != vetorInstOuDiretiva.end())
         return (int) distance(vetorInstOuDiretiva.begin(), it); // retorna a posicao da instrucao ou diretiva
     else
@@ -125,9 +131,12 @@ PesquisaInstrucaoEDiretiva(std::string instrucaoOuDiretiva, std::vector<tabInstr
 }
 
 // a pesquisa nao pode ser igual pois os tipos dos iteradores sao diferentes
-int PesquisaSimbolo(std::string simbolo, std::vector<tabSimbolos> vetorSimbolos) {
+int PesquisaSimbolo(string simbol, vector<tabSimbolos> vetorSimbolos) {
     vector<tabSimbolos>::iterator it;
-    it = find(vetorSimbolos.begin(), vetorSimbolos.end(), simbolo);
+    auto predicado = [simbol](const tabSimbolos & item){
+        return item.simbolo == simbol;
+    };
+    it = find_if(vetorSimbolos.begin(), vetorSimbolos.end(), predicado);
     if (it != vetorSimbolos.end())
         return (int) distance(vetorSimbolos.begin(), it); // retorna a posicao da instrucao ou diretiva
     else
@@ -159,6 +168,7 @@ void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<ta
     int i = 0, j = 0, chartoint = 0;
     int retorno;
     char c;
+    string proxtoken;
     string aux;
     string SPACE = "SPACE";
     string EXTERN = "EXTERN";
@@ -170,25 +180,48 @@ void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<ta
     GeraTabelaInstrucoesEDiretivas(vetorInstrucao, vetorDiretiva);
 
     if (ProcuraRotulo(linha)) {
-        string rotulo = linha.substr(0, linha.find_first_of(":")-1); // pega a primeira palavra como rotulo
+        string rotulo = linha.substr(0, linha.find_first_of(":") - 1); // pega a primeira palavra como rotulo
         checaSeRotuloValido(rotulo);
 
         if (PesquisaSimbolo(rotulo, vetorSimbolos) != -1) { // se eu procurar na tabela o simbolo e ele já estiver lá
             cout << "Erro Semantico na linha " << numLinha << " Simbolo" << rotulo << "redefinido";
-            flagErros ++;
-        }
-        else{ // insere o simbolo na tabela de simbolos
+            flagErros++;
+        } else { // insere o simbolo na tabela de simbolos
             vetorSimbolos[contadorSimbolos].simbolo = rotulo;
             vetorSimbolos[contadorSimbolos].posicao = posicao; // posicao vai ter que ser global depois
+            contadorSimbolos++;
+
+            linha = linha.substr(rotulo.size() + 1, linha.size()); // retira rotulo da linha
+            proxtoken = linha.substr(0, linha.find_first_of(" \n") - 1);
+            linha = linha.substr(proxtoken.size() + 1, linha.size());
+
+            retorno = PesquisaInstrucaoEDiretiva(proxtoken, vetorInstrucao);
+            if (retorno != -1) { /*Se encontrar a instrucao */
+                posicao = posicao + vetorInstrucao[retorno].operando;
+            } else {//Se não encontrar instrucao
+                retorno = PesquisaInstrucaoEDiretiva(proxtoken, vetorDiretiva);
+                if (retorno != -1) { // Existe diretiva
+                    vetorSimbolos[contadorSimbolos - 1].secdados = 0;
+                    if (vetorDiretiva[retorno].instrucaoOuDiretiva == "EXTERN") {
+                        vetorSimbolos[contadorSimbolos - 1].externo = 1;
+                        vetorSimbolos[contadorSimbolos - 1].posicao = 0;
+                        flagModulo = 1;
+                    } else {
+                        vetorSimbolos[contadorSimbolos-1].externo = 0;
+                        if(vetorDiretiva[retorno].instrucaoOuDiretiva == "SPACE"){
+                            vetorSimbolos[contadorSimbolos-1].secdados = 1;
+
+                        }
+                    }
+                }
+            }
 
         }
-
     }
 
     //primeiramente vamos achar os rotulos
 
 }
-
 
 int main_montador() {
     //primeiro vou escrever a ideia
