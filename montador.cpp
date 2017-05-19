@@ -141,7 +141,7 @@ bool ProcuraRotulo(string linha) {
 
 void checaSeRotuloValido(string linha) {
     //  se o rotulo tem mais de 100 caracteres
-    if (linha.size()>100){
+    if (linha.size() > 100) {
         cout << "Erro Sintatico na linha " << numLinha << " Primeira letra do rotulo nao pode ser numero";
     }
     // se rotulo comeca com numero
@@ -166,7 +166,12 @@ void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<ta
     GeraTabelaInstrucoesEDiretivas(vetorInstrucao, vetorDiretiva);
 
     if (ProcuraRotulo(linha)) {
-        checaSeRotuloValido(linha);
+        istringstream is(linha);
+        string rotulo;
+        is >> rotulo; // passa apenas a primeira palavra pra string acima
+
+        checaSeRotuloValido(rotulo);
+
 
     }
 
