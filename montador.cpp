@@ -21,13 +21,7 @@ using namespace std;
 typedef struct{
     char string[100];
     int operando;
-}tabInstrucao;
-
-
-typedef struct{
-    char string[100];
-    int operando;
-}tabDiretiva;
+}tabInstrucaoOuDiretiva;
 
 typedef struct{
     char simbolo[50];
@@ -49,59 +43,60 @@ typedef struct{
 /*
  * Como o número de instruções e diretivas é pequeno resolvemos criar a tabela ao invés de ler a tabela de um arquivo.
  * */
-void GeraTabelaInstrucoesEDiretivas(tabInstrucao vetorInst[], tabDiretiva vetorDiretiva[]){
+void GeraTabelaInstrucoesEDiretivas(std::vector<tabInstrucaoOuDiretiva> tabInstrucao, std::vector<tabInstrucaoOuDiretiva> tabDiretiva){
     /*
      * VETOR DE DIRETIVAS
      * */
-    strcpy(vetorDiretiva[0].string,"SECTION");
-    vetorDiretiva[0].operando = 0;
-    strcpy(vetorDiretiva[1].string,"SPACE");
-    vetorDiretiva[1].operando = 1;
-    strcpy(vetorDiretiva[2].string,"CONST");
-    vetorDiretiva[2].operando = 1;
-    strcpy(vetorDiretiva[3].string,"EQU");
-    vetorDiretiva[3].operando = 1;
-    strcpy(vetorDiretiva[4].string,"IF");
-    vetorDiretiva[4].operando = 1;
-    strcpy(vetorDiretiva[5].string,"BEGIN");
-    vetorDiretiva[5].operando = 0;
-    strcpy(vetorDiretiva[6].string,"END");
-    vetorDiretiva[6].operando = 0;
-    strcpy(vetorDiretiva[7].string,"PUBLIC");
-    vetorDiretiva[7].operando = 0;
-    strcpy(vetorDiretiva[8].string,"EXTERN");
-    vetorDiretiva[8].operando = 0;
+
+    strcpy(tabDiretiva[0].string,"SECTION");
+    tabDiretiva[0].operando = 0;
+    strcpy(tabDiretiva[1].string,"SPACE");
+    tabDiretiva[1].operando = 1;
+    strcpy(tabDiretiva[2].string,"CONST");
+    tabDiretiva[2].operando = 1;
+    strcpy(tabDiretiva[3].string,"EQU");
+    tabDiretiva[3].operando = 1;
+    strcpy(tabDiretiva[4].string,"IF");
+    tabDiretiva[4].operando = 1;
+    strcpy(tabDiretiva[5].string,"BEGIN");
+    tabDiretiva[5].operando = 0;
+    strcpy(tabDiretiva[6].string,"END");
+    tabDiretiva[6].operando = 0;
+    strcpy(tabDiretiva[7].string,"PUBLIC");
+    tabDiretiva[7].operando = 0;
+    strcpy(tabDiretiva[8].string,"EXTERN");
+    tabDiretiva[8].operando = 0;
 
     /* Inicializando as instruções como um vetor de struct permite que o código da instrução seja o indice+1*/
     /*Da mesma maneira o tamaho da instrução será o número de operandos + 1*/
-    strcpy(vetorInst[0].string,"ADD");
-    vetorInst[0].operando = 1;
-    strcpy(vetorInst[1].string,"SUB");
-    vetorInst[1].operando = 1;
-    strcpy(vetorInst[2].string,"MULT");
-    vetorInst[2].operando = 1;
-    strcpy(vetorInst[3].string,"DIV");
-    vetorInst[3].operando = 1;
-    strcpy(vetorInst[4].string,"JMP");
-    vetorInst[4].operando = 1;
-    strcpy(vetorInst[5].string,"JMPN");
-    vetorInst[5].operando = 1;
-    strcpy(vetorInst[6].string,"JMPP");
-    vetorInst[6].operando = 1;
-    strcpy(vetorInst[7].string,"JMPZ");
-    vetorInst[7].operando = 1;
-    strcpy(vetorInst[8].string,"COPY");
-    vetorInst[8].operando = 2;
-    strcpy(vetorInst[9].string,"LOAD");
-    vetorInst[9].operando = 1;
-    strcpy(vetorInst[10].string,"STORE");
-    vetorInst[10].operando = 1;
-    strcpy(vetorInst[11].string,"INPUT");
-    vetorInst[11].operando = 1;
-    strcpy(vetorInst[12].string,"OUTPUT");
-    vetorInst[12].operando = 1;
-    strcpy(vetorInst[13].string,"STOP");
-    vetorInst[13].operando = 0;
+    strcpy(tabInstrucao[0].string,"ADD");
+    tabInstrucao[0].operando = 1;
+    strcpy(tabInstrucao[1].string,"SUB");
+    tabInstrucao[1].operando = 1;
+    strcpy(tabInstrucao[2].string,"MULT");
+    tabInstrucao[2].operando = 1;
+    strcpy(tabInstrucao[3].string,"DIV");
+    tabInstrucao[3].operando = 1;
+    strcpy(tabInstrucao[4].string,"JMP");
+    tabInstrucao[4].operando = 1;
+    strcpy(tabInstrucao[5].string,"JMPN");
+    tabInstrucao[5].operando = 1;
+    strcpy(tabInstrucao[6].string,"JMPP");
+    tabInstrucao[6].operando = 1;
+    strcpy(tabInstrucao[7].string,"JMPZ");
+    tabInstrucao[7].operando = 1;
+    strcpy(tabInstrucao[8].string,"COPY");
+    tabInstrucao[8].operando = 2;
+    strcpy(tabInstrucao[9].string,"LOAD");
+    tabInstrucao[9].operando = 1;
+    strcpy(tabInstrucao[10].string,"STORE");
+    tabInstrucao[10].operando = 1;
+    strcpy(tabInstrucao[11].string,"INPUT");
+    tabInstrucao[11].operando = 1;
+    strcpy(tabInstrucao[12].string,"OUTPUT");
+    tabInstrucao[12].operando = 1;
+    strcpy(tabInstrucao[13].string,"STOP");
+    tabInstrucao[13].operando = 0;
 }
 
 int VerificaSeLinhaValida(std::string checaCaracter ){
@@ -114,14 +109,24 @@ int VerificaSeLinhaValida(std::string checaCaracter ){
     }
 }
 // como vetor podemos usar a funcao find
-int PesquisaInstrucaoEDiretiva (std::string instrucaoOuDiretiva, std::vector<tabInstrucao> vetorInstOuDiretiva) {
-    vector<tabInstrucao>::iterator it;
+int PesquisaInstrucaoEDiretiva (std::string instrucaoOuDiretiva, std::vector<tabInstrucaoOuDiretiva> vetorInstOuDiretiva) {
+    vector<tabInstrucaoOuDiretiva>::iterator it;
     it = find(vetorInstOuDiretiva.begin(), vetorInstOuDiretiva.end(), instrucaoOuDiretiva);
     if(it!= vetorInstOuDiretiva.end())
         return (int)distance(vetorInstOuDiretiva.begin(), it); // retorna a posicao da instrucao ou diretiva
     else
         return -1;
 }
+// a pesquisa nao pode ser igual pois os tipos dos iteradores sao diferentes
+int PesquisaSimbolo (std::string simbolo, std::vector<tabSimbolos> vetorSimbolos) {
+    vector<tabSimbolos>::iterator it;
+    it = find(vetorSimbolos.begin(), vetorSimbolos.end(), simbolo);
+    if(it!= vetorSimbolos.end())
+        return (int)distance(vetorSimbolos.begin(), it); // retorna a posicao da instrucao ou diretiva
+    else
+        return -1;
+}
+
 
 int main_montador (){
     //primeiro vou escrever a ideia

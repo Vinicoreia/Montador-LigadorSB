@@ -12,6 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="111c6592-d687-4820-b969-ab7fda1445f4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/montador.cpp" afterPath="$PROJECT_DIR$/montador.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -60,8 +61,8 @@
       <file leaf-file-name="montador.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/montador.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="119" column="28" lean-forward="true" selection-start-line="119" selection-start-column="28" selection-end-line="119" selection-end-column="28" />
+            <state relative-caret-position="361">
+              <caret line="119" column="76" lean-forward="false" selection-start-line="119" selection-start-column="76" selection-end-line="119" selection-end-column="76" />
               <folding>
                 <element signature="e#227#246#0" expanded="true" />
               </folding>
@@ -82,11 +83,14 @@
       <find>instrucao</find>
       <find>diretiva</find>
       <find>vector</find>
+      <find>vetorInst</find>
+      <find>vetor</find>
     </findStrings>
     <replaceStrings>
       <replace>linha</replace>
-      <replace>tabInstrucao</replace>
       <replace>tabDiretiva</replace>
+      <replace>tabInstrucao</replace>
+      <replace>tab</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -464,7 +468,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67605000" />
+    <option name="totallyTimeSpent" value="68882000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="104" width="1920" height="1053" extended-state="6" />
@@ -774,7 +778,7 @@
         <state relative-caret-position="252">
           <caret line="14" column="35" lean-forward="false" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
           <folding>
-            <element signature="e#131#149#0" expanded="true" />
+            <element signature="e#131#149#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -823,8 +827,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/montador.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="119" column="28" lean-forward="true" selection-start-line="119" selection-start-column="28" selection-end-line="119" selection-end-column="28" />
+        <state relative-caret-position="361">
+          <caret line="119" column="76" lean-forward="false" selection-start-line="119" selection-start-column="76" selection-end-line="119" selection-end-column="76" />
           <folding>
             <element signature="e#227#246#0" expanded="true" />
           </folding>
