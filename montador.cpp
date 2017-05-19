@@ -19,24 +19,24 @@
 using namespace std;
 
 typedef struct{
-    char string[100];
+    string instrucaoOuDiretiva;
     int operando;
 }tabInstrucaoOuDiretiva;
 
 typedef struct{
-    char simbolo[50];
+    string simbolo;
     int posicao;
     int externo; /*0 ou 1*/
     int secdados;
 }tabSimbolos;
 
 typedef struct{
-    char simbolo[50];
+    string simbolo;
     int posicao;
 }tabUso;
 
 typedef struct{
-    char simbolo[50];
+    string simbolo;
     int posicao;
 }tabDef;
 
@@ -47,55 +47,54 @@ void GeraTabelaInstrucoesEDiretivas(std::vector<tabInstrucaoOuDiretiva> tabInstr
     /*
      * VETOR DE DIRETIVAS
      * */
-
-    strcpy(tabDiretiva[0].string,"SECTION");
+    tabInstrucao[0].instrucaoOuDiretiva = "SECTION";
     tabDiretiva[0].operando = 0;
-    strcpy(tabDiretiva[1].string,"SPACE");
+    tabInstrucao[1].instrucaoOuDiretiva = "SPACE";
     tabDiretiva[1].operando = 1;
-    strcpy(tabDiretiva[2].string,"CONST");
+    tabDiretiva[2].instrucaoOuDiretiva ="CONST";
     tabDiretiva[2].operando = 1;
-    strcpy(tabDiretiva[3].string,"EQU");
+    tabDiretiva[3].instrucaoOuDiretiva ="EQU";
     tabDiretiva[3].operando = 1;
-    strcpy(tabDiretiva[4].string,"IF");
+    tabDiretiva[4].instrucaoOuDiretiva ="IF";
     tabDiretiva[4].operando = 1;
-    strcpy(tabDiretiva[5].string,"BEGIN");
+    tabDiretiva[5].instrucaoOuDiretiva ="BEGIN";
     tabDiretiva[5].operando = 0;
-    strcpy(tabDiretiva[6].string,"END");
+    tabDiretiva[6].instrucaoOuDiretiva ="END";
     tabDiretiva[6].operando = 0;
-    strcpy(tabDiretiva[7].string,"PUBLIC");
+    tabDiretiva[7].instrucaoOuDiretiva ="PUBLIC";
     tabDiretiva[7].operando = 0;
-    strcpy(tabDiretiva[8].string,"EXTERN");
+    tabDiretiva[8].instrucaoOuDiretiva ="EXTERN";
     tabDiretiva[8].operando = 0;
 
     /* Inicializando as instruções como um vetor de struct permite que o código da instrução seja o indice+1*/
     /*Da mesma maneira o tamaho da instrução será o número de operandos + 1*/
-    strcpy(tabInstrucao[0].string,"ADD");
+    tabInstrucao[0].instrucaoOuDiretiva ="ADD";
     tabInstrucao[0].operando = 1;
-    strcpy(tabInstrucao[1].string,"SUB");
+    tabInstrucao[1].instrucaoOuDiretiva ="SUB";
     tabInstrucao[1].operando = 1;
-    strcpy(tabInstrucao[2].string,"MULT");
+    tabInstrucao[2].instrucaoOuDiretiva ="MULT";
     tabInstrucao[2].operando = 1;
-    strcpy(tabInstrucao[3].string,"DIV");
+    tabInstrucao[3].instrucaoOuDiretiva ="DIV";
     tabInstrucao[3].operando = 1;
-    strcpy(tabInstrucao[4].string,"JMP");
+    tabInstrucao[4].instrucaoOuDiretiva ="JMP";
     tabInstrucao[4].operando = 1;
-    strcpy(tabInstrucao[5].string,"JMPN");
+    tabInstrucao[5].instrucaoOuDiretiva ="JMPN";
     tabInstrucao[5].operando = 1;
-    strcpy(tabInstrucao[6].string,"JMPP");
+    tabInstrucao[6].instrucaoOuDiretiva ="JMPP";
     tabInstrucao[6].operando = 1;
-    strcpy(tabInstrucao[7].string,"JMPZ");
+    tabInstrucao[7].instrucaoOuDiretiva ="JMPZ";
     tabInstrucao[7].operando = 1;
-    strcpy(tabInstrucao[8].string,"COPY");
+    tabInstrucao[8].instrucaoOuDiretiva ="COPY";
     tabInstrucao[8].operando = 2;
-    strcpy(tabInstrucao[9].string,"LOAD");
+    tabInstrucao[9].instrucaoOuDiretiva ="LOAD";
     tabInstrucao[9].operando = 1;
-    strcpy(tabInstrucao[10].string,"STORE");
+    tabInstrucao[10].instrucaoOuDiretiva ="STORE";
     tabInstrucao[10].operando = 1;
-    strcpy(tabInstrucao[11].string,"INPUT");
+    tabInstrucao[11].instrucaoOuDiretiva ="INPUT";
     tabInstrucao[11].operando = 1;
-    strcpy(tabInstrucao[12].string,"OUTPUT");
+    tabInstrucao[12].instrucaoOuDiretiva ="OUTPUT";
     tabInstrucao[12].operando = 1;
-    strcpy(tabInstrucao[13].string,"STOP");
+    tabInstrucao[13].instrucaoOuDiretiva ="STOP";
     tabInstrucao[13].operando = 0;
 }
 

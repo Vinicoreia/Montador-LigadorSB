@@ -12,7 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="111c6592-d687-4820-b969-ab7fda1445f4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/montador.cpp" afterPath="$PROJECT_DIR$/montador.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -61,8 +60,8 @@
       <file leaf-file-name="montador.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/montador.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="119" column="76" lean-forward="false" selection-start-line="119" selection-start-column="76" selection-end-line="119" selection-end-column="76" />
+            <state relative-caret-position="343">
+              <caret line="49" column="49" lean-forward="true" selection-start-line="49" selection-start-column="49" selection-end-line="49" selection-end-column="49" />
               <folding>
                 <element signature="e#227#246#0" expanded="true" />
               </folding>
@@ -468,7 +467,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68882000" />
+    <option name="totallyTimeSpent" value="69315000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="104" width="1920" height="1053" extended-state="6" />
@@ -827,8 +826,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/montador.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="119" column="76" lean-forward="false" selection-start-line="119" selection-start-column="76" selection-end-line="119" selection-end-column="76" />
+        <state relative-caret-position="343">
+          <caret line="49" column="49" lean-forward="true" selection-start-line="49" selection-start-column="49" selection-end-line="49" selection-end-column="49" />
           <folding>
             <element signature="e#227#246#0" expanded="true" />
           </folding>
