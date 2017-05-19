@@ -29,17 +29,6 @@ typedef struct{
     int operando;
 }tabDiretiva;
 
-
-typedef struct{
-    char linha[1000];
-    char op1[30];
-    char op2[30];
-    char op3[30];
-    int extrn;
-    int numLinha;
-}codigoMemo;
-
-/*Estrutura da Tabela de Simbolos*/
 typedef struct{
     char simbolo[50];
     int posicao;
@@ -47,13 +36,11 @@ typedef struct{
     int secdados;
 }tabSimbolos;
 
-/*Estrutura da Tabela de Uso*/
 typedef struct{
     char simbolo[50];
     int posicao;
 }tabUso;
 
-/*Estrutura da Tabela de Definicao*/
 typedef struct{
     char simbolo[50];
     int posicao;
