@@ -113,7 +113,15 @@ int VerificaSeLinhaValida(std::string checaCaracter ){
         return posicao;
     }
 }
-
+// como vetor podemos usar a funcao find
+int PesquisaInstrucaoEDiretiva (std::string instrucaoOuDiretiva, std::vector<tabInstrucao> vetorInstOuDiretiva) {
+    vector<tabInstrucao>::iterator it;
+    it = find(vetorInstOuDiretiva.begin(), vetorInstOuDiretiva.end(), instrucaoOuDiretiva);
+    if(it!= vetorInstOuDiretiva.end())
+        return (int)distance(vetorInstOuDiretiva.begin(), it); // retorna a posicao da instrucao ou diretiva
+    else
+        return -1;
+}
 
 int main_montador (){
     //primeiro vou escrever a ideia
