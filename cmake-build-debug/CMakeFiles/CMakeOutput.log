@@ -10,7 +10,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/3.7.2/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/3.7.1/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /usr/lib64/ccache/c++ 
@@ -23,33 +23,33 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is GNU, found in "/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/3.7.2/CompilerIdCXX/a.out"
+The CXX compiler identification is GNU, found in "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/3.7.1/CompilerIdCXX/a.out"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_24405/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_24405.dir/build.make CMakeFiles/cmTC_24405.dir/build
-gmake[1]: Entering directory '/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_24405.dir/testCCompiler.c.o
-/usr/lib64/ccache/cc     -o CMakeFiles/cmTC_24405.dir/testCCompiler.c.o   -c /home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_24405
-"/home/Vinicoreia/Área de trabalho/C++/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_24405.dir/link.txt --verbose=1
-/usr/lib64/ccache/cc       CMakeFiles/cmTC_24405.dir/testCCompiler.c.o  -o cmTC_24405 
-gmake[1]: Leaving directory '/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/gmake" "cmTC_69542/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_69542.dir/build.make CMakeFiles/cmTC_69542.dir/build
+gmake[1]: Entering directory '/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_69542.dir/testCCompiler.c.o
+/usr/lib64/ccache/cc     -o CMakeFiles/cmTC_69542.dir/testCCompiler.c.o   -c "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c"
+Linking C executable cmTC_69542
+"/home/Vinicius/Documentos/Área de trabalho/Vinicius/IDE's/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_69542.dir/link.txt --verbose=1
+/usr/lib64/ccache/cc       CMakeFiles/cmTC_69542.dir/testCCompiler.c.o  -o cmTC_69542 
+gmake[1]: Leaving directory '/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_ed6ce/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_ed6ce.dir/build.make CMakeFiles/cmTC_ed6ce.dir/build
-gmake[1]: Entering directory '/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_ed6ce.dir/CMakeCCompilerABI.c.o
-/usr/lib64/ccache/cc     -o CMakeFiles/cmTC_ed6ce.dir/CMakeCCompilerABI.c.o   -c "/home/Vinicoreia/Área de trabalho/C++/clion-2017.1.1/bin/cmake/share/cmake-3.7/Modules/CMakeCCompilerABI.c"
-Linking C executable cmTC_ed6ce
-"/home/Vinicoreia/Área de trabalho/C++/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_ed6ce.dir/link.txt --verbose=1
-/usr/lib64/ccache/cc      -v CMakeFiles/cmTC_ed6ce.dir/CMakeCCompilerABI.c.o  -o cmTC_ed6ce  
+Run Build Command:"/usr/bin/gmake" "cmTC_ba25b/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_ba25b.dir/build.make CMakeFiles/cmTC_ba25b.dir/build
+gmake[1]: Entering directory '/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ba25b.dir/CMakeCCompilerABI.c.o
+/usr/lib64/ccache/cc     -o CMakeFiles/cmTC_ba25b.dir/CMakeCCompilerABI.c.o   -c "/home/Vinicius/Documentos/Área de trabalho/Vinicius/IDE's/clion-2017.1.1/bin/cmake/share/cmake-3.7/Modules/CMakeCCompilerABI.c"
+Linking C executable cmTC_ba25b
+"/home/Vinicius/Documentos/Área de trabalho/Vinicius/IDE's/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_ba25b.dir/link.txt --verbose=1
+/usr/lib64/ccache/cc      -v CMakeFiles/cmTC_ba25b.dir/CMakeCCompilerABI.c.o  -o cmTC_ba25b  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper
@@ -59,24 +59,24 @@ Thread model: posix
 gcc version 6.3.1 20161221 (Red Hat 6.3.1-1) (GCC) 
 COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/:/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/:/usr/lib/gcc/x86_64-redhat-linux/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/6.3.1/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ed6ce' '-mtune=generic' '-march=x86-64'
- /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccmaAbHR.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_ed6ce /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../.. CMakeFiles/cmTC_ed6ce.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtend.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ed6ce' '-mtune=generic' '-march=x86-64'
-gmake[1]: Leaving directory '/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ba25b' '-mtune=generic' '-march=x86-64'
+ /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccKX7nMN.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_ba25b /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../.. CMakeFiles/cmTC_ba25b.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtend.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ba25b' '-mtune=generic' '-march=x86-64'
+gmake[1]: Leaving directory '/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_ed6ce/fast"]
-  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_ed6ce.dir/build.make CMakeFiles/cmTC_ed6ce.dir/build]
-  ignore line: [gmake[1]: Entering directory '/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_ed6ce.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/lib64/ccache/cc     -o CMakeFiles/cmTC_ed6ce.dir/CMakeCCompilerABI.c.o   -c "/home/Vinicoreia/Área de trabalho/C++/clion-2017.1.1/bin/cmake/share/cmake-3.7/Modules/CMakeCCompilerABI.c"]
-  ignore line: [Linking C executable cmTC_ed6ce]
-  ignore line: ["/home/Vinicoreia/Área de trabalho/C++/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_ed6ce.dir/link.txt --verbose=1]
-  ignore line: [/usr/lib64/ccache/cc      -v CMakeFiles/cmTC_ed6ce.dir/CMakeCCompilerABI.c.o  -o cmTC_ed6ce  ]
+  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_ba25b/fast"]
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_ba25b.dir/build.make CMakeFiles/cmTC_ba25b.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_ba25b.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/lib64/ccache/cc     -o CMakeFiles/cmTC_ba25b.dir/CMakeCCompilerABI.c.o   -c "/home/Vinicius/Documentos/Área de trabalho/Vinicius/IDE's/clion-2017.1.1/bin/cmake/share/cmake-3.7/Modules/CMakeCCompilerABI.c"]
+  ignore line: [Linking C executable cmTC_ba25b]
+  ignore line: ["/home/Vinicius/Documentos/Área de trabalho/Vinicius/IDE's/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_ba25b.dir/link.txt --verbose=1]
+  ignore line: [/usr/lib64/ccache/cc      -v CMakeFiles/cmTC_ba25b.dir/CMakeCCompilerABI.c.o  -o cmTC_ba25b  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper]
@@ -86,13 +86,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 6.3.1 20161221 (Red Hat 6.3.1-1) (GCC) ]
   ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/:/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/:/usr/lib/gcc/x86_64-redhat-linux/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/6.3.1/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ed6ce' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccmaAbHR.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_ed6ce /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../.. CMakeFiles/cmTC_ed6ce.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtend.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ba25b' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccKX7nMN.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_ba25b /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../.. CMakeFiles/cmTC_ba25b.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtend.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crtn.o]
     arg [/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccmaAbHR.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccKX7nMN.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -107,7 +107,7 @@ Parsed C implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_ed6ce] ==> ignore
+    arg [cmTC_ba25b] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtbegin.o] ==> ignore
@@ -116,7 +116,7 @@ Parsed C implicit link information from above output:
     arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
     arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
     arg [-L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../..]
-    arg [CMakeFiles/cmTC_ed6ce.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_ba25b.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -145,17 +145,17 @@ Parsed C implicit link information from above output:
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: /home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_0f341/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_0f341.dir/build.make CMakeFiles/cmTC_0f341.dir/build
-gmake[1]: Entering directory '/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_0f341.dir/feature_tests.c.o
-/usr/lib64/ccache/cc    -std=c11 -o CMakeFiles/cmTC_0f341.dir/feature_tests.c.o   -c /home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/feature_tests.c
-Linking C executable cmTC_0f341
-"/home/Vinicoreia/Área de trabalho/C++/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_0f341.dir/link.txt --verbose=1
-/usr/lib64/ccache/cc       CMakeFiles/cmTC_0f341.dir/feature_tests.c.o  -o cmTC_0f341 
-gmake[1]: Leaving directory '/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/gmake" "cmTC_5600d/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_5600d.dir/build.make CMakeFiles/cmTC_5600d.dir/build
+gmake[1]: Entering directory '/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5600d.dir/feature_tests.c.o
+/usr/lib64/ccache/cc    -std=c11 -o CMakeFiles/cmTC_5600d.dir/feature_tests.c.o   -c "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/feature_tests.c"
+Linking C executable cmTC_5600d
+"/home/Vinicius/Documentos/Área de trabalho/Vinicius/IDE's/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_5600d.dir/link.txt --verbose=1
+/usr/lib64/ccache/cc       CMakeFiles/cmTC_5600d.dir/feature_tests.c.o  -o cmTC_5600d 
+gmake[1]: Leaving directory '/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -165,17 +165,17 @@ gmake[1]: Leaving directory '/home/Vinicoreia/Documentos/github/Montador-Ligador
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: /home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_df6dc/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_df6dc.dir/build.make CMakeFiles/cmTC_df6dc.dir/build
-gmake[1]: Entering directory '/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_df6dc.dir/feature_tests.c.o
-/usr/lib64/ccache/cc    -std=c99 -o CMakeFiles/cmTC_df6dc.dir/feature_tests.c.o   -c /home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/feature_tests.c
-Linking C executable cmTC_df6dc
-"/home/Vinicoreia/Área de trabalho/C++/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_df6dc.dir/link.txt --verbose=1
-/usr/lib64/ccache/cc       CMakeFiles/cmTC_df6dc.dir/feature_tests.c.o  -o cmTC_df6dc 
-gmake[1]: Leaving directory '/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/gmake" "cmTC_745d9/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_745d9.dir/build.make CMakeFiles/cmTC_745d9.dir/build
+gmake[1]: Entering directory '/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_745d9.dir/feature_tests.c.o
+/usr/lib64/ccache/cc    -std=c99 -o CMakeFiles/cmTC_745d9.dir/feature_tests.c.o   -c "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/feature_tests.c"
+Linking C executable cmTC_745d9
+"/home/Vinicius/Documentos/Área de trabalho/Vinicius/IDE's/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_745d9.dir/link.txt --verbose=1
+/usr/lib64/ccache/cc       CMakeFiles/cmTC_745d9.dir/feature_tests.c.o  -o cmTC_745d9 
+gmake[1]: Leaving directory '/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -185,17 +185,17 @@ gmake[1]: Leaving directory '/home/Vinicoreia/Documentos/github/Montador-Ligador
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: /home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_ebe43/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_ebe43.dir/build.make CMakeFiles/cmTC_ebe43.dir/build
-gmake[1]: Entering directory '/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_ebe43.dir/feature_tests.c.o
-/usr/lib64/ccache/cc    -std=c90 -o CMakeFiles/cmTC_ebe43.dir/feature_tests.c.o   -c /home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/feature_tests.c
-Linking C executable cmTC_ebe43
-"/home/Vinicoreia/Área de trabalho/C++/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_ebe43.dir/link.txt --verbose=1
-/usr/lib64/ccache/cc       CMakeFiles/cmTC_ebe43.dir/feature_tests.c.o  -o cmTC_ebe43 
-gmake[1]: Leaving directory '/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/gmake" "cmTC_56d8d/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_56d8d.dir/build.make CMakeFiles/cmTC_56d8d.dir/build
+gmake[1]: Entering directory '/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_56d8d.dir/feature_tests.c.o
+/usr/lib64/ccache/cc    -std=c90 -o CMakeFiles/cmTC_56d8d.dir/feature_tests.c.o   -c "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/feature_tests.c"
+Linking C executable cmTC_56d8d
+"/home/Vinicius/Documentos/Área de trabalho/Vinicius/IDE's/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_56d8d.dir/link.txt --verbose=1
+/usr/lib64/ccache/cc       CMakeFiles/cmTC_56d8d.dir/feature_tests.c.o  -o cmTC_56d8d 
+gmake[1]: Leaving directory '/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -203,30 +203,30 @@ gmake[1]: Leaving directory '/home/Vinicoreia/Documentos/github/Montador-Ligador
     Feature record: C_FEATURE:0c_static_assert
     Feature record: C_FEATURE:0c_variadic_macros
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_5cb05/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_5cb05.dir/build.make CMakeFiles/cmTC_5cb05.dir/build
-gmake[1]: Entering directory '/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_5cb05.dir/testCXXCompiler.cxx.o
-/usr/lib64/ccache/c++      -o CMakeFiles/cmTC_5cb05.dir/testCXXCompiler.cxx.o -c /home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_5cb05
-"/home/Vinicoreia/Área de trabalho/C++/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_5cb05.dir/link.txt --verbose=1
-/usr/lib64/ccache/c++        CMakeFiles/cmTC_5cb05.dir/testCXXCompiler.cxx.o  -o cmTC_5cb05 
-gmake[1]: Leaving directory '/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/gmake" "cmTC_34147/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_34147.dir/build.make CMakeFiles/cmTC_34147.dir/build
+gmake[1]: Entering directory '/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_34147.dir/testCXXCompiler.cxx.o
+/usr/lib64/ccache/c++      -o CMakeFiles/cmTC_34147.dir/testCXXCompiler.cxx.o -c "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp/testCXXCompiler.cxx"
+Linking CXX executable cmTC_34147
+"/home/Vinicius/Documentos/Área de trabalho/Vinicius/IDE's/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_34147.dir/link.txt --verbose=1
+/usr/lib64/ccache/c++        CMakeFiles/cmTC_34147.dir/testCXXCompiler.cxx.o  -o cmTC_34147 
+gmake[1]: Leaving directory '/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_58715/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_58715.dir/build.make CMakeFiles/cmTC_58715.dir/build
-gmake[1]: Entering directory '/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_58715.dir/CMakeCXXCompilerABI.cpp.o
-/usr/lib64/ccache/c++      -o CMakeFiles/cmTC_58715.dir/CMakeCXXCompilerABI.cpp.o -c "/home/Vinicoreia/Área de trabalho/C++/clion-2017.1.1/bin/cmake/share/cmake-3.7/Modules/CMakeCXXCompilerABI.cpp"
-Linking CXX executable cmTC_58715
-"/home/Vinicoreia/Área de trabalho/C++/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_58715.dir/link.txt --verbose=1
-/usr/lib64/ccache/c++       -v CMakeFiles/cmTC_58715.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_58715  
+Run Build Command:"/usr/bin/gmake" "cmTC_941ea/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_941ea.dir/build.make CMakeFiles/cmTC_941ea.dir/build
+gmake[1]: Entering directory '/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_941ea.dir/CMakeCXXCompilerABI.cpp.o
+/usr/lib64/ccache/c++      -o CMakeFiles/cmTC_941ea.dir/CMakeCXXCompilerABI.cpp.o -c "/home/Vinicius/Documentos/Área de trabalho/Vinicius/IDE's/clion-2017.1.1/bin/cmake/share/cmake-3.7/Modules/CMakeCXXCompilerABI.cpp"
+Linking CXX executable cmTC_941ea
+"/home/Vinicius/Documentos/Área de trabalho/Vinicius/IDE's/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_941ea.dir/link.txt --verbose=1
+/usr/lib64/ccache/c++       -v CMakeFiles/cmTC_941ea.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_941ea  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper
@@ -236,24 +236,24 @@ Thread model: posix
 gcc version 6.3.1 20161221 (Red Hat 6.3.1-1) (GCC) 
 COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/:/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/:/usr/lib/gcc/x86_64-redhat-linux/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/6.3.1/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_58715' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccA0G4UW.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_58715 /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../.. CMakeFiles/cmTC_58715.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtend.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_58715' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-gmake[1]: Leaving directory '/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_941ea' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccZyqX3y.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_941ea /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../.. CMakeFiles/cmTC_941ea.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtend.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_941ea' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+gmake[1]: Leaving directory '/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_58715/fast"]
-  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_58715.dir/build.make CMakeFiles/cmTC_58715.dir/build]
-  ignore line: [gmake[1]: Entering directory '/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_58715.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/lib64/ccache/c++      -o CMakeFiles/cmTC_58715.dir/CMakeCXXCompilerABI.cpp.o -c "/home/Vinicoreia/Área de trabalho/C++/clion-2017.1.1/bin/cmake/share/cmake-3.7/Modules/CMakeCXXCompilerABI.cpp"]
-  ignore line: [Linking CXX executable cmTC_58715]
-  ignore line: ["/home/Vinicoreia/Área de trabalho/C++/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_58715.dir/link.txt --verbose=1]
-  ignore line: [/usr/lib64/ccache/c++       -v CMakeFiles/cmTC_58715.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_58715  ]
+  ignore line: [Run Build Command:"/usr/bin/gmake" "cmTC_941ea/fast"]
+  ignore line: [/usr/bin/gmake -f CMakeFiles/cmTC_941ea.dir/build.make CMakeFiles/cmTC_941ea.dir/build]
+  ignore line: [gmake[1]: Entering directory '/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_941ea.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/lib64/ccache/c++      -o CMakeFiles/cmTC_941ea.dir/CMakeCXXCompilerABI.cpp.o -c "/home/Vinicius/Documentos/Área de trabalho/Vinicius/IDE's/clion-2017.1.1/bin/cmake/share/cmake-3.7/Modules/CMakeCXXCompilerABI.cpp"]
+  ignore line: [Linking CXX executable cmTC_941ea]
+  ignore line: ["/home/Vinicius/Documentos/Área de trabalho/Vinicius/IDE's/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_941ea.dir/link.txt --verbose=1]
+  ignore line: [/usr/lib64/ccache/c++       -v CMakeFiles/cmTC_941ea.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_941ea  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper]
@@ -263,13 +263,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 6.3.1 20161221 (Red Hat 6.3.1-1) (GCC) ]
   ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/:/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/:/usr/lib/gcc/x86_64-redhat-linux/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/6.3.1/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_58715' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccA0G4UW.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_58715 /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../.. CMakeFiles/cmTC_58715.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtend.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_941ea' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/6.3.1/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccZyqX3y.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_941ea /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../.. CMakeFiles/cmTC_941ea.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtend.o /usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crtn.o]
     arg [/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/6.3.1/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccA0G4UW.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccZyqX3y.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -284,7 +284,7 @@ Parsed CXX implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_58715] ==> ignore
+    arg [cmTC_941ea] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../lib64/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/6.3.1/crtbegin.o] ==> ignore
@@ -293,7 +293,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
     arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
     arg [-L/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../..]
-    arg [CMakeFiles/cmTC_58715.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_941ea.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -320,17 +320,17 @@ Parsed CXX implicit link information from above output:
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: /home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_3f2a3/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_3f2a3.dir/build.make CMakeFiles/cmTC_3f2a3.dir/build
-gmake[1]: Entering directory '/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_3f2a3.dir/feature_tests.cxx.o
-/usr/lib64/ccache/c++     -std=c++14 -o CMakeFiles/cmTC_3f2a3.dir/feature_tests.cxx.o -c /home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_3f2a3
-"/home/Vinicoreia/Área de trabalho/C++/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_3f2a3.dir/link.txt --verbose=1
-/usr/lib64/ccache/c++        CMakeFiles/cmTC_3f2a3.dir/feature_tests.cxx.o  -o cmTC_3f2a3 
-gmake[1]: Leaving directory '/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/gmake" "cmTC_43b9e/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_43b9e.dir/build.make CMakeFiles/cmTC_43b9e.dir/build
+gmake[1]: Entering directory '/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_43b9e.dir/feature_tests.cxx.o
+/usr/lib64/ccache/c++     -std=c++14 -o CMakeFiles/cmTC_43b9e.dir/feature_tests.cxx.o -c "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/feature_tests.cxx"
+Linking CXX executable cmTC_43b9e
+"/home/Vinicius/Documentos/Área de trabalho/Vinicius/IDE's/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_43b9e.dir/link.txt --verbose=1
+/usr/lib64/ccache/c++        CMakeFiles/cmTC_43b9e.dir/feature_tests.cxx.o  -o cmTC_43b9e 
+gmake[1]: Leaving directory '/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -393,17 +393,17 @@ gmake[1]: Leaving directory '/home/Vinicoreia/Documentos/github/Montador-Ligador
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: /home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_8984f/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_8984f.dir/build.make CMakeFiles/cmTC_8984f.dir/build
-gmake[1]: Entering directory '/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_8984f.dir/feature_tests.cxx.o
-/usr/lib64/ccache/c++     -std=c++11 -o CMakeFiles/cmTC_8984f.dir/feature_tests.cxx.o -c /home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_8984f
-"/home/Vinicoreia/Área de trabalho/C++/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_8984f.dir/link.txt --verbose=1
-/usr/lib64/ccache/c++        CMakeFiles/cmTC_8984f.dir/feature_tests.cxx.o  -o cmTC_8984f 
-gmake[1]: Leaving directory '/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/gmake" "cmTC_6f6e6/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_6f6e6.dir/build.make CMakeFiles/cmTC_6f6e6.dir/build
+gmake[1]: Entering directory '/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6f6e6.dir/feature_tests.cxx.o
+/usr/lib64/ccache/c++     -std=c++11 -o CMakeFiles/cmTC_6f6e6.dir/feature_tests.cxx.o -c "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/feature_tests.cxx"
+Linking CXX executable cmTC_6f6e6
+"/home/Vinicius/Documentos/Área de trabalho/Vinicius/IDE's/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_6f6e6.dir/link.txt --verbose=1
+/usr/lib64/ccache/c++        CMakeFiles/cmTC_6f6e6.dir/feature_tests.cxx.o  -o cmTC_6f6e6 
+gmake[1]: Leaving directory '/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -466,17 +466,17 @@ gmake[1]: Leaving directory '/home/Vinicoreia/Documentos/github/Montador-Ligador
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: /home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/gmake" "cmTC_07be2/fast"
-/usr/bin/gmake -f CMakeFiles/cmTC_07be2.dir/build.make CMakeFiles/cmTC_07be2.dir/build
-gmake[1]: Entering directory '/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_07be2.dir/feature_tests.cxx.o
-/usr/lib64/ccache/c++     -std=c++98 -o CMakeFiles/cmTC_07be2.dir/feature_tests.cxx.o -c /home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_07be2
-"/home/Vinicoreia/Área de trabalho/C++/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_07be2.dir/link.txt --verbose=1
-/usr/lib64/ccache/c++        CMakeFiles/cmTC_07be2.dir/feature_tests.cxx.o  -o cmTC_07be2 
-gmake[1]: Leaving directory '/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/gmake" "cmTC_b94db/fast"
+/usr/bin/gmake -f CMakeFiles/cmTC_b94db.dir/build.make CMakeFiles/cmTC_b94db.dir/build
+gmake[1]: Entering directory '/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b94db.dir/feature_tests.cxx.o
+/usr/lib64/ccache/c++     -std=c++98 -o CMakeFiles/cmTC_b94db.dir/feature_tests.cxx.o -c "/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/feature_tests.cxx"
+Linking CXX executable cmTC_b94db
+"/home/Vinicius/Documentos/Área de trabalho/Vinicius/IDE's/clion-2017.1.1/bin/cmake/bin/cmake" -E cmake_link_script CMakeFiles/cmTC_b94db.dir/link.txt --verbose=1
+/usr/lib64/ccache/c++        CMakeFiles/cmTC_b94db.dir/feature_tests.cxx.o  -o cmTC_b94db 
+gmake[1]: Leaving directory '/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
