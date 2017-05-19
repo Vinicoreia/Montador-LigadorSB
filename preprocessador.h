@@ -7,6 +7,7 @@
 #include <fstream>
 #include <sstream>
 #include <map>
+
 using namespace std;
 void transformaemuppercase(ifstream &assembly, fstream &semcomentarios);
 map<string, string> removeComentariosEAchaEqu(fstream &uppertexto, fstream &semcomentarios);

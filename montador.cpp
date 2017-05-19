@@ -21,7 +21,9 @@ using namespace std;
 int numLinha;
 int flagErros = -1;
 int flagModulo = 0;
-
+int contadorDefinicoes = 0;
+int contadorUso = 0;
+int contadorSimbolos = 0;
 typedef struct {
     string instrucaoOuDiretiva;
     int operando;
@@ -107,17 +109,17 @@ size_t VerificaSeLinhaValida(string checaCaracter) {
     /*Lembrar que aqui a linha ja não é sensível ao caso
      *
      */
-    size_t posicao = checaCaracter.find_first_not_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789+-*/=|&!?#%(){}[]_\'\",.;<>");
-    if (posicao != string::npos) {
-        cout << "Erro lexico na linha " << numLinha << " caractere invalido";
-        return posicao;
+    size_t posicaoChar = checaCaracter.find_first_not_of(
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789+-*/=|&!?#%(){}[]_\'\",.:;<>\n ");
+    if (posicaoChar != string::npos) {
+        cout << "Erro lexico na linha " << numLinha << " caractere invalido" << endl;
+        return posicaoChar;
     } else
         return 10000; // retorno se não existe caractere especial
 }
 
 // como vetor podemos usar a funcao find
-int
-PesquisaInstrucaoEDiretiva(string instrOuDiretiva, vector<tabInstrucaoOuDiretiva> vetorInstOuDiretiva) {
+int PesquisaInstrucaoEDiretiva(string instrOuDiretiva, vector<tabInstrucaoOuDiretiva> vetorInstOuDiretiva) {
     vector<tabInstrucaoOuDiretiva>::iterator it;
     /*O predicado abaixo é usado para a funcao find_if*/
     auto predicado = [instrOuDiretiva](const tabInstrucaoOuDiretiva &item) {
@@ -144,8 +146,8 @@ int PesquisaSimbolo(string simbol, vector<tabSimbolos> vetorSimbolos) {
 }
 
 bool ProcuraRotulo(string linha) {
-    size_t posicao = linha.find_first_of(":");
-    return posicao != string::npos;
+    size_t posicaoChar = linha.find_first_of(":");
+    return posicaoChar != string::npos;
 }
 
 void checaSeRotuloValido(string rotulo) {
@@ -155,8 +157,9 @@ void checaSeRotuloValido(string rotulo) {
 
     }
     // se rotulo comeca com numero
-    if (rotulo.find_first_of("0123456789") == 0) {
-        cout << "Erro Sintatico na linha " << numLinha << " Primeira letra do rotulo nao pode ser numero";
+    if (rotulo.find_first_not_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ") == 0) {
+        cout << "Erro Sintatico na linha " << numLinha
+             << " Primeira letra do rotulo nao pode ser numero ou caractere especial";
 
     }
 }
@@ -164,13 +167,11 @@ void checaSeRotuloValido(string rotulo) {
 void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<tabDef> vetorDefinicoes,
                       vector<tabUso> tabelaUso) {
     int posicao = 0;
-    int contadorSimbolos = 0;
     int i = 0, j = 0, chartoint = 0;
     int retorno;
     int offset;
     char c;
     string proxtoken;
-    string aux;
     string SPACE = "SPACE";
     string EXTERN = "EXTERN";
     string PUBLIC = "PUBLIC";
@@ -181,6 +182,7 @@ void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<ta
     GeraTabelaInstrucoesEDiretivas(vetorInstrucao, vetorDiretiva);
 
     if (ProcuraRotulo(linha)) {
+        /*Caso ache um rótulo, verifica se ta na tabela de simbolos, se não tiver adicione*/
         string rotulo = linha.substr(0, linha.find_first_of(":") - 1); // pega a primeira palavra como rotulo
         checaSeRotuloValido(rotulo);
 
@@ -227,33 +229,74 @@ void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<ta
                             posicao = posicao + vetorDiretiva[retorno].operando;
                         }
                     }
-                }else{
-                    cout << "Erro Sintatico na linha " << numLinha << " Diretiva ou Instrucao " << rotulo << " invalida";
+                } else {
+                    cout << "Erro Sintatico na linha " << numLinha << " Diretiva ou Instrucao " << rotulo
+                         << " invalida";
                     flagErros++;
                 }
             }
 
         }
+    } else {/*Caso não ache um rótulo*/
+        proxtoken = linha.substr(0, linha.find_first_of(' \n') - 1);
+        linha = linha.substr(proxtoken.size() + 1, linha.size());
+        size_t posicaoChar;
+        if (proxtoken == "SECTION") {
+            //nao faz nada
+        } else if (proxtoken == "PUBLIC") {
+            flagModulo = 1; // existe outro modulo e devemos copiar o simbolo pra a TD
+            proxtoken = linha.substr(linha.find_first_not_of(" "), linha.find_first_of(" \t") - 1);
+            vetorDefinicoes[contadorDefinicoes].simbolo = proxtoken;
+            contadorDefinicoes++;
+        } else {
+            retorno = PesquisaInstrucaoEDiretiva(proxtoken, vetorInstrucao);
+            if (retorno != -1) {
+                posicao = posicao + vetorInstrucao[retorno].operando + 1;
+            } else {
+                retorno = PesquisaInstrucaoEDiretiva(proxtoken, vetorDiretiva);
+                if (retorno != -1) {
+                    if (retorno != 6) {
+                        cout << "Erro Sintatico na linha " << numLinha << " Diretiva " << proxtoken << " sem rotulo"
+                             << endl;
+                        flagErros ++;
+                    }
+                    if ((retorno >= 1) && (retorno <= 3)) {
+                        cout << "Erro Semantico na linha " << numLinha << " Diretiva " << proxtoken << " fora da secao de dados"
+                             << endl;
+                        flagErros++;
+                    }
+                } else {
+
+                    cout << "Erro Sintatico na linha " << numLinha << " Diretiva ou instrucao " << proxtoken << " nao identificada"
+                         << endl;
+                    flagErros++;
+
+                }
+                posicao = posicao + 1;
+            }
+        }
     }
-
-    //primeiramente vamos achar os rotulos
-
 }
 
-int main_montador() {
+int Monta(fstream &preprocessado) {
     //primeiro vou escrever a ideia
     //recebe o arquivo preprocessado;
-    fstream assembly;
     int contador_posicao = 0;
     int contador_linha = 1;
-    /*vector<tabSimbolos> vetorSimbolos;
+    string linha;
+    vector<tabSimbolos> vetorSimbolos;
     vector<tabDef> vetorDef;
     vector<tabUso> vetorUso;
-    char c;
-    char string[1000], codigoObjeto[1000], TU[1000], TD[1000];
-    int i, buff = 1;*/
-    string linha;
-    while (getline(assembly, linha)) {
+
+    numLinha = 1;
+    while (getline(preprocessado, linha)) {
+
+        VerificaSeLinhaValida(linha);
+        if (!linha.empty()) {
+            PrimeiraPassagem(linha, vetorSimbolos, vetorDef, vetorUso);
+        }
+        numLinha += 1;
+
         // aqui eu leio linha por linha do programa;
 
         // na primeira passagem eu construo a tabela de simbolos;

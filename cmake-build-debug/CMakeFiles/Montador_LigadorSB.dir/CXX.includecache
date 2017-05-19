@@ -25,8 +25,30 @@ algorithm
 -
 preprocessador.h
 /home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/preprocessador.h
+montador.h
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/montador.h
 
 /home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/montador.cpp
+iostream
+-
+fstream
+-
+sstream
+-
+string
+-
+cstring
+-
+map
+-
+algorithm
+-
+vector
+-
+numeric
+-
+
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/montador.h
 iostream
 -
 fstream

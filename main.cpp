@@ -6,7 +6,7 @@
 #include <map>
 #include <algorithm>
 #include "preprocessador.h"
-
+#include "montador.h"
 using namespace std;
 
 // Essa função retorna a extensão o arquivo
@@ -31,9 +31,16 @@ int main(int argc, char *argv[]) {
             //chama preprocessador
             preprocessa(assembly);
 
-            // Agora precisamos desenvolver o montador e
+            // Agora precisamos desenvolver o montador
 
             assembly.close();
+            fstream preprocessado("preprocessado.pre");
+
+            Monta(preprocessado);
+
+            preprocessado.close();
+
+
             }
             else
             cout << "Erro ao abrir arquivo";
