@@ -146,11 +146,10 @@ void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<ta
         } else { // insere o simbolo na tabela de simbolos
             vetorSimbolos.push_back({rotulo, posicao});
             contadorSimbolos++;
-            if (linha.find_first_of(" \n")!= string::npos){
-                proxtoken ="";
+            if (linha.find_first_of(" \n") != string::npos) {
+                proxtoken = "";
                 proxtoken = linha.substr(0, linha.find_first_of(" \n"));
-            }
-            else{
+            } else {
                 linha.append("\n");
                 proxtoken = linha.substr(0, linha.find_first_of("\n"));
             }
@@ -239,6 +238,34 @@ void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<ta
     }
 }
 
+void atualizaTabelaDeDefinicao(vector<tabSimbolos> vetorSimbolos, vector<tabDef> vetorDefinicoes) {
+    /*
+     * Copia as posicoes da tabela de simbolos para a tabela de definicoes caso exista mais de um modulo.
+     * */
+    string simboloProcurado;
+    vector<tabDef>::iterator itDef;
+    vector<tabSimbolos>::iterator itSimb;
+    int indice;
+    if (flagModulo == 1) {
+        for (int i = 0; i < contadorDefinicoes; i++) {
+            simboloProcurado = vetorDef[i].simbolo; // procura esse simbolo na tabela de Simbolos.
+            auto predicado = [simboloProcurado](const tabSimbolos &item) {
+                return item.simbolo == simboloProcurado;
+            };
+            itSimb = find_if(begin(vetorSimbolos), end(vetorSimbolos), predicado);
+            if (itSimb != end(vetorSimbolos)) {
+                /*Atualiza a tabela de definicoes com as novas posicoes*/
+                indice = (int) distance(vetorSimbolos.begin(), itSimb);
+                vetorDefinicoes[i].posicao = vetorSimbolos[indice].posicao;
+            } else {
+                flagErros++;
+                cout << "\nErro Semantico na linha " << numLinha << "Simbolo " << simboloProcurado << " nao declarado"
+                     << endl;
+            }
+
+        }
+    }
+}
 
 
 int Monta(fstream &preprocessado) {
