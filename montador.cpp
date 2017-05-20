@@ -69,7 +69,7 @@ size_t VerificaSeLinhaValida(string checaCaracter) {
     size_t posicaoChar = checaCaracter.find_first_not_of(
             "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789+-*/=|&!?#%(){}[]_\'\",.:;<>\n ");
     if (posicaoChar != string::npos) {
-        cout << "\nErro lexico na linha " << numLinha << " caractere invalido" << endl;
+        cout << "\nErro lexico na linha " << numLinha << " caractere"<<posicaoChar<<" invalido" << endl;
         return posicaoChar;
     } else
         return 10000; // retorno se não existe caractere especial
