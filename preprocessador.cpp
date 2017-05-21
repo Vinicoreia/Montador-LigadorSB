@@ -48,16 +48,16 @@ map<string, string> removeComentariosEAchaEqu(fstream &uppertexto, fstream &semc
         posicao = (int) linha.find_first_of(';');
         if (posicao >= 0) {
             //se existe ; na string, remove e coloca no arquivo de saida
-            linha.erase(posicao, string::npos); // apaga do ; até o final da linha
+            linha.erase((unsigned)posicao, string::npos); // apaga do ; até o final da linha
             linha.erase(linha.find_last_not_of(" ") + 1); // faz trim dos espaços em branco no final da linha
         }
         temMacro = (int) linha.find("EQU");
         if (temMacro >= 0) {
             posicaoMacro = (int) linha.find_first_of(':');
-            macro = linha.substr(0, posicaoMacro);
+            macro = linha.substr(0, (unsigned)posicaoMacro);
             posicaoFimValor = (int) linha.find_last_not_of(' ');
             posicaoInicioValor = (int) linha.find_last_of(' ');
-            valorMacro = linha.substr(posicaoInicioValor + 1, posicaoFimValor);
+            valorMacro = linha.substr((unsigned)posicaoInicioValor + 1, (unsigned)posicaoFimValor);
             macroValor.insert(pair<string, string>(macro, valorMacro));
             getline(uppertexto, linha);
         }

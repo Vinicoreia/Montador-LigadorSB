@@ -703,7 +703,7 @@ int Monta(fstream &preprocessado, string nomeArquivoSaida) {
     cout << endl << "Codigo Objeto em memoria: " << codigoObjeto;
 
     if (flagErros == 0) {
-        nomeArquivoSaida.append("o");
+        nomeArquivoSaida.append(".o");
         fstream arquivoObjeto(nomeArquivoSaida, fstream::in | fstream::out | fstream::trunc);
         arquivoObjeto << codigoObjeto;
         arquivoObjeto.close();
