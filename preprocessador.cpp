@@ -18,9 +18,13 @@ using namespace std;
  * caso o programa receba o comando -p deve gerar apenas o arquivo de pre-processamento com extensão .pre
  **/
 
-// lembrar que não é case sensitive, logo precisamos criar uma função pra jogar o codigo pra uppercase
 
-void transformaemuppercase(fstream &assembly, fstream &semcomentarios) {
+
+/*
+ * Essa funcao transforma o texto do arquivo em uppercase
+ *
+ * */
+void TransformaEmUpperCase(fstream &assembly, fstream &semcomentarios) {
     string linha;
     while (getline(assembly, linha)) {
         transform(linha.begin(), linha.end(), linha.begin(), ::toupper);
@@ -29,8 +33,10 @@ void transformaemuppercase(fstream &assembly, fstream &semcomentarios) {
     }
 }
 
-
-map<string, string> removeComentariosEAchaEqu(fstream &uppertexto, fstream &semcomentarios) { // porque precisa do &?
+/*
+ * Essa funcao remove os comentarios enquanto procura pela diretiva EQU
+ * */
+map<string, string> RemoveComentariosEAchaEQU(fstream &uppertexto, fstream &semcomentarios) {
     string linha;
     cout << "Procurando macros";
     int temMacro;
@@ -66,7 +72,10 @@ map<string, string> removeComentariosEAchaEqu(fstream &uppertexto, fstream &semc
     return macroValor;
 }
 
-void removeEspacosEmBrancoESubstituiEQU(fstream &semcomentarios, fstream &semEspacos, map<string, string> macros) {
+/*
+ * Essa funcao remove os espacos em branco desnecessarios e substitui a diretiva EQU pelo seu respectivo valor
+ * */
+void RemoveEspacosEmBrancoESubstituiEqu(fstream &semcomentarios, fstream &semEspacos, map<string, string> macros) {
     string linha;
     string novalinha;
     string token;
@@ -104,8 +113,10 @@ void removeEspacosEmBrancoESubstituiEQU(fstream &semcomentarios, fstream &semEsp
     }
 }
 
-
-void expandemacroIF(fstream &semEspacos, fstream &macroexpandido) {
+/*
+ * Essa funcao expande a macro IF durante o preprocessamento
+ * */
+void ExpandeMacroIF(fstream &semEspacos, fstream &macroexpandido) {
     string linha;
     string flagIF = "1";
     int posicao;
@@ -114,7 +125,7 @@ void expandemacroIF(fstream &semEspacos, fstream &macroexpandido) {
         posicao = (int) linha.find("IF");
         if (posicao >= 0) {
             posicao = (int) linha.find_last_of(' ');
-            flagIF = linha.substr(posicao + 1);
+            flagIF = linha.substr((unsigned) (posicao + 1));
             getline(semEspacos, linha);
         }
         if (flagIF == "0") {
@@ -135,20 +146,21 @@ void expandemacroIF(fstream &semEspacos, fstream &macroexpandido) {
     }
 }
 
-int preprocessa(fstream &arquivoEntrada, string nomeArquivoSaida) {
-    //essa função chama os outros metodos para preprocessar o arquivo
+/* Essa função chama os outros metodos para preprocessar o arquivo
+*/
+int Preprocessa(fstream &arquivoEntrada, string nomeArquivoSaida) {
     fstream arqA;
     fstream arqB; // dependendo da operação o arquivo A é o de saída ou de entrada
     map<string, string> retornoMacros;
     //abrir o arquivo de acordo com a função;
     arqA.open("preprocessando.pre", fstream::out | fstream::in | fstream::trunc);
-    transformaemuppercase(arquivoEntrada, arqA);
+    TransformaEmUpperCase(arquivoEntrada, arqA);
     arqA.clear();// limpa failbit
     arqA.seekg(0, arqA.beg);// volta para o inicio do arquivo
 
     arqB.open("preprocessado.pre",
               fstream::out | fstream::in | fstream::trunc); //trunc cria o arquivo mesmo que n exista
-    retornoMacros = removeComentariosEAchaEqu(arqA, arqB);
+    retornoMacros = RemoveComentariosEAchaEQU(arqA, arqB);
 
     arqA.close();
     arqB.close();
@@ -157,8 +169,8 @@ int preprocessa(fstream &arquivoEntrada, string nomeArquivoSaida) {
     rename("preprocessado.pre", "preprocessando.pre");
 
     arqA.open("preprocessando.pre", fstream::in);
-    arqB.open("preprocessado.pre", fstream::out | fstream::trunc); //trunc cria o arquivo mesmo que n exista
-    removeEspacosEmBrancoESubstituiEQU(arqA, arqB, retornoMacros);
+    arqB.open("preprocessado.pre", fstream::out | fstream::trunc);
+    RemoveEspacosEmBrancoESubstituiEqu(arqA, arqB, retornoMacros);
     arqA.close();
     arqB.close();
 
@@ -166,8 +178,8 @@ int preprocessa(fstream &arquivoEntrada, string nomeArquivoSaida) {
     rename("preprocessado.pre", "preprocessando.pre");
 
     arqA.open("preprocessando.pre", fstream::in);
-    arqB.open("preprocessado.pre", fstream::out | fstream::trunc); //trunc cria o arquivo mesmo que n exista
-    expandemacroIF(arqA, arqB);
+    arqB.open("preprocessado.pre", fstream::out | fstream::trunc);
+    ExpandeMacroIF(arqA, arqB);
     arqA.close();
     arqB.close();
 
@@ -178,4 +190,3 @@ int preprocessa(fstream &arquivoEntrada, string nomeArquivoSaida) {
     rename("preprocessado.pre", nomeArquivoSaida.c_str());
     return 1;
 }
-// eh mais facil de expandir macros com os tokens separados.

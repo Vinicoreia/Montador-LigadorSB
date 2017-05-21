@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
             fstream entrada(nomeArquivoEntrada);
             if (entrada.is_open()) {
                 nomeArquivoEntrada = nomeArquivoEntrada.substr(0, nomeArquivoEntrada.find_first_of("."));
-                preprocessa(entrada, nomeArquivoSaida);
+                Preprocessa(entrada, nomeArquivoSaida);
                 entrada.close();
             } else {
                 cout << "\nErro ao abrir o arquivo!";
@@ -56,7 +56,7 @@ int main(int argc, char *argv[]) {
                 nomeArquivoEntrada.append((".asm"));
                 fstream entradaAsm(nomeArquivoEntrada);
                 if (entradaAsm.is_open()) {
-                    preprocessa(entradaAsm, nomeArquivoSaida);
+                    Preprocessa(entradaAsm, nomeArquivoSaida);
                     entradaAsm.close();
                     string arqPreProcessado = nomeArquivoSaida;
                     arqPreProcessado.append(".pre");
@@ -64,8 +64,11 @@ int main(int argc, char *argv[]) {
                     if(saidaPreProcessamento.is_open()){
                         Monta(saidaPreProcessamento, nomeArquivoSaida);
                         saidaPreProcessamento.close();
+                        if(remove(nomeArquivoSaida.append(".pre").c_str())!=0){
+                            cout<< "\nErro ao remover arquivo temporario de preprocessamento\n";
+                        }
                     }else{
-                        cout<< "Erro ao abrir arquivo para montagem";
+                        cout<< "\nErro ao abrir arquivo para montagem\n";
                     }
                 } else {
                     cout << "\nErro ao abrir o arquivo";

@@ -11,14 +11,14 @@
 
 using namespace std;
 
-void transformaemuppercase(fstream &assembly, fstream &semcomentarios);
+void Transformaemuppercase(fstream &assembly, fstream &semcomentarios);
 
-map<string, string> removeComentariosEAchaEqu(fstream &uppertexto, fstream &semcomentarios);
+map<string, string> RemoveComentariosEAchaEqu(fstream &uppertexto, fstream &semcomentarios);
 
-void removeEspacosEmBrancoESubstituiEQU(fstream &semcomentarios, fstream &semEspacos, map<string, string> macros);
+void RemoveEspacosEmBrancoESubstituiEQU(fstream &semcomentarios, fstream &semEspacos, map<string, string> macros);
 
-void expandemacroIF(fstream &semEspacos, fstream &macroexpandido);
+void ExpandemacroIF(fstream &semEspacos, fstream &macroexpandido);
 
-int preprocessa(fstream &assembly, string nomeArquivoSaida);
+int Preprocessa(fstream &assembly, string nomeArquivoSaida);
 
 #endif //MONTADOR_LIGADORSB_PREPROCESSADOR_H

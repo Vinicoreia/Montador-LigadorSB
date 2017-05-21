@@ -18,6 +18,14 @@
 #include <numeric>
 #include "montador.h"
 
+
+/*---------------------------------------------------------------------------------------------
+ *| O codigo abaixa representa um montador de duas passagens do assembly visto em sala de aula|
+ *|___________________________________________________________________________________________|
+ * */
+
+
+
 using namespace std;
 int numLinha;
 int flagErros = 0;
@@ -34,12 +42,13 @@ vector<tabDef> vetorDefinicoes;
 vector<tabUso> vetorUso;
 
 /*
- * Como o número de instruções e diretivas é pequeno resolvemos criar a tabela ao invés de ler a tabela de um arquivo.
+ * Como o número de instruções e diretivas é pequeno resolvi criar a tabela ao inves de ler a tabela de um arquivo.
  * */
+
 void GeraTabelaInstrucoesEDiretivas() {
     /*
      * VETOR DE DIRETIVAS
-//     * */
+     * */
     vetorDiretiva.push_back({"SECTION", 0});
     vetorDiretiva.push_back({"SPACE", 1});
     vetorDiretiva.push_back({"CONST", 1});
@@ -50,8 +59,10 @@ void GeraTabelaInstrucoesEDiretivas() {
     vetorDiretiva.push_back({"PUBLIC", 0});
     vetorDiretiva.push_back({"EXTERN", 0});
 
-//    /* Inicializando as instruções como um vetor de struct permite que o código da instrução seja o indice+1*/
-//    /*Da mesma maneira o tamaho da instrução será o número de operandos + 1*/
+    /*
+     * Inicializando as instruções como um vetor de struct permite que o código da instrução seja o indice+1
+     * Da mesma maneira o tamaho da instrução será o número de operandos + 1
+    */
     vetorInstrucao.push_back({"ADD", 1});
     vetorInstrucao.push_back({"SUB", 1});
     vetorInstrucao.push_back({"MULT", 1});
@@ -68,6 +79,11 @@ void GeraTabelaInstrucoesEDiretivas() {
     vetorInstrucao.push_back({"STOP", 0});
 }
 
+
+/*
+ * Essa funcao verifica se existe simbolo especial na linha
+ *
+ * */
 size_t VerificaSeLinhaValida(string checaCaracter) {
     /*Lembrar que aqui a linha ja não é sensível ao caso
      *
@@ -80,11 +96,15 @@ size_t VerificaSeLinhaValida(string checaCaracter) {
     }
 }
 
-// como vetor podemos usar a funcao find
+/*
+ * Essa funcao pesquisa se existe instrucao ou diretiva na tabela de instrucao ou de diretivas
+ *      retorna -1 caso nao exista
+ *      retorna a posicao caso exista
+ * */
 int PesquisaInstrucaoEDiretiva(string instrOuDiretiva, vector<tabInstrucaoOuDiretiva> vetorInstOuDiretiva) {
     vector<tabInstrucaoOuDiretiva>::iterator it;
-    /*O predicado abaixo é usado para a funcao find_if*/
 
+    /*O predicado abaixo é usado para a funcao find_if*/
     auto predicado = [&instrOuDiretiva](const tabInstrucaoOuDiretiva &item) {
         return item.instrucaoOuDiretiva == instrOuDiretiva;
     };
@@ -95,7 +115,12 @@ int PesquisaInstrucaoEDiretiva(string instrOuDiretiva, vector<tabInstrucaoOuDire
         return -1;
 }
 
-// a pesquisa nao pode ser igual pois os tipos dos iteradores sao diferentes
+
+/*
+ * Essa funcao Pesquisa se existe simbolo na tabela de simbolos
+ *      retorna -1 caso nao exista
+ *      retorna a posicao caso exista
+ * */
 int PesquisaSimbolo(string simbol, vector<tabSimbolos> vetorSimbolos) {
     vector<tabSimbolos>::iterator it;
     auto predicado = [&simbol](tabSimbolos &item) {
@@ -109,12 +134,17 @@ int PesquisaSimbolo(string simbol, vector<tabSimbolos> vetorSimbolos) {
         return -1;
 }
 
+/*
+ * Essa funcao retorna 1 se existe rotulo na linha
+ * */
 bool ProcuraRotulo(string linha) {
     size_t posicaoChar = linha.find_first_of(":");
     return posicaoChar != string::npos;
 }
-
-void checaSeRotuloValido(string rotulo) {
+/*
+ * Essa funcao checa se o rotulo nao possui caracter especial nem tamanho maior que 100 caracteres
+ * */
+void ChecaSeRotuloValido(string rotulo) {
     //  se o rotulo tem mais de 100 caracteres
     if (rotulo.size() > 100) {
         cout << "\nErro Sintatico na linha " << numLinha << " Tamanho maximo permitido pro rotulo eh 100 caracteres\n";
@@ -127,7 +157,9 @@ void checaSeRotuloValido(string rotulo) {
 
     }
 }
-
+/*
+ * Essa funcao cria e atualiza a tabela de simbolos.
+ * */
 void PrimeiraPassagem(string linha) {
     int retorno;
     int offset;
@@ -138,7 +170,7 @@ void PrimeiraPassagem(string linha) {
         /*Caso ache um rótulo, verifica se ta na tabela de simbolos, se não tiver adicione*/
         string rotulo = linha.substr(0, linha.find_first_of(":")); // pega a primeira palavra como rotulo
         linha = linha.substr(rotulo.size() + 2, linha.size()); // retira rotulo da linha e pula o : e o ' '
-        checaSeRotuloValido(rotulo);
+        ChecaSeRotuloValido(rotulo);
         if (PesquisaSimbolo(rotulo, vetorSimbolos) != -1) { // se eu procurar na tabela o simbolo e ele já estiver lá
             cout << "\nErro Semantico na linha " << numLinha << " Simbolo " << rotulo << " redefinido\n";
             flagErros++;
@@ -230,11 +262,10 @@ void PrimeiraPassagem(string linha) {
         }
     }
 }
-
-void atualizaTabelaDeDefinicao() {
-    /*
-     * Copia as posicoes da tabela de simbolos para a tabela de definicoes caso exista mais de um modulo.
-     * */
+/*
+ * Essa Funcao copia as posicoes da tabela de simbolos para a tabela de definicoes caso exista mais de um modulo.
+ * */
+void AtualizaTabelaDeDefinicao() {
     string simboloProcurado;
     vector<tabDef>::iterator itDef;
     vector<tabSimbolos>::iterator itSimb;
@@ -260,7 +291,11 @@ void atualizaTabelaDeDefinicao() {
     }
 }
 
-void adicionaCodigoObjeto(int diretiva, int flagInstrucao) {
+/*
+ * Essa funcao escreve o codigo objeto de acordo com os opcodes e os argumentos no arquivo preprocessado
+ * 
+ * */
+void AdicionaCodigoObjeto(int diretiva, int flagInstrucao) {
     string aux, aux2;
     stringstream diretivaString;
     diretivaString << diretiva;
@@ -273,16 +308,16 @@ void adicionaCodigoObjeto(int diretiva, int flagInstrucao) {
     }
     codigoObjeto.append(aux + " ");
 }
-
-void verificarVetor(string token, int *espacos, int *flagVetorErrado) {
+/*
+ * Essa funcao verifica se o vetor esta correto retornando por referencia o numero de espacos
+ * */
+void VerificaVetor(string token, int *espacos, int *flagVetorErrado) {
     string aux, aux2, linha;
-    int j;
     aux = token;
     aux.append("+");
-    j = 0;
     aux2[0] = '\0';
     aux2 = linha.substr(0, linha.find_first_not_of(
-            " \n+-"));// aux 3 deve ser o proximo token lembrando que aqui a string nao possui o +
+            " \n+"));// aux 3 deve ser o proximo token lembrando que aqui a string nao possui o +
     if (aux2[aux2.size()] < 48 || aux2[aux2.size()] > 57) {
         *flagVetorErrado = 1;
 
@@ -291,8 +326,10 @@ void verificarVetor(string token, int *espacos, int *flagVetorErrado) {
         stringstream(aux2) >> *espacos;
     }
 }
-
-void checaArgumentos(int flagMemoria, int retorno, int numLinha) {
+/*
+ * Essa funcao checa se o formato da instrucao esta correta e se existe pulo pra secao de dados
+ * */
+void ChecaArgumentos(int flagMemoria, int retorno, int numLinha) {
     if (flagMemoria == 1) {
         if (vetorSimbolos[retorno].secdados != 1) {
             flagErros++;
@@ -305,7 +342,10 @@ void checaArgumentos(int flagMemoria, int retorno, int numLinha) {
         }
     }
 }
-
+/*
+ * Essa funcao executa a segunda passagem do montador de duas passagens, tendo em conta que a tabela de simbolos
+ * foi feita na primeira passagem.
+ * */
 void SegundaPassagem(fstream &preprocessado) {
     string linha;
     string proxtoken;
@@ -318,17 +358,13 @@ void SegundaPassagem(fstream &preprocessado) {
     int flagData = 0;
     int flagStop = 0;
     int checarDIV[30];
-    int k = 0;
-    int i = 0, j = 0, l = 0, m = 0;
+    int k = 0, i = 0, j = 0, l = 0;
     int espacos;
     int flagMemoria = 0;
     int flagVetorErrado = 0, flagConst = 0;
     int numerosDIV[20];
-    char checarMEM[30], espacosMEM[30], posicaoMEM[30];
-    char constAlterada[50];
-    char aux[40], aux2[40], aux3[10], string[1000];
-    char const DATA[] = "DATA";
-    char const TEXT[] = "TEXT";
+    int checarMEM[30], espacosMEM[30], posicaoMEM[30];
+    int constAlterada[50];
     int posicao = 0;
     numLinha = 1;
 
@@ -355,9 +391,8 @@ void SegundaPassagem(fstream &preprocessado) {
             }
             if (flagData == 0) {
                 /*copia instrucao no codigo objeto*/
-                adicionaCodigoObjeto(retorno + 1, flagInstrucao);
-                checarDIV[k] = -1;
-                /*Para verificar divisao por 0*/
+                AdicionaCodigoObjeto(retorno + 1, flagInstrucao);
+                checarDIV[k] = -1;/*Para verificar divisao por 0*/
                 if (retorno == 3) {
                     checarDIV[k] = numLinha;
                 }
@@ -382,10 +417,9 @@ void SegundaPassagem(fstream &preprocessado) {
                                 linha = linha.substr(1, linha.size() - 1);
                                 flagVetorErrado = -1;
                                 // chama uma funcao pra verificar se o vetor esta correto e corrigir
-                                verificarVetor(proxtoken, &espacos, &flagVetorErrado);
+                                VerificaVetor(proxtoken, &espacos, &flagVetorErrado);
                             }
 
-                            /* se for um vetor no formato certo uma variavel normal*/
                             if (flagVetorErrado != 1) {
                                 /*se for variavel externa usada, coloca na tabela de uso*/
                                 if (vetorSimbolos[retorno].externo == 1) {
@@ -393,19 +427,19 @@ void SegundaPassagem(fstream &preprocessado) {
                                     contadorUso++;
                                     if (espacos == 1) {
                                         k = 0;
-                                        adicionaCodigoObjeto(0, flagInstrucao);
+                                        AdicionaCodigoObjeto(0, flagInstrucao);
                                     } else {
-                                        adicionaCodigoObjeto(espacos, flagInstrucao);
+                                        AdicionaCodigoObjeto(espacos, flagInstrucao);
                                     }
                                     posicao++;
                                 } else {
                                     /*Checa se os argumentos sao dados*/
-                                    checaArgumentos(flagMemoria, retorno, numLinha);
+                                    ChecaArgumentos(flagMemoria, retorno, numLinha);
                                     if (espacos == 1) {
                                         k = 0;
-                                        adicionaCodigoObjeto(espacos, flagInstrucao);
+                                        AdicionaCodigoObjeto(espacos, flagInstrucao);
                                     } else {
-                                        adicionaCodigoObjeto(vetorSimbolos[retorno].posicao + espacos,
+                                        AdicionaCodigoObjeto(vetorSimbolos[retorno].posicao + espacos,
                                                              flagInstrucao);
                                     }
                                     posicao++;
@@ -438,18 +472,18 @@ void SegundaPassagem(fstream &preprocessado) {
                     linha = linha.substr(proxtoken.size() + 1, linha.size() - proxtoken.size() - 1);
                     retorno = PesquisaSimbolo(proxtoken, vetorSimbolos);
 
-                    if (retorno != -1) {// Se for variavel externa usada
+                    if (retorno != -1) {
 
-                        if (vetorSimbolos[retorno].externo == 1) {//Se for externo
+                        if (vetorSimbolos[retorno].externo == 1) {
                             vetorUso.push_back({vetorSimbolos[retorno].simbolo, posicao});
-                            adicionaCodigoObjeto(0, flagInstrucao);
+                            AdicionaCodigoObjeto(0, flagInstrucao);
                             posicao++;
                         } else {
-                            checaArgumentos(flagMemoria, retorno, numLinha);
+                            ChecaArgumentos(flagMemoria, retorno, numLinha);
                             if (espacos == 1) {
                                 k = 0;
                             }
-                            adicionaCodigoObjeto(vetorSimbolos[retorno].posicao + k, flagInstrucao);
+                            AdicionaCodigoObjeto(vetorSimbolos[retorno].posicao + k, flagInstrucao);
                             posicao++;
                             espacosMEM[l] = espacos;
                             posicaoMEM[l] = vetorSimbolos[retorno].posicao;
@@ -470,16 +504,16 @@ void SegundaPassagem(fstream &preprocessado) {
                         proxtoken = linha.substr(0, linha.find_first_of(" \n+-"));
                         retorno = PesquisaSimbolo(proxtoken, vetorSimbolos);
                         if (retorno != -1) {
-                            if (vetorSimbolos[retorno].externo == 1) {//Se for externo
+                            if (vetorSimbolos[retorno].externo == 1) {
                                 vetorUso.push_back({vetorSimbolos[retorno].simbolo, posicao});
-                                adicionaCodigoObjeto(0, flagInstrucao);
+                                AdicionaCodigoObjeto(0, flagInstrucao);
                                 posicao++;
-                            } else {// se nao for externo
-                                checaArgumentos(flagMemoria, retorno, numLinha);
+                            } else {
+                                ChecaArgumentos(flagMemoria, retorno, numLinha);
                                 if (espacos == 1) {
                                     k = 0;
                                 }
-                                adicionaCodigoObjeto(vetorSimbolos[retorno].posicao + k, flagInstrucao);
+                                AdicionaCodigoObjeto(vetorSimbolos[retorno].posicao + k, flagInstrucao);
                                 posicao++;
                                 espacosMEM[l] = espacos;
                                 posicaoMEM[l] = vetorSimbolos[retorno].posicao;
@@ -489,7 +523,6 @@ void SegundaPassagem(fstream &preprocessado) {
                             }
                         } else {
                             flagErros++;
-                            //posicao++;
                             cout << "\nErro Semantico na linha " << numLinha << " Simbolo " << proxtoken
                                  << " indefinido\n";
                         }
@@ -514,7 +547,7 @@ void SegundaPassagem(fstream &preprocessado) {
                     cout << "\nErro Sintatico na linha " << numLinha << " numero de operandos incorreto\n";
                 }
             }
-        } else {// flag data != 0
+        } else {
             retorno = PesquisaInstrucaoEDiretiva(proxtoken, vetorDiretiva);
             if (retorno != -1) {
                 if (retorno >= 7 && retorno <= 8) {
@@ -524,7 +557,6 @@ void SegundaPassagem(fstream &preprocessado) {
                              << endl;
                     }
                 } else {
-                    /*Tratar as diretivas*/
                     switch (retorno) {
                         case 0:
                             proxtoken = linha.substr(0, linha.find_first_of(" \n"));
@@ -578,12 +610,12 @@ void SegundaPassagem(fstream &preprocessado) {
                                     }
                                 }
                                 posicao = posicao + espacos;
-                                /* Se for um vetor, reservar quantos espacos na memoria forem necessarios */
+                                /* Reserva espacos necessarios pro vetor*/
                                 for (j = 0; j < espacos; j++) {
-                                    adicionaCodigoObjeto(0, flagInstrucao);
+                                    AdicionaCodigoObjeto(0, flagInstrucao);
                                 }
                             } else {
-                                adicionaCodigoObjeto(0, flagInstrucao);
+                                AdicionaCodigoObjeto(0, flagInstrucao);
                                 posicao++;
                             }
                             if (flagData != 1) {
@@ -604,7 +636,7 @@ void SegundaPassagem(fstream &preprocessado) {
                                 j = 0;
                                 retorno = 0;
 
-                                /*Verifica divisao por 0*/
+                                /*se dividiu por 0*/
                                 for (i = 0; i < k; i++) {
                                     retorno = 0;
                                     while ((j <= k) && (retorno == 0)) {
@@ -622,7 +654,7 @@ void SegundaPassagem(fstream &preprocessado) {
                                     }
                                 }
                                 j = 0;
-                                /*verifica se tentou alterar constante*/
+                                /* se tentou alterar constante*/
                                 for (i = 0; i < l; i++) {
                                     retorno = 0;
                                     while ((j <= l) && (retorno == 0)) {
@@ -638,7 +670,7 @@ void SegundaPassagem(fstream &preprocessado) {
                                     }
                                 }
                                 posicao++;
-                                adicionaCodigoObjeto(espacos, flagInstrucao);
+                                AdicionaCodigoObjeto(espacos, flagInstrucao);
                             } else {
                                 flagErros++;
                                 cout << "\nErro Sintatico na linha " << numLinha
@@ -679,10 +711,8 @@ void SegundaPassagem(fstream &preprocessado) {
     }
 }
 
+
 int Monta(fstream &preprocessado, string nomeArquivoSaida) {
-    //primeiro vou escrever a ideia
-    //recebe o arquivo preprocessado;
-    int contador_linha = 1;
     posicao = 0;
     string linha;
     GeraTabelaInstrucoesEDiretivas();
@@ -695,36 +725,17 @@ int Monta(fstream &preprocessado, string nomeArquivoSaida) {
         }
         numLinha += 1;
     }
-    atualizaTabelaDeDefinicao();
+    AtualizaTabelaDeDefinicao();
     preprocessado.clear();
     preprocessado.seekg(0, ios::beg);
     SegundaPassagem(preprocessado);
-
     cout << endl << "Codigo Objeto em memoria: " << codigoObjeto;
 
     if (flagErros == 0) {
         nomeArquivoSaida.append(".o");
         fstream arquivoObjeto(nomeArquivoSaida, fstream::in | fstream::out | fstream::trunc);
+        codigoObjeto.pop_back();
         arquivoObjeto << codigoObjeto;
         arquivoObjeto.close();
     }
-
-    // aqui eu leio linha por linha do programa;
-
-    // na primeira passagem eu construo a tabela de simbolos;
-
-    //        primeira passagem
-
-    /*  tokeniza a linha
-     *  se existe rotulo: procura rotulo na Tabela de simbolos (se achou, erro simbolo redefinido)
-     *  senão: insere o rotulo e contador_posicao na tabela de simbolos
-     *  procura operacao na tabela de instrucoes
-     *  se achou: soma contador de posicao com o tamanho da instrucao
-     *  senão: procura operacao na tabela de diretivas
-     *  se achou, executa diretiva e soma o contador_posicao ao valor_retornado pela subrotina
-     *  senao: erro, operacao não identificada.
-     *
-     * */
-    contador_linha++;
-
 }

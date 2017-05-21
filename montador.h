@@ -49,7 +49,7 @@ int PesquisaSimbolo(string simbol, vector<tabSimbolos> vetorSimbolos);
 
 bool ProcuraRotulo(string linha);
 
-void checaSeRotuloValido(string rotulo);
+void ChecaSeRotuloValido(string rotulo);
 
 void PrimeiraPassagem(string linha, vector<tabSimbolos> vetorSimbolos, vector<tabDef> vetorDefinicoes,
                       vector<tabUso> tabelaUso);
