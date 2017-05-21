@@ -20,7 +20,7 @@ using namespace std;
 
 // lembrar que não é case sensitive, logo precisamos criar uma função pra jogar o codigo pra uppercase
 
-void transformaemuppercase(ifstream &assembly, fstream &semcomentarios) {
+void transformaemuppercase(fstream &assembly, fstream &semcomentarios) {
     string linha;
     while (getline(assembly, linha)) {
         transform(linha.begin(), linha.end(), linha.begin(), ::toupper);
@@ -135,15 +135,15 @@ void expandemacroIF(fstream &semEspacos, fstream &macroexpandido) {
     }
 }
 
-int preprocessa(ifstream &assembly) {
+int preprocessa(fstream &arquivoEntrada, string nomeArquivoEntrada, string nomeArquivoSaida) {
     //essa função chama os outros metodos para preprocessar o arquivo
     fstream arqA;
     fstream arqB; // dependendo da operação o arquivo A é o de saída ou de entrada
     map<string, string> retornoMacros;
     //abrir o arquivo de acordo com a função;
 
-    arqA.open("preprocessando.pre", fstream::out | fstream::in | fstream::trunc);
-    transformaemuppercase(assembly, arqA);
+    arqA.open(nomeArquivoEntrada, fstream::out | fstream::in | fstream::trunc);
+    transformaemuppercase(arquivoEntrada, arqA);
     arqA.clear();// limpa failbit
     arqA.seekg(0, arqA.beg);// volta para o inicio do arquivo
 
@@ -171,6 +171,11 @@ int preprocessa(ifstream &assembly) {
     expandemacroIF(arqA, arqB);
     arqA.close();
     arqB.close();
+    
+    if(remove("preprocessando.pre")!=0){
+        cout<< "\n Erro ao apagar arquivo temporario\n";
+    }
+    rename("preprocessado.pre", nomeArquivoSaida.c_str());
     return 1;
 }
 // eh mais facil de expandir macros com os tokens separados.

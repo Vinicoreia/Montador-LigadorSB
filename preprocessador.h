@@ -9,9 +9,9 @@
 #include <map>
 
 using namespace std;
-void transformaemuppercase(ifstream &assembly, fstream &semcomentarios);
+void transformaemuppercase(fstream &assembly, fstream &semcomentarios);
 map<string, string> removeComentariosEAchaEqu(fstream &uppertexto, fstream &semcomentarios);
 void removeEspacosEmBrancoESubstituiEQU(fstream &semcomentarios, fstream &semEspacos, map<string, string> macros);
 void expandemacroIF(fstream &semEspacos, fstream &macroexpandido);
-int preprocessa(ifstream&assembly);
+int preprocessa(fstream&assembly, string nomeArquivoEntrada, string nomeArquivoSaida);
 #endif //MONTADOR_LIGADORSB_PREPROCESSADOR_H

@@ -20,7 +20,7 @@
 
 using namespace std;
 int numLinha;
-int flagErros = -1;
+int flagErros = 0;
 int flagModulo = 0;
 int contadorDefinicoes = 0;
 int contadorUso = 0;
@@ -76,8 +76,8 @@ size_t VerificaSeLinhaValida(string checaCaracter) {
             "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-*/=|&!?#%(){}[]_\'\",.:;<>\n ");
     if (posicaoChar != string::npos) {
         cout << "\nErro lexico na linha " << numLinha << " caractere " << posicaoChar - 1 << " invalido\n";
-    } else
         flagErros++; // retorno se não existe caractere especial
+    }
 }
 
 // como vetor podemos usar a funcao find
@@ -292,16 +292,16 @@ void verificarVetor(string token, int *espacos, int *flagVetorErrado) {
     }
 }
 
-void checaArgumentos(int flagMemoria, int retorno, int numeroLinha) {
+void checaArgumentos(int flagMemoria, int retorno, int numLinha) {
     if (flagMemoria == 1) {
         if (vetorSimbolos[retorno].secdados != 1) {
             flagErros++;
-            cout << "\nErro Semantico na linha " << numeroLinha << " Argumento invalido\n";
+            cout << "\nErro Semantico na linha " << numLinha << " Argumento invalido\n";
         }
     } else if (flagMemoria == 2) {// JUMP TENTANDO ACESSAR MEM DE DADOS
         if (vetorSimbolos[retorno].secdados != 0) {
             flagErros++;
-            cout << "\nErro Semantico na linha " << numeroLinha << " Pulo para a secao de dados nao eh permitido\n";
+            cout << "\nErro Semantico na linha " << numLinha << " Pulo para a secao de dados nao eh permitido\n";
         }
     }
 }
@@ -320,7 +320,7 @@ void SegundaPassagem(fstream &preprocessado) {
     int checarDIV[30];
     int k = 0;
     int i = 0, j = 0, l = 0, m = 0;
-    int numeroLinha, espacos;
+    int espacos;
     int flagMemoria = 0;
     int flagVetorErrado = 0, flagConst = 0;
     int numerosDIV[20];
@@ -330,7 +330,7 @@ void SegundaPassagem(fstream &preprocessado) {
     char const DATA[] = "DATA";
     char const TEXT[] = "TEXT";
     int posicao = 0;
-    numeroLinha = 1;
+    numLinha = 1;
 
     while (getline(preprocessado, linha)) {
         flagMemoria = 0;
@@ -350,7 +350,7 @@ void SegundaPassagem(fstream &preprocessado) {
             flagInstrucao = 1;
             if (flagCode == 0) {
                 flagErros++;
-                cout << "\nErro Semantico na linha " << numeroLinha << " instrucao deve estar na SECTION TEXT\n";
+                cout << "\nErro Semantico na linha " << numLinha << " instrucao deve estar na SECTION TEXT\n";
 
             }
             if (flagData == 0) {
@@ -359,7 +359,7 @@ void SegundaPassagem(fstream &preprocessado) {
                 checarDIV[k] = -1;
                 /*Para verificar divisao por 0*/
                 if (retorno == 3) {
-                    checarDIV[k] = numeroLinha;
+                    checarDIV[k] = numLinha;
                 }
                 if ((retorno <= 3 || retorno >= 8) && (retorno != 13)) {
                     flagMemoria = 1;
@@ -400,7 +400,7 @@ void SegundaPassagem(fstream &preprocessado) {
                                     posicao++;
                                 } else {
                                     /*Checa se os argumentos sao dados*/
-                                    checaArgumentos(flagMemoria, retorno, numeroLinha);
+                                    checaArgumentos(flagMemoria, retorno, numLinha);
                                     if (espacos == 1) {
                                         k = 0;
                                         adicionaCodigoObjeto(espacos, flagInstrucao);
@@ -412,7 +412,7 @@ void SegundaPassagem(fstream &preprocessado) {
 
                                     espacosMEM[l] = espacos;
                                     posicaoMEM[l] = vetorSimbolos[retorno].posicao;
-                                    checarMEM[l] = numeroLinha;
+                                    checarMEM[l] = numLinha;
                                     constAlterada[l] = flagConst;
                                     l++;
                                     if (checarDIV[k] != -1) {
@@ -423,13 +423,13 @@ void SegundaPassagem(fstream &preprocessado) {
                                 }
                             } else {
                                 flagErros++;
-                                cout << "\nErro Sintatico na linha " << numeroLinha
+                                cout << "\nErro Sintatico na linha " << numLinha
                                      << " vetor declarado incorretamente\n";
                             }
                         } else {
                             flagErros++;
                             posicao++;
-                            cout << "\nErro Semantico na linha " << numeroLinha << " Simbolo " << proxtoken
+                            cout << "\nErro Semantico na linha " << numLinha << " Simbolo " << proxtoken
                                  << " indefinido\n";
                         }
                     }
@@ -445,7 +445,7 @@ void SegundaPassagem(fstream &preprocessado) {
                             adicionaCodigoObjeto(0, flagInstrucao);
                             posicao++;
                         } else {
-                            checaArgumentos(flagMemoria, retorno, numeroLinha);
+                            checaArgumentos(flagMemoria, retorno, numLinha);
                             if (espacos == 1) {
                                 k = 0;
                             }
@@ -453,14 +453,14 @@ void SegundaPassagem(fstream &preprocessado) {
                             posicao++;
                             espacosMEM[l] = espacos;
                             posicaoMEM[l] = vetorSimbolos[retorno].posicao;
-                            checarMEM[l] = numeroLinha;
+                            checarMEM[l] = numLinha;
                             constAlterada[l] = flagConst;
                             l++;
                         }
                     } else {
                         flagErros++;
                         posicao++;
-                        cout << "\nErro Semantico na linha " << numeroLinha << " Simbolo " << proxtoken
+                        cout << "\nErro Semantico na linha " << numLinha << " Simbolo " << proxtoken
                              << " indefinido\n";
                     }
                     if (linha[0] == ',') {//COPY
@@ -475,7 +475,7 @@ void SegundaPassagem(fstream &preprocessado) {
                                 adicionaCodigoObjeto(0, flagInstrucao);
                                 posicao++;
                             } else {// se nao for externo
-                                checaArgumentos(flagMemoria, retorno, numeroLinha);
+                                checaArgumentos(flagMemoria, retorno, numLinha);
                                 if (espacos == 1) {
                                     k = 0;
                                 }
@@ -483,27 +483,27 @@ void SegundaPassagem(fstream &preprocessado) {
                                 posicao++;
                                 espacosMEM[l] = espacos;
                                 posicaoMEM[l] = vetorSimbolos[retorno].posicao;
-                                checarMEM[l] = numeroLinha;
+                                checarMEM[l] = numLinha;
                                 constAlterada[l] = flagConst;
                                 l++;
                             }
                         } else {
                             flagErros++;
                             //posicao++;
-                            cout << "\nErro Semantico na linha " << numeroLinha << " Simbolo " << proxtoken
+                            cout << "\nErro Semantico na linha " << numLinha << " Simbolo " << proxtoken
                                  << " indefinido\n";
                         }
                     } else {
                         flagErros++;
-                        cout << "\nErro Sintatico na linha " << numeroLinha << " formato da instrucao COPY errado\n";
+                        cout << "\nErro Sintatico na linha " << numLinha << " formato da instrucao COPY errado\n";
                     }
                 } else if (retorno == 13) {// STOP
-                        flagStop++;
+                    flagStop++;
                     if (!linha.empty()) {
                         proxtoken = linha.substr(0, linha.find_first_of(" \n"));
                         if (proxtoken.size() > 0) {
                             flagErros++;
-                            cout << "\nErro Sintatico na linha " << numeroLinha
+                            cout << "\nErro Sintatico na linha " << numLinha
                                  << " Instrucao STOP nao possui operandos\n"
                                  << endl;
                         }
@@ -511,7 +511,7 @@ void SegundaPassagem(fstream &preprocessado) {
                 }
                 if (!linha.empty() && retorno != 13 && flagVetorErrado == 1) {
                     flagErros;
-                    cout << "\nErro Sintatico na linha " << numeroLinha << " numero de operandos incorreto\n";
+                    cout << "\nErro Sintatico na linha " << numLinha << " numero de operandos incorreto\n";
                 }
             }
         } else {// flag data != 0
@@ -520,7 +520,7 @@ void SegundaPassagem(fstream &preprocessado) {
                 if (retorno >= 7 && retorno <= 8) {
                     if (flagCode == 0) {
                         flagErros++;
-                        cout << "\nErro Semantico na linha " << numeroLinha << " diretiva fora da SECTION TEXT\n"
+                        cout << "\nErro Semantico na linha " << numLinha << " diretiva fora da SECTION TEXT\n"
                              << endl;
                     }
                 } else {
@@ -530,7 +530,7 @@ void SegundaPassagem(fstream &preprocessado) {
                             proxtoken = linha.substr(0, linha.find_first_of(" \n"));
                             if (proxtoken == "DATA") {
                                 if (flagCode == 0) {
-                                    cout << "\nErro Semantico na linha " << numeroLinha
+                                    cout << "\nErro Semantico na linha " << numLinha
                                          << " SECTION DATA deve ser declarada depois da SECTION TEXT\n";
                                     flagData = 1;
                                     flagErros++;
@@ -539,7 +539,7 @@ void SegundaPassagem(fstream &preprocessado) {
                                     flagData = 1;
                                 } else {
                                     flagErros++;
-                                    cout << "\nErro Semantico na linha " << numeroLinha
+                                    cout << "\nErro Semantico na linha " << numLinha
                                          << " SECTION DATA deve ser declarada depois da SECTION TEXT\n";
                                 }
                             } else if (proxtoken == "TEXT") {
@@ -547,13 +547,13 @@ void SegundaPassagem(fstream &preprocessado) {
                                     flagCode = 1;
                                 } else {
                                     flagErros++;
-                                    cout << "\nErro Semantico na linha " << numeroLinha
+                                    cout << "\nErro Semantico na linha " << numLinha
                                          << " multiplas declaracoes da SECTION TEXT\n";
 
                                 }
                             } else {
                                 flagErros++;
-                                cout << "\nErro Semantico na linha " << numeroLinha
+                                cout << "\nErro Semantico na linha " << numLinha
                                      << " Diretiva SECTION com parametro desconhecido\n";
                             }
                             break;
@@ -573,7 +573,7 @@ void SegundaPassagem(fstream &preprocessado) {
                                     }
                                     if ((espacos <= espacosMEM[j - 1]) && retorno == 1) {
                                         flagErros++;
-                                        cout << "\nErro Semantico na linha " << numeroLinha
+                                        cout << "\nErro Semantico na linha " << numLinha
                                              << " memoria nao reservada\n";
                                     }
                                 }
@@ -588,7 +588,7 @@ void SegundaPassagem(fstream &preprocessado) {
                             }
                             if (flagData != 1) {
                                 flagErros++;
-                                cout << "\nErro Semantico na linha " << numeroLinha
+                                cout << "\nErro Semantico na linha " << numLinha
                                      << " diretiva SPACE fora da SECTION DATA\n";
                             }
                             break;
@@ -617,7 +617,7 @@ void SegundaPassagem(fstream &preprocessado) {
 
                                     if (retorno == 1 && espacos == 0) {
                                         flagErros++;
-                                        cout << "\nErro Semantico na linha " << numeroLinha
+                                        cout << "\nErro Semantico na linha " << numLinha
                                              << " divisao por zero\n";
                                     }
                                 }
@@ -633,7 +633,7 @@ void SegundaPassagem(fstream &preprocessado) {
                                     }
                                     if (retorno == 1 && constAlterada[j - 1] != 0) {
                                         flagErros++;
-                                        cout << "\nErro Semantico na linha " << numeroLinha
+                                        cout << "\nErro Semantico na linha " << numLinha
                                              << " impossivel alterar valor de constante\n";
                                     }
                                 }
@@ -641,7 +641,7 @@ void SegundaPassagem(fstream &preprocessado) {
                                 adicionaCodigoObjeto(espacos, flagInstrucao);
                             } else {
                                 flagErros++;
-                                cout << "\nErro Sintatico na linha " << numeroLinha
+                                cout << "\nErro Sintatico na linha " << numLinha
                                      << " constante nao iniciada\n";
                             }
                             break;
@@ -662,20 +662,20 @@ void SegundaPassagem(fstream &preprocessado) {
                 }
             }
         }
-        numeroLinha++;
+        numLinha++;
     }
-    if(flagStop==0){
+    if (flagStop == 0) {
         flagErros++;
         cout << "\nErro Semantico falta diretiva STOP\n";
     }
     if (flagBegin != flagEnd) {
         flagErros++;
-        cout << "\nErro Semantico na linha " << numeroLinha
+        cout << "\nErro Semantico na linha " << numLinha
              << " Numero de diretivas BEGIN diferente do numero de diretivas END";
     }
     if (flagCode == 0) {
         flagErros++;
-        cout << "\nErro Semantico na linha " << numeroLinha << " SECTION TEXT nao definida\n";
+        cout << "\nErro Semantico na linha " << numLinha << " SECTION TEXT nao definida\n";
     }
 }
 
@@ -700,7 +700,14 @@ int Monta(fstream &preprocessado) {
     preprocessado.seekg(0, ios::beg);
     SegundaPassagem(preprocessado);
 
-    cout << endl << "Codigo Objeto: " << codigoObjeto;
+    cout << endl << "Codigo Objeto em memoria: " << codigoObjeto;
+
+    if(flagErros == 0){
+        fstream arquivoObjeto("arquivoTeste.o", fstream::in | fstream::out|fstream::trunc);
+        arquivoObjeto << codigoObjeto;
+        arquivoObjeto.close();
+
+    }
 
     // aqui eu leio linha por linha do programa;
 

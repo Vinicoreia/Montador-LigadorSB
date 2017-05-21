@@ -21,38 +21,51 @@ int main(int argc, char *argv[]) {
 
     // nesse arquivo os arquivos serao .asm ou . pre, dependendo do arquivo a execucao deve ser diferente
     // como o nome do arquivo ta em argv[1] basta definir o fluxo de acordo com a extensao, logo
-    string extensao = PegaExtensao(argv[1]);
-
-    if (extensao == "asm") {
-        //chama preprocessador e depois o montador (nao esquecer de setar working directory e program arguments no Clion)
-        string line;
-        ifstream assembly(argv[1]);
-        string linha;
-        if (assembly.is_open()) {
-            //chama preprocessador
-            preprocessa(assembly);
-
-            // Agora precisamos desenvolver o montador
-
-            assembly.close();
-            fstream preprocessado("preprocessado.pre");
-
-            Monta(preprocessado);
-
-            preprocessado.close();
-
-
-        } else {
-            cout << "Erro ao abrir arquivo";
-            return EXIT_FAILURE;
-        }
-    } else if (extensao == "pre") {
-        //chama somente o preprocessador, o preprocessador deve retirar linhas em branco, comentarios e espaçamentos
-        //tambem deve expandir as macros IF e EQU
+    string nomeArquivoEntrada;
+    if (argc != 4) {
+        cout
+                << "\nEsse programa precisa de 3 argumentos: \n./<nome_do_programa> <operacao>"
+                        " <arquivo_entrada>.asm <arquivo_saida>.o \n\nOu então:\n./<nome_do_programa>"
+                        " <operacao> <arquivo_entrada>.pre <arquivo_saida>.o\n";
     } else {
-        cout << "Arquivo incompativel";
-        return EXIT_FAILURE;
-    }
+        string argumento = argv[1];
+        string nomeArquivoSaida = argv[3];
 
+        if (argumento == "-p") {
+            nomeArquivoEntrada = argv[2];
+            nomeArquivoEntrada.append(".asm");
+            nomeArquivoSaida.append(".pre");
+            fstream entrada(nomeArquivoEntrada);
+            if (entrada.is_open()) {
+                nomeArquivoEntrada = nomeArquivoEntrada.substr(0, nomeArquivoEntrada.find_first_of("."));
+                preprocessa(entrada, nomeArquivoEntrada, nomeArquivoSaida);
+                entrada.close();
+            } else {
+                cout << "\nErro ao abrir o arquivo!";
+                return EXIT_FAILURE;
+            }
+        } else if (argumento == "-o") {
+            //recebe tanto .pre quanto .asm e gera .o
+            nomeArquivoEntrada = argv[2];
+            nomeArquivoEntrada.append(".pre");
+            fstream entradaPre(nomeArquivoEntrada);
+            if (entradaPre.is_open()) {
+                Monta(entradaPre);
+                entradaPre.close();
+            } else {
+                nomeArquivoEntrada = argv[2];
+                nomeArquivoEntrada.append((".asm"));
+                fstream entradaAsm(nomeArquivoEntrada);
+                if (entradaAsm.is_open()) {
+                    preprocessa(entradaAsm, nomeArquivoEntrada, nomeArquivoSaida);
+                    Monta(entradaAsm);
+                    entradaAsm.close();
+                }else{
+                    cout << "\nErro ao abrir o arquivo";
+                    return EXIT_FAILURE;
+                }
+            }
+        }
+    }
     return 0;
 }
