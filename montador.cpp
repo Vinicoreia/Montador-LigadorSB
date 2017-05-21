@@ -73,7 +73,7 @@ size_t VerificaSeLinhaValida(string checaCaracter) {
      *
      */
     size_t posicaoChar = checaCaracter.find_first_not_of(
-            "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789+-*/=|&!?#%(){}[]_\'\",.:;<>\n ");
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-*/=|&!?#%(){}[]_\'\",.:;<>\n ");
     if (posicaoChar != string::npos) {
         cout << "\nErro lexico na linha " << numLinha << " caractere " << posicaoChar - 1 << " invalido\n";
     } else
@@ -429,7 +429,7 @@ void SegundaPassagem(fstream &preprocessado) {
                         } else {
                             flagErros++;
                             posicao++;
-                            cout << "\nErro Semantico na linha " << numeroLinha << "Simbolo " << proxtoken
+                            cout << "\nErro Semantico na linha " << numeroLinha << " Simbolo " << proxtoken
                                  << " indefinido\n";
                         }
                     }
@@ -460,7 +460,7 @@ void SegundaPassagem(fstream &preprocessado) {
                     } else {
                         flagErros++;
                         posicao++;
-                        cout << "\nErro Semantico na linha " << numeroLinha << "Simbolo " << proxtoken
+                        cout << "\nErro Semantico na linha " << numeroLinha << " Simbolo " << proxtoken
                              << " indefinido\n";
                     }
                     if (linha[0] == ',') {//COPY
