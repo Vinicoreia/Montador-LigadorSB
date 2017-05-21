@@ -43,7 +43,7 @@ void GeraTabelaInstrucoesEDiretivas() {
     vetorDiretiva.push_back({"SECTION", 0});
     vetorDiretiva.push_back({"SPACE", 1});
     vetorDiretiva.push_back({"CONST", 1});
-    vetorDiretiva.push_back({"EQU", 1});
+    vetorDiretiva.push_back({"EQU", 1}); //o valor aqui nao importa ja que EQU e IF sao tratados no preprocessamento
     vetorDiretiva.push_back({"IF", 1});
     vetorDiretiva.push_back({"BEGIN", 0});
     vetorDiretiva.push_back({"END", 0});
@@ -169,7 +169,6 @@ void PrimeiraPassagem(string linha) {
                     } else {//Se a diretiva nao for extern
                         vetorSimbolos[contadorSimbolos - 1].externo = 0;
                         if (vetorDiretiva[retorno].instrucaoOuDiretiva == "SPACE") {
-                            cout << "TOKEN: " << linha << endl;
                             vetorSimbolos[contadorSimbolos - 1].secdados = 1;
                             if (!linha.empty()) {
                                 proxtoken = linha.substr(0, linha.find_first_of(" \n"));
@@ -312,10 +311,12 @@ void SegundaPassagem(fstream &preprocessado) {
     string proxtoken;
     string rotulo;
     int retorno;
-    int flagBeginEnd;
+    int flagBegin = 0;
+    int flagEnd = 0;
     int flagInstrucao;
     int flagCode = 0;
     int flagData = 0;
+    int flagStop = 0;
     int checarDIV[30];
     int k = 0;
     int i = 0, j = 0, l = 0, m = 0;
@@ -497,6 +498,7 @@ void SegundaPassagem(fstream &preprocessado) {
                         cout << "\nErro Sintatico na linha " << numeroLinha << " formato da instrucao COPY errado\n";
                     }
                 } else if (retorno == 13) {// STOP
+                        flagStop++;
                     if (!linha.empty()) {
                         proxtoken = linha.substr(0, linha.find_first_of(" \n"));
                         if (proxtoken.size() > 0) {
@@ -515,7 +517,7 @@ void SegundaPassagem(fstream &preprocessado) {
         } else {// flag data != 0
             retorno = PesquisaInstrucaoEDiretiva(proxtoken, vetorDiretiva);
             if (retorno != -1) {
-                if (retorno >= 5 && retorno <= 8) {
+                if (retorno >= 7 && retorno <= 8) {
                     if (flagCode == 0) {
                         flagErros++;
                         cout << "\nErro Semantico na linha " << numeroLinha << " diretiva fora da SECTION TEXT\n"
@@ -525,7 +527,6 @@ void SegundaPassagem(fstream &preprocessado) {
                     /*Tratar as diretivas*/
                     switch (retorno) {
                         case 0:
-                            /* j = 0 i++;*/
                             proxtoken = linha.substr(0, linha.find_first_of(" \n"));
                             if (proxtoken == "DATA") {
                                 if (flagCode == 0) {
@@ -622,7 +623,6 @@ void SegundaPassagem(fstream &preprocessado) {
                                 }
                                 j = 0;
                                 /*verifica se tentou alterar constante*/
-                                cout<<"L eh: "<<l;
                                 for (i = 0; i < l; i++) {
                                     retorno = 0;
                                     while ((j <= l) && (retorno == 0)) {
@@ -645,8 +645,17 @@ void SegundaPassagem(fstream &preprocessado) {
                                      << " constante nao iniciada\n";
                             }
                             break;
+                        case 5:
+                            /*BEGIN*/
+                            flagBegin++;
+                            flagStop++; // Se for modulo nao precisa ter STOP
+                            break;
+                        case 6:
+                            /*END*/
+                            flagEnd++;
+                            flagStop++;
+                            break;
                             //TODO: se nao for modulo deve ter ao menos uma instrucao STOP
-                            // TODO: tratar a diretiva BEGIN e END.
                             // TODO: Fazer o ligador e testar
                     }
 
@@ -655,9 +664,18 @@ void SegundaPassagem(fstream &preprocessado) {
         }
         numeroLinha++;
     }
+    if(flagStop==0){
+        flagErros++;
+        cout << "\nErro Semantico falta diretiva STOP\n";
+    }
+    if (flagBegin != flagEnd) {
+        flagErros++;
+        cout << "\nErro Semantico na linha " << numeroLinha
+             << " Numero de diretivas BEGIN diferente do numero de diretivas END";
+    }
     if (flagCode == 0) {
         flagErros++;
-        cout << "Erro semantico, section text nao definida";
+        cout << "\nErro Semantico na linha " << numeroLinha << " SECTION TEXT nao definida\n";
     }
 }
 
@@ -681,9 +699,7 @@ int Monta(fstream &preprocessado) {
     preprocessado.clear();
     preprocessado.seekg(0, ios::beg);
     SegundaPassagem(preprocessado);
-    for (int i = 0; i < vetorSimbolos.size(); i++) {
-        cout << endl << vetorSimbolos[i].simbolo << endl << vetorSimbolos[i].posicao;
-    }
+
     cout << endl << "Codigo Objeto: " << codigoObjeto;
 
     // aqui eu leio linha por linha do programa;
