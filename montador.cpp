@@ -24,6 +24,7 @@ int flagErros = -1;
 int flagModulo = 0;
 int contadorDefinicoes = 0;
 int contadorUso = 0;
+int posicao;
 int contadorSimbolos = 0;
 string codigoObjeto;
 vector<tabInstrucaoOuDiretiva> vetorInstrucao;
@@ -64,7 +65,7 @@ void GeraTabelaInstrucoesEDiretivas() {
     vetorInstrucao.push_back({"STORE", 1});
     vetorInstrucao.push_back({"INPUT", 1});
     vetorInstrucao.push_back({"OUTPUT", 1});
-    vetorInstrucao.push_back({"STOP", 1});
+    vetorInstrucao.push_back({"STOP", 0});
 }
 
 size_t VerificaSeLinhaValida(string checaCaracter) {
@@ -128,12 +129,12 @@ void checaSeRotuloValido(string rotulo) {
 }
 
 void PrimeiraPassagem(string linha) {
-    int posicao = 0;
     int retorno;
     int offset;
     string proxtoken;
     VerificaSeLinhaValida(linha);
     if (ProcuraRotulo(linha)) {
+        linha.append("\n");
         /*Caso ache um rótulo, verifica se ta na tabela de simbolos, se não tiver adicione*/
         string rotulo = linha.substr(0, linha.find_first_of(":")); // pega a primeira palavra como rotulo
         linha = linha.substr(rotulo.size() + 2, linha.size()); // retira rotulo da linha e pula o : e o ' '
@@ -145,11 +146,13 @@ void PrimeiraPassagem(string linha) {
             vetorSimbolos.push_back({rotulo, posicao});
             contadorSimbolos++;
             if (linha.find_first_of(" \n") != string::npos) {
-                proxtoken = "";
                 proxtoken = linha.substr(0, linha.find_first_of(" \n"));
+                linha = linha.substr(proxtoken.size() + 1, linha.size() - proxtoken.size() - 1);
+
             } else {
-                linha.append("\n");
                 proxtoken = linha.substr(0, linha.find_first_of("\n"));
+                linha = linha.substr(proxtoken.size() + 1, linha.size() - proxtoken.size() - 1);
+
             }
             /*VERIFICA SE INSTRUCAO EH VALIDA*/
             retorno = PesquisaInstrucaoEDiretiva(proxtoken, vetorInstrucao);
@@ -166,16 +169,16 @@ void PrimeiraPassagem(string linha) {
                     } else {//Se a diretiva nao for extern
                         vetorSimbolos[contadorSimbolos - 1].externo = 0;
                         if (vetorDiretiva[retorno].instrucaoOuDiretiva == "SPACE") {
+                            cout << "TOKEN: " << linha << endl;
                             vetorSimbolos[contadorSimbolos - 1].secdados = 1;
                             if (!linha.empty()) {
                                 proxtoken = linha.substr(0, linha.find_first_of(" \n"));
                                 linha = linha.substr(proxtoken.size() + 1, linha.size());
-
                                 stringstream tok(proxtoken);
                                 tok >> offset; // converte de string pra inteiro
                                 posicao = posicao + offset; // offset é quanto espaço é reservado pela diretiva
                             } else
-                                posicao = posicao + 1;
+                                posicao++;
                         } else {
                             if (retorno >= 1 && retorno < 3) {
                                 vetorSimbolos[contadorSimbolos - 1].secdados = 1;
@@ -198,8 +201,7 @@ void PrimeiraPassagem(string linha) {
         } else if (proxtoken == "PUBLIC") {
             flagModulo = 1; // existe outro modulo e devemos copiar o simbolo pra a TD
             proxtoken = linha.substr(linha.find_first_not_of(" \n"), linha.find_first_of(" \n") - 1);
-            vetorDefinicoes[contadorDefinicoes].simbolo = proxtoken;
-            contadorDefinicoes++;
+            vetorDefinicoes.push_back({proxtoken});
         } else {
             retorno = PesquisaInstrucaoEDiretiva(proxtoken, vetorInstrucao);
             if (retorno != -1) {
@@ -224,7 +226,7 @@ void PrimeiraPassagem(string linha) {
                     flagErros++;
 
                 }
-                posicao = posicao + 1;
+                posicao++;
             }
         }
     }
@@ -271,7 +273,6 @@ void adicionaCodigoObjeto(int diretiva, int flagInstrucao) {
         aux = aux2;
     }
     codigoObjeto.append(aux + " ");
-    cout << codigoObjeto;
 }
 
 void verificarVetor(string token, int *espacos, int *flagVetorErrado) {
@@ -311,6 +312,7 @@ void SegundaPassagem(fstream &preprocessado) {
     string proxtoken;
     string rotulo;
     int retorno;
+    int flagBeginEnd;
     int flagInstrucao;
     int flagCode = 0;
     int flagData = 0;
@@ -360,7 +362,6 @@ void SegundaPassagem(fstream &preprocessado) {
                 }
                 if ((retorno <= 3 || retorno >= 8) && (retorno != 13)) {
                     flagMemoria = 1;
-
                 } else if (retorno != 13)
                     flagMemoria = 2;
                 if (retorno == 8 || retorno == 10 || retorno == 11) {
@@ -407,6 +408,7 @@ void SegundaPassagem(fstream &preprocessado) {
                                                              flagInstrucao);
                                     }
                                     posicao++;
+
                                     espacosMEM[l] = espacos;
                                     posicaoMEM[l] = vetorSimbolos[retorno].posicao;
                                     checarMEM[l] = numeroLinha;
@@ -463,6 +465,7 @@ void SegundaPassagem(fstream &preprocessado) {
                     if (linha[0] == ',') {//COPY
                         linha = linha.substr(1, linha.size() - 1);
                         flagConst = 0;
+
                         proxtoken = linha.substr(0, linha.find_first_of(" \n+-"));
                         retorno = PesquisaSimbolo(proxtoken, vetorSimbolos);
                         if (retorno != -1) {
@@ -591,7 +594,7 @@ void SegundaPassagem(fstream &preprocessado) {
                         case 2:
                             /*CONST*/
                             if (!linha.empty()) {
-                                proxtoken = linha.substr(0, linha.find_first_of(" \n +-"));
+                                proxtoken = linha.substr(0, linha.find_first_of(" \n+-"));
                                 if (proxtoken[0] == 0 && proxtoken[1] == 'X') {
                                     stringstream(proxtoken) >> std::hex >> espacos;
                                 } else {
@@ -619,6 +622,7 @@ void SegundaPassagem(fstream &preprocessado) {
                                 }
                                 j = 0;
                                 /*verifica se tentou alterar constante*/
+                                cout<<"L eh: "<<l;
                                 for (i = 0; i < l; i++) {
                                     retorno = 0;
                                     while ((j <= l) && (retorno == 0)) {
@@ -641,6 +645,9 @@ void SegundaPassagem(fstream &preprocessado) {
                                      << " constante nao iniciada\n";
                             }
                             break;
+                            //TODO: se nao for modulo deve ter ao menos uma instrucao STOP
+                            // TODO: tratar a diretiva BEGIN e END.
+                            // TODO: Fazer o ligador e testar
                     }
 
                 }
@@ -657,8 +664,8 @@ void SegundaPassagem(fstream &preprocessado) {
 int Monta(fstream &preprocessado) {
     //primeiro vou escrever a ideia
     //recebe o arquivo preprocessado;
-    int contador_posicao = 0;
     int contador_linha = 1;
+    posicao = 0;
     string linha;
     GeraTabelaInstrucoesEDiretivas();
     numLinha = 1;
@@ -674,6 +681,9 @@ int Monta(fstream &preprocessado) {
     preprocessado.clear();
     preprocessado.seekg(0, ios::beg);
     SegundaPassagem(preprocessado);
+    for (int i = 0; i < vetorSimbolos.size(); i++) {
+        cout << endl << vetorSimbolos[i].simbolo << endl << vetorSimbolos[i].posicao;
+    }
     cout << endl << "Codigo Objeto: " << codigoObjeto;
 
     // aqui eu leio linha por linha do programa;
