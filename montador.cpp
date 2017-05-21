@@ -679,7 +679,7 @@ void SegundaPassagem(fstream &preprocessado) {
     }
 }
 
-int Monta(fstream &preprocessado) {
+int Monta(fstream &preprocessado, string nomeArquivoSaida) {
     //primeiro vou escrever a ideia
     //recebe o arquivo preprocessado;
     int contador_linha = 1;
@@ -702,11 +702,11 @@ int Monta(fstream &preprocessado) {
 
     cout << endl << "Codigo Objeto em memoria: " << codigoObjeto;
 
-    if(flagErros == 0){
-        fstream arquivoObjeto("arquivoTeste.o", fstream::in | fstream::out|fstream::trunc);
+    if (flagErros == 0) {
+        nomeArquivoSaida.append("o");
+        fstream arquivoObjeto(nomeArquivoSaida, fstream::in | fstream::out | fstream::trunc);
         arquivoObjeto << codigoObjeto;
         arquivoObjeto.close();
-
     }
 
     // aqui eu leio linha por linha do programa;

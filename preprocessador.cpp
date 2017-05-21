@@ -57,7 +57,7 @@ map<string, string> removeComentariosEAchaEqu(fstream &uppertexto, fstream &semc
             macro = linha.substr(0, posicaoMacro);
             posicaoFimValor = (int) linha.find_last_not_of(' ');
             posicaoInicioValor = (int) linha.find_last_of(' ');
-            valorMacro = linha.substr(posicaoInicioValor+1, posicaoFimValor);
+            valorMacro = linha.substr(posicaoInicioValor + 1, posicaoFimValor);
             macroValor.insert(pair<string, string>(macro, valorMacro));
             getline(uppertexto, linha);
         }
@@ -102,7 +102,7 @@ void removeEspacosEmBrancoESubstituiEQU(fstream &semcomentarios, fstream &semEsp
         novalinha.clear();
         v.clear();
     }
-    }
+}
 
 
 void expandemacroIF(fstream &semEspacos, fstream &macroexpandido) {
@@ -135,14 +135,13 @@ void expandemacroIF(fstream &semEspacos, fstream &macroexpandido) {
     }
 }
 
-int preprocessa(fstream &arquivoEntrada, string nomeArquivoEntrada, string nomeArquivoSaida) {
+int preprocessa(fstream &arquivoEntrada, string nomeArquivoSaida) {
     //essa função chama os outros metodos para preprocessar o arquivo
     fstream arqA;
     fstream arqB; // dependendo da operação o arquivo A é o de saída ou de entrada
     map<string, string> retornoMacros;
     //abrir o arquivo de acordo com a função;
-
-    arqA.open(nomeArquivoEntrada, fstream::out | fstream::in | fstream::trunc);
+    arqA.open("preprocessando.pre", fstream::out | fstream::in | fstream::trunc);
     transformaemuppercase(arquivoEntrada, arqA);
     arqA.clear();// limpa failbit
     arqA.seekg(0, arqA.beg);// volta para o inicio do arquivo
@@ -171,10 +170,11 @@ int preprocessa(fstream &arquivoEntrada, string nomeArquivoEntrada, string nomeA
     expandemacroIF(arqA, arqB);
     arqA.close();
     arqB.close();
-    
-    if(remove("preprocessando.pre")!=0){
-        cout<< "\n Erro ao apagar arquivo temporario\n";
+
+    if (remove("preprocessando.pre") != 0) {
+        cout << "\n Erro ao apagar arquivo temporario\n";
     }
+    nomeArquivoSaida.append(".pre"); // extensao do arquivo
     rename("preprocessado.pre", nomeArquivoSaida.c_str());
     return 1;
 }

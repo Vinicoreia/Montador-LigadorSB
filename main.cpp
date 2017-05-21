@@ -34,11 +34,10 @@ int main(int argc, char *argv[]) {
         if (argumento == "-p") {
             nomeArquivoEntrada = argv[2];
             nomeArquivoEntrada.append(".asm");
-            nomeArquivoSaida.append(".pre");
             fstream entrada(nomeArquivoEntrada);
             if (entrada.is_open()) {
                 nomeArquivoEntrada = nomeArquivoEntrada.substr(0, nomeArquivoEntrada.find_first_of("."));
-                preprocessa(entrada, nomeArquivoEntrada, nomeArquivoSaida);
+                preprocessa(entrada, nomeArquivoSaida);
                 entrada.close();
             } else {
                 cout << "\nErro ao abrir o arquivo!";
@@ -50,17 +49,25 @@ int main(int argc, char *argv[]) {
             nomeArquivoEntrada.append(".pre");
             fstream entradaPre(nomeArquivoEntrada);
             if (entradaPre.is_open()) {
-                Monta(entradaPre);
+                Monta(entradaPre, nomeArquivoSaida);
                 entradaPre.close();
             } else {
                 nomeArquivoEntrada = argv[2];
                 nomeArquivoEntrada.append((".asm"));
                 fstream entradaAsm(nomeArquivoEntrada);
                 if (entradaAsm.is_open()) {
-                    preprocessa(entradaAsm, nomeArquivoEntrada, nomeArquivoSaida);
-                    Monta(entradaAsm);
+                    preprocessa(entradaAsm, nomeArquivoSaida);
                     entradaAsm.close();
-                }else{
+                    string arqPreProcessado = nomeArquivoSaida;
+                    arqPreProcessado.append(".pre");
+                    fstream saidaPreProcessamento(arqPreProcessado);
+                    if(saidaPreProcessamento.is_open()){
+                        Monta(saidaPreProcessamento, nomeArquivoSaida);
+                        saidaPreProcessamento.close();
+                    }else{
+                        cout<< "Erro ao abrir arquivo para montagem";
+                    }
+                } else {
                     cout << "\nErro ao abrir o arquivo";
                     return EXIT_FAILURE;
                 }
