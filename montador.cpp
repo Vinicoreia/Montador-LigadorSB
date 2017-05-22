@@ -180,7 +180,6 @@ void PrimeiraPassagem(string linha) {
             vetorSimbolos.push_back({rotulo, posicao});
             contadorSimbolos++;
             cout<< posicao;
-            //TODO Descobrir porque nao esta gerando tabela de simbolos corretamente
             if (linha.find_first_of(" \n") != string::npos) {
                 proxtoken = linha.substr(0, linha.find_first_of(" \n"));
                 linha = linha.substr(proxtoken.size() + 1, linha.size() - proxtoken.size() - 1);
