@@ -63,9 +63,9 @@ int main(int argc, char *argv[]) {
                     if (saidaPreProcessamento.is_open()) {
                         Monta(saidaPreProcessamento, nomeArquivoSaida);
                         saidaPreProcessamento.close();
-                        if (remove(nomeArquivoSaida.append(".pre").c_str()) != 0) {
+                       /* if (remove(nomeArquivoSaida.append(".pre").c_str()) != 0) {
                             cout << "\nErro ao remover arquivo temporario de preprocessamento\n";
-                        }
+                        }*/
                     } else {
                         cout << "\nErro ao abrir arquivo para montagem\n";
                     }

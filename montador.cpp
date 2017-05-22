@@ -71,7 +71,7 @@ void GeraTabelaInstrucoesEDiretivas() {
     vetorInstrucao.push_back({"JMPN", 1});
     vetorInstrucao.push_back({"JMPP", 1});
     vetorInstrucao.push_back({"JMPZ", 1});
-    vetorInstrucao.push_back({"COPY", 1});
+    vetorInstrucao.push_back({"COPY", 2});
     vetorInstrucao.push_back({"LOAD", 1});
     vetorInstrucao.push_back({"STORE", 1});
     vetorInstrucao.push_back({"INPUT", 1});
@@ -179,7 +179,6 @@ void PrimeiraPassagem(string linha) {
         } else { // insere o simbolo na tabela de simbolos
             vetorSimbolos.push_back({rotulo, posicao});
             contadorSimbolos++;
-            cout<< posicao;
             if (linha.find_first_of(" \n") != string::npos) {
                 proxtoken = linha.substr(0, linha.find_first_of(" \n"));
                 linha = linha.substr(proxtoken.size() + 1, linha.size() - proxtoken.size() - 1);
@@ -387,6 +386,7 @@ void SegundaPassagem(fstream &preprocessado) {
         if (ProcuraRotulo(linha)) {
             rotulo = linha.substr(0, linha.find_first_of(":"));
             linha = linha.substr(rotulo.size() + 2, linha.size()); // retira rotulo da linha e pula o : e o ' '
+            cout<< rotulo;
         }
         linha.append("\n");
         proxtoken = linha.substr(0, linha.find_first_of(" \n"));
@@ -453,7 +453,6 @@ void SegundaPassagem(fstream &preprocessado) {
                                                              flagInstrucao);
                                     }
                                     posicao++;
-
                                     espacosMEM[l] = espacos;
                                     posicaoMEM[l] = vetorSimbolos[retorno].posicao;
                                     checarMEM[l] = numLinha;
@@ -479,7 +478,11 @@ void SegundaPassagem(fstream &preprocessado) {
                     }
                 } else if (vetorInstrucao[retorno].operando == 2) {
                     proxtoken = linha.substr(0, linha.find_first_of(", \n"));
-                    linha = linha.substr(proxtoken.size() + 1, linha.size() - proxtoken.size() - 1);
+                    if(linha[proxtoken.size()] == ','){
+                        linha = linha.substr(proxtoken.size(), linha.size() - proxtoken.size() - 1); // Se for Copy
+                    }else{
+                        linha = linha.substr(proxtoken.size() + 1, linha.size() - proxtoken.size() - 1); // Se nao for Copy
+                    }
                     retorno = PesquisaSimbolo(proxtoken);
 
                     if (retorno != -1) {
@@ -638,6 +641,7 @@ void SegundaPassagem(fstream &preprocessado) {
                             /*CONST*/
                             if (!linha.empty()) {
                                 proxtoken = linha.substr(0, linha.find_first_of(" \n+-"));
+                                cout<<endl<<proxtoken<<endl;
                                 if (proxtoken[0] == 0 && proxtoken[1] == 'X') {
                                     stringstream(proxtoken) >> std::hex >> espacos;
                                 } else {
@@ -756,10 +760,10 @@ int Monta(fstream &preprocessado, string nomeArquivoSaida) {
                     arquivoObjeto << vetorDefinicoes[i].simbolo << " " << vetorDefinicoes[i].posicao << "\n";
                 }
                 arquivoObjeto << "\nCODE\n";
-                arquivoObjeto << codigoObjeto<<endl;
-
-                arquivoObjeto.close();
             }
+            arquivoObjeto << codigoObjeto;
+            arquivoObjeto.close();
+
         }
     }
 }
