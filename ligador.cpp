@@ -17,14 +17,7 @@ using namespace std;
 typedef struct {
     string simbolo; /* carrega o simbolo o endereco da tabela de uso */
     string valor;
-    string valor2;/* caso apareca um copy no codigo necessario outro op*/
-    int flag;
-    int end; /* usado apenas para tabela objeto*/
-    int rel; /* aponta endereco relativo
-			  *-1 eh forma inical
-			  * 0 eh endereco sem fator de correcao
-			  * e 1 eh endereco ja com fator de correcao
-			  */
+    int posicaoCorrigida;
 } tabela;
 
 vector<tabela> codigo;
@@ -39,21 +32,13 @@ vector<tabela> definicaoB;
 vector<tabela> definicaoC;
 vector<tabela> tabelaGlobalDefinicoes;
 
-int fatorCorrecao[4] = {0,0,0,0};
-
-void LeArquivo(fstream &arquivo, vector<tabela> &vetorUso, vector<tabela> &vetorDefinicao) {
-    string linha;
-    int numLinha = 0;
-    while (getline(arquivo, linha)) {
-        codigo[numLinha].flag = numLinha;
-        numLinha++;
-    }
-}
+int fatorCorrecao = 0;
 
 void PreencheTabelas(fstream &arquivo, vector<tabela> &vetorUso, vector<tabela> &vetorDefinicao) {
     string linha;
     string simbolo;
     string valor;
+    int valorNumerico;
     int contador = 0;
     getline(arquivo, linha);
     if (linha == "TABLE USE") {
@@ -61,7 +46,7 @@ void PreencheTabelas(fstream &arquivo, vector<tabela> &vetorUso, vector<tabela> 
         while (!linha.empty()) {
             simbolo = linha.substr(0, linha.find_first_of(" \n"));
             valor = linha.substr(simbolo.size(), linha.find_first_of("\n"));
-            vetorUso.push_back({simbolo, valor, string(), contador, 0, 0});
+            vetorUso.push_back({simbolo, valor, 0});// valor eh a posicao nao corrigida;
             contador++;
             getline(arquivo, linha);
         }
@@ -72,29 +57,46 @@ void PreencheTabelas(fstream &arquivo, vector<tabela> &vetorUso, vector<tabela> 
         contador = 0;
         getline(arquivo, linha);
         while (!linha.empty()) {
+
             simbolo = linha.substr(0, linha.find_first_of(" \n"));
             valor = linha.substr(simbolo.size(), linha.find_first_of("\n"));
-            vetorDefinicao.push_back({simbolo, valor, string(), contador, 0, 0});
+            valorNumerico = atoi(valor.c_str())+ fatorCorrecao;
+            vetorDefinicao.push_back({simbolo, valor, valorNumerico});// valor eh a posicao nao corrigida;
             contador++;
             getline(arquivo, linha);
         }
     }
+    tabelaGlobalDefinicoes.insert(tabelaGlobalDefinicoes.end(), vetorDefinicao.begin(), vetorDefinicao.end());
     getline(arquivo, linha);
     if (linha == "CODE")
         contador = 0;
         getline(arquivo, linha);
         while (!linha.empty()) {
             codigoGeral.append(linha);
-            codigoGeral.append("\n");
-            fatorCorrecao[contador] = (int)count(linha.begin(), linha.end(), ' ')+1;
-            cout<< linha<<"\nFATOR "<<fatorCorrecao[contador]<<endl;
+            codigoGeral.append(" ");
+            fatorCorrecao += (int)count(linha.begin(), linha.end(), ' ')+1;
             getline(arquivo, linha);
             contador++;
         }
 }
 
-void adicionaATabelaGlobalDeDefinicoes(vector<tabela> &vetorDefinicoes){
-    tabelaGlobalDefinicoes.insert(tabelaGlobalDefinicoes.end(), vetorDefinicoes.begin(), vetorDefinicoes.end());
+void resolveReferenciasCruzadas(int argumentos){
+/*
+ * Deve substituir no codigo os enderecos relativos de acordo com a tabela de USO
+ *
+ * */
+    string simboloProcurado;
+    string posicaoNoCodigo;
+    if (argumentos==4){
+        /*Retira posicao no codigo da tabela de USO e atualiza com o valor na tabela de definicao
+         *
+         */
+        for(int i =0; i< tabUsoA.size(); i++){
+            simboloProcurado = tabUsoA[i].simbolo;
+            posicaoNoCodigo = tabUsoA[i].valor;
+        }
+
+    }
 }
 
 int main(int argc, char *argv[]) {
@@ -128,23 +130,21 @@ int main(int argc, char *argv[]) {
             /*Primeiro vamos escrever para dois arquivos*/
             PreencheTabelas(arquivo1Entrada, tabUsoA, definicaoA);
             PreencheTabelas(arquivo2Entrada, tabUsoB, definicaoB);
-            adicionaATabelaGlobalDeDefinicoes(definicaoA);
-            adicionaATabelaGlobalDeDefinicoes(definicaoB);
             if (argc == 5 && arquivo3Entrada.is_open()) {
                 PreencheTabelas(arquivo3Entrada, tabUsoC, definicaoC);
-                adicionaATabelaGlobalDeDefinicoes(definicaoC);
             }
+            cout<< codigoGeral;
+            /*
             for(int i = 0; i<tabelaGlobalDefinicoes.size(); i++){
                 cout<< tabelaGlobalDefinicoes[i].simbolo;
-                cout<< tabelaGlobalDefinicoes[i].valor;
+                cout<< tabelaGlobalDefinicoes[i].posicaoCorrigida;
 
-            }
+            }*/
+            resolveReferenciasCruzadas(argc);
         }
-
         arquivo1Entrada.close();
         arquivo1Entrada.close();
         arquivo3Entrada.close();
-
     }
 
     return 0;
