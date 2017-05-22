@@ -20,21 +20,23 @@ typedef struct {
     int posicaoCorrigida;
 } tabela;
 
-vector<tabela> codigo;
-string codigoGeral;
 
+string codigoA;
+string codigoB;
+string codigoC;
+string codigoFinal;
 vector<tabela> tabUsoA;
 vector<tabela> tabUsoB;
 vector<tabela> tabUsoC;
 
-vector<tabela> definicaoA;
-vector<tabela> definicaoB;
-vector<tabela> definicaoC;
+vector<tabela> tabDefinicaoA;
+vector<tabela> tabDefinicaoB;
+vector<tabela> tabDefinicaoC;
 vector<tabela> tabelaGlobalDefinicoes;
 
 int fatorCorrecao = 0;
 
-void PreencheTabelas(fstream &arquivo, vector<tabela> &vetorUso, vector<tabela> &vetorDefinicao) {
+void PreencheTabelas(fstream &arquivo, string &codigoAtual, vector<tabela> &vetorUso, vector<tabela> &vetorDefinicao) {
     string linha;
     string simbolo;
     string valor;
@@ -72,28 +74,53 @@ void PreencheTabelas(fstream &arquivo, vector<tabela> &vetorUso, vector<tabela> 
         contador = 0;
         getline(arquivo, linha);
         while (!linha.empty()) {
-            codigoGeral.append(linha);
-            codigoGeral.append(" ");
+            codigoAtual.append(linha);
             fatorCorrecao += (int)count(linha.begin(), linha.end(), ' ')+1;
             getline(arquivo, linha);
             contador++;
         }
 }
 
-void resolveReferenciasCruzadas(int argumentos){
+void resolveReferenciasCruzadas(int argumentos, string &codigoAtual){
 /*
  * Deve substituir no codigo os enderecos relativos de acordo com a tabela de USO
  *
  * */
+    vector<tabela>::iterator it;
     string simboloProcurado;
-    string posicaoNoCodigo;
+    string linhaQuebrada;
+    int valorAtualizado;
+    int posicaoTabelaDef;
+    int posicaoNoCodigo;
+    string token;
+    linhaQuebrada = codigoAtual;
     if (argumentos==4){
         /*Retira posicao no codigo da tabela de USO e atualiza com o valor na tabela de definicao
          *
          */
         for(int i =0; i< tabUsoA.size(); i++){
             simboloProcurado = tabUsoA[i].simbolo;
-            posicaoNoCodigo = tabUsoA[i].valor;
+            posicaoNoCodigo = atoi(tabUsoA[i].valor.c_str());
+            cout<< simboloProcurado<<" "<< posicaoNoCodigo;
+
+
+            auto predicado = [&simboloProcurado](tabela &item) {
+                return item.simbolo == simboloProcurado;
+            };
+
+            it = find_if(tabelaGlobalDefinicoes.begin(), tabelaGlobalDefinicoes.end(), predicado);
+            if (it != tabelaGlobalDefinicoes.end())
+                posicaoTabelaDef = (int) distance(tabelaGlobalDefinicoes.begin(), it); // retorna a posicao do simbolo
+
+            for(int j=0; j<posicaoNoCodigo; j++){
+                token = linhaQuebrada.substr(0, linhaQuebrada.find_first_of(" "));
+                linhaQuebrada = linhaQuebrada.substr(token.size()+1, linhaQuebrada.size()-token.size());
+                cout<<endl<<linhaQuebrada;
+            }
+            codigoFinal.append(codigoAtual.substr(0, codigoAtual.size()-linhaQuebrada.size()));
+            cout<<endl<< codigoFinal;
+            /*pega o token de indice = posicaoNoCodigo*/
+
         }
 
     }
@@ -128,19 +155,19 @@ int main(int argc, char *argv[]) {
 
         if (arquivo1Entrada.is_open() && (arquivo2Entrada.is_open())) {
             /*Primeiro vamos escrever para dois arquivos*/
-            PreencheTabelas(arquivo1Entrada, tabUsoA, definicaoA);
-            PreencheTabelas(arquivo2Entrada, tabUsoB, definicaoB);
+            PreencheTabelas(arquivo1Entrada, codigoA, tabUsoA, tabDefinicaoA);
+            PreencheTabelas(arquivo2Entrada, codigoB, tabUsoB, tabDefinicaoB);
             if (argc == 5 && arquivo3Entrada.is_open()) {
-                PreencheTabelas(arquivo3Entrada, tabUsoC, definicaoC);
+                PreencheTabelas(arquivo3Entrada, codigoC, tabUsoC, tabDefinicaoC);
             }
-            cout<< codigoGeral;
             /*
             for(int i = 0; i<tabelaGlobalDefinicoes.size(); i++){
                 cout<< tabelaGlobalDefinicoes[i].simbolo;
                 cout<< tabelaGlobalDefinicoes[i].posicaoCorrigida;
 
             }*/
-            resolveReferenciasCruzadas(argc);
+            cout<< endl<<codigoA;
+            resolveReferenciasCruzadas(argc, codigoA);
         }
         arquivo1Entrada.close();
         arquivo1Entrada.close();
