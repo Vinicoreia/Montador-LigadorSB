@@ -27,6 +27,48 @@
 					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="ligador">
+				<Option output="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/ligador" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../include/c++/6.3.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../include/c++/6.3.1/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../include/c++/6.3.1/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 ligador"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ligador/fast">
+				<Option output="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/ligador" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../include/c++/6.3.1"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../include/c++/6.3.1/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../include/c++/6.3.1/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 ligador/fast"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug"/>
 				<Option type="4"/>
@@ -81,7 +123,7 @@
 			</Target>
 		</Build>
 		<Unit filename="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/ligador.cpp">
-			<Option target="Montador_LigadorSB"/>
+			<Option target="ligador"/>
 		</Unit>
 		<Unit filename="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/main.cpp">
 			<Option target="Montador_LigadorSB"/>

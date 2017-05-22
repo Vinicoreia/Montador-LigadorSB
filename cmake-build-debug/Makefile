@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named ligador
+
+# Build rule for target.
+ligador: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ligador
+.PHONY : ligador
+
+# fast build rule for target.
+ligador/fast:
+	$(MAKE) -f CMakeFiles/ligador.dir/build.make CMakeFiles/ligador.dir/build
+.PHONY : ligador/fast
+
+#=============================================================================
 # Target rules for targets named Montador_LigadorSB
 
 # Build rule for target.
@@ -129,7 +142,7 @@ ligador.o: ligador.cpp.o
 
 # target to build an object file
 ligador.cpp.o:
-	$(MAKE) -f CMakeFiles/Montador_LigadorSB.dir/build.make CMakeFiles/Montador_LigadorSB.dir/ligador.cpp.o
+	$(MAKE) -f CMakeFiles/ligador.dir/build.make CMakeFiles/ligador.dir/ligador.cpp.o
 .PHONY : ligador.cpp.o
 
 ligador.i: ligador.cpp.i
@@ -138,7 +151,7 @@ ligador.i: ligador.cpp.i
 
 # target to preprocess a source file
 ligador.cpp.i:
-	$(MAKE) -f CMakeFiles/Montador_LigadorSB.dir/build.make CMakeFiles/Montador_LigadorSB.dir/ligador.cpp.i
+	$(MAKE) -f CMakeFiles/ligador.dir/build.make CMakeFiles/ligador.dir/ligador.cpp.i
 .PHONY : ligador.cpp.i
 
 ligador.s: ligador.cpp.s
@@ -147,7 +160,7 @@ ligador.s: ligador.cpp.s
 
 # target to generate assembly for a file
 ligador.cpp.s:
-	$(MAKE) -f CMakeFiles/Montador_LigadorSB.dir/build.make CMakeFiles/Montador_LigadorSB.dir/ligador.cpp.s
+	$(MAKE) -f CMakeFiles/ligador.dir/build.make CMakeFiles/ligador.dir/ligador.cpp.s
 .PHONY : ligador.cpp.s
 
 main.o: main.cpp.o
@@ -238,6 +251,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... ligador"
 	@echo "... edit_cache"
 	@echo "... Montador_LigadorSB"
 	@echo "... ligador.o"

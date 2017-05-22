@@ -18,7 +18,6 @@ string PegaExtensao(const string &FileName) {
 }
 
 int main(int argc, char *argv[]) {
-
     // nesse arquivo os arquivos serao .asm ou . pre, dependendo do arquivo a execucao deve ser diferente
     // como o nome do arquivo ta em argv[1] basta definir o fluxo de acordo com a extensao, logo
     string nomeArquivoEntrada;
@@ -61,14 +60,14 @@ int main(int argc, char *argv[]) {
                     string arqPreProcessado = nomeArquivoSaida;
                     arqPreProcessado.append(".pre");
                     fstream saidaPreProcessamento(arqPreProcessado);
-                    if(saidaPreProcessamento.is_open()){
+                    if (saidaPreProcessamento.is_open()) {
                         Monta(saidaPreProcessamento, nomeArquivoSaida);
                         saidaPreProcessamento.close();
-                        if(remove(nomeArquivoSaida.append(".pre").c_str())!=0){
-                            cout<< "\nErro ao remover arquivo temporario de preprocessamento\n";
+                        if (remove(nomeArquivoSaida.append(".pre").c_str()) != 0) {
+                            cout << "\nErro ao remover arquivo temporario de preprocessamento\n";
                         }
-                    }else{
-                        cout<< "\nErro ao abrir arquivo para montagem\n";
+                    } else {
+                        cout << "\nErro ao abrir arquivo para montagem\n";
                     }
                 } else {
                     cout << "\nErro ao abrir o arquivo";

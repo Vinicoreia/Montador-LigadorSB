@@ -24,7 +24,7 @@
  *|___________________________________________________________________________________________|
  * */
 
-
+//TODO printar as tabelas de definicao e USO quando for modulo
 
 using namespace std;
 int numLinha;
@@ -121,7 +121,7 @@ int PesquisaInstrucaoEDiretiva(string instrOuDiretiva, vector<tabInstrucaoOuDire
  *      retorna -1 caso nao exista
  *      retorna a posicao caso exista
  * */
-int PesquisaSimbolo(string simbol, vector<tabSimbolos> vetorSimbolos) {
+int PesquisaSimbolo(string simbol) {
     vector<tabSimbolos>::iterator it;
     auto predicado = [&simbol](tabSimbolos &item) {
         return item.simbolo == simbol;
@@ -141,6 +141,7 @@ bool ProcuraRotulo(string linha) {
     size_t posicaoChar = linha.find_first_of(":");
     return posicaoChar != string::npos;
 }
+
 /*
  * Essa funcao checa se o rotulo nao possui caracter especial nem tamanho maior que 100 caracteres
  * */
@@ -157,6 +158,7 @@ void ChecaSeRotuloValido(string rotulo) {
 
     }
 }
+
 /*
  * Essa funcao cria e atualiza a tabela de simbolos.
  * */
@@ -171,12 +173,14 @@ void PrimeiraPassagem(string linha) {
         string rotulo = linha.substr(0, linha.find_first_of(":")); // pega a primeira palavra como rotulo
         linha = linha.substr(rotulo.size() + 2, linha.size()); // retira rotulo da linha e pula o : e o ' '
         ChecaSeRotuloValido(rotulo);
-        if (PesquisaSimbolo(rotulo, vetorSimbolos) != -1) { // se eu procurar na tabela o simbolo e ele já estiver lá
+        if (PesquisaSimbolo(rotulo) != -1) { // se eu procurar na tabela o simbolo e ele já estiver lá
             cout << "\nErro Semantico na linha " << numLinha << " Simbolo " << rotulo << " redefinido\n";
             flagErros++;
         } else { // insere o simbolo na tabela de simbolos
             vetorSimbolos.push_back({rotulo, posicao});
             contadorSimbolos++;
+            cout<< posicao;
+            //TODO Descobrir porque nao esta gerando tabela de simbolos corretamente
             if (linha.find_first_of(" \n") != string::npos) {
                 proxtoken = linha.substr(0, linha.find_first_of(" \n"));
                 linha = linha.substr(proxtoken.size() + 1, linha.size() - proxtoken.size() - 1);
@@ -262,16 +266,19 @@ void PrimeiraPassagem(string linha) {
         }
     }
 }
+
 /*
  * Essa Funcao copia as posicoes da tabela de simbolos para a tabela de definicoes caso exista mais de um modulo.
  * */
 void AtualizaTabelaDeDefinicao() {
+
     string simboloProcurado;
     vector<tabDef>::iterator itDef;
     vector<tabSimbolos>::iterator itSimb;
     int indice;
     if (flagModulo == 1) {
-        for (int i = 0; i < contadorDefinicoes; i++) {
+
+        for (int i = 0; i < vetorDefinicoes.size(); i++) {
             simboloProcurado = vetorDefinicoes[i].simbolo; // procura esse simbolo na tabela de Simbolos.
             auto predicado = [simboloProcurado](const tabSimbolos &item) {
                 return item.simbolo == simboloProcurado;
@@ -306,8 +313,10 @@ void AdicionaCodigoObjeto(int diretiva, int flagInstrucao) {
         aux2.append(aux);
         aux = aux2;
     }
+
     codigoObjeto.append(aux + " ");
 }
+
 /*
  * Essa funcao verifica se o vetor esta correto retornando por referencia o numero de espacos
  * */
@@ -326,6 +335,7 @@ void VerificaVetor(string token, int *espacos, int *flagVetorErrado) {
         stringstream(aux2) >> *espacos;
     }
 }
+
 /*
  * Essa funcao checa se o formato da instrucao esta correta e se existe pulo pra secao de dados
  * */
@@ -342,6 +352,7 @@ void ChecaArgumentos(int flagMemoria, int retorno, int numLinha) {
         }
     }
 }
+
 /*
  * Essa funcao executa a segunda passagem do montador de duas passagens, tendo em conta que a tabela de simbolos
  * foi feita na primeira passagem.
@@ -409,7 +420,7 @@ void SegundaPassagem(fstream &preprocessado) {
                 if (vetorInstrucao[retorno].operando == 1) {
                     proxtoken = linha.substr(0, linha.find_first_of(" \n+-,"));// pega o token antes de , ou + ou espaço
                     linha = linha.substr(proxtoken.size(), linha.size() - proxtoken.size());
-                    retorno = PesquisaSimbolo(proxtoken, vetorSimbolos);
+                    retorno = PesquisaSimbolo(proxtoken);
                     if (!proxtoken.empty()) {
 
                         if (retorno != -1) {
@@ -470,7 +481,7 @@ void SegundaPassagem(fstream &preprocessado) {
                 } else if (vetorInstrucao[retorno].operando == 2) {
                     proxtoken = linha.substr(0, linha.find_first_of(", \n"));
                     linha = linha.substr(proxtoken.size() + 1, linha.size() - proxtoken.size() - 1);
-                    retorno = PesquisaSimbolo(proxtoken, vetorSimbolos);
+                    retorno = PesquisaSimbolo(proxtoken);
 
                     if (retorno != -1) {
 
@@ -502,7 +513,7 @@ void SegundaPassagem(fstream &preprocessado) {
                         flagConst = 0;
 
                         proxtoken = linha.substr(0, linha.find_first_of(" \n+-"));
-                        retorno = PesquisaSimbolo(proxtoken, vetorSimbolos);
+                        retorno = PesquisaSimbolo(proxtoken);
                         if (retorno != -1) {
                             if (vetorSimbolos[retorno].externo == 1) {
                                 vetorUso.push_back({vetorSimbolos[retorno].simbolo, posicao});
@@ -729,13 +740,27 @@ int Monta(fstream &preprocessado, string nomeArquivoSaida) {
     preprocessado.clear();
     preprocessado.seekg(0, ios::beg);
     SegundaPassagem(preprocessado);
-    cout << endl << "Codigo Objeto em memoria: " << codigoObjeto;
 
     if (flagErros == 0) {
         nomeArquivoSaida.append(".o");
         fstream arquivoObjeto(nomeArquivoSaida, fstream::in | fstream::out | fstream::trunc);
         codigoObjeto.pop_back();
-        arquivoObjeto << codigoObjeto;
-        arquivoObjeto.close();
+        cout << endl << "Codigo Objeto em memoria: " << codigoObjeto;
+        if (arquivoObjeto.is_open()) {
+            if (flagModulo != 0) {
+                arquivoObjeto << "TABLE USE\n";
+                for (int i = 0; i < vetorUso.size(); i++) {
+                    arquivoObjeto << vetorUso[i].simbolo << " " << vetorUso[i].posicao << endl;
+                }
+                arquivoObjeto << "\nTABLE DEFINITION\n";
+                for (int i = 0; i < vetorDefinicoes.size(); i++) {
+                    arquivoObjeto << vetorDefinicoes[i].simbolo << " " << vetorDefinicoes[i].posicao << "\n";
+                }
+                arquivoObjeto << "\nCODE\n";
+                arquivoObjeto << codigoObjeto<<endl;
+
+                arquivoObjeto.close();
+            }
+        }
     }
 }

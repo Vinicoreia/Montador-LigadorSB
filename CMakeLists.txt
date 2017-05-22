@@ -3,5 +3,8 @@ project(Montador_LigadorSB)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp preprocessador.cpp ligador.cpp montador.cpp preprocessador.h montador.h)
+set(SOURCE_FILES main.cpp preprocessador.cpp montador.cpp preprocessador.h montador.h)
 add_executable(Montador_LigadorSB ${SOURCE_FILES})
+
+set(SOURCE_FILES ligador.cpp)
+add_executable(ligador ${SOURCE_FILES})
