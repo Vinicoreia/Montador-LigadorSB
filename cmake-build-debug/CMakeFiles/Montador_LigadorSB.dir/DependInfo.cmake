@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/Vinicoreia/Documentos/github/Montador-LigadorSB/main.cpp" "/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/Montador_LigadorSB.dir/main.cpp.o"
-  "/home/Vinicoreia/Documentos/github/Montador-LigadorSB/montador.cpp" "/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/Montador_LigadorSB.dir/montador.cpp.o"
-  "/home/Vinicoreia/Documentos/github/Montador-LigadorSB/preprocessador.cpp" "/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/Montador_LigadorSB.dir/preprocessador.cpp.o"
+  "D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/main.cpp" "D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/CMakeFiles/Montador_LigadorSB.dir/main.cpp.obj"
+  "D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/montador.cpp" "D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/CMakeFiles/Montador_LigadorSB.dir/montador.cpp.obj"
+  "D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/preprocessador.cpp" "D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/CMakeFiles/Montador_LigadorSB.dir/preprocessador.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

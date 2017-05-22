@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/Vinicoreia/Documentos/github/Montador-LigadorSB/ligador.cpp" "/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/CMakeFiles/ligador.dir/ligador.cpp.o"
+  "D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/ligador.cpp" "D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/CMakeFiles/ligador.dir/ligador.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

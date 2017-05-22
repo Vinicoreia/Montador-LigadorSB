@@ -13,6 +13,7 @@ using namespace std;
 #include <vector>
 #include <fstream>
 #include <algorithm>
+#include <sstream>
 
 typedef struct {
     string simbolo; /* carrega o simbolo o endereco da tabela de uso */
@@ -62,7 +63,7 @@ void PreencheTabelas(fstream &arquivo, string &codigoAtual, vector<tabela> &veto
 
             simbolo = linha.substr(0, linha.find_first_of(" \n"));
             valor = linha.substr(simbolo.size(), linha.find_first_of("\n"));
-            valorNumerico = atoi(valor.c_str())+ fatorCorrecao;
+            valorNumerico = atoi(valor.c_str()) + fatorCorrecao;
             vetorDefinicao.push_back({simbolo, valor, valorNumerico});// valor eh a posicao nao corrigida;
             contador++;
             getline(arquivo, linha);
@@ -72,16 +73,16 @@ void PreencheTabelas(fstream &arquivo, string &codigoAtual, vector<tabela> &veto
     getline(arquivo, linha);
     if (linha == "CODE")
         contador = 0;
+    getline(arquivo, linha);
+    while (!linha.empty()) {
+        codigoAtual.append(linha);
+        fatorCorrecao += (int) count(linha.begin(), linha.end(), ' ') + 1;
         getline(arquivo, linha);
-        while (!linha.empty()) {
-            codigoAtual.append(linha);
-            fatorCorrecao += (int)count(linha.begin(), linha.end(), ' ')+1;
-            getline(arquivo, linha);
-            contador++;
-        }
+        contador++;
+    }
 }
 
-void resolveReferenciasCruzadas(int argumentos, string &codigoAtual){
+void resolveReferenciasCruzadas(int argumentos, string &codigoAtual, vector<tabela> &tabelaDeUso) {
 /*
  * Deve substituir no codigo os enderecos relativos de acordo com a tabela de USO
  *
@@ -93,36 +94,49 @@ void resolveReferenciasCruzadas(int argumentos, string &codigoAtual){
     int posicaoTabelaDef;
     int posicaoNoCodigo;
     string token;
+    string codigoAuxFinal;
+    int contador = 0;
     linhaQuebrada = codigoAtual;
-    if (argumentos==4){
+    if (argumentos == 4) {
         /*Retira posicao no codigo da tabela de USO e atualiza com o valor na tabela de definicao
          *
          */
-        for(int i =0; i< tabUsoA.size(); i++){
-            simboloProcurado = tabUsoA[i].simbolo;
-            posicaoNoCodigo = atoi(tabUsoA[i].valor.c_str());
-            cout<< simboloProcurado<<" "<< posicaoNoCodigo;
-
+        for (int i = 0; i < tabelaDeUso.size(); i++) {
+            simboloProcurado = tabelaDeUso[i].simbolo;
+            posicaoNoCodigo = atoi(tabelaDeUso[i].valor.c_str());
 
             auto predicado = [&simboloProcurado](tabela &item) {
                 return item.simbolo == simboloProcurado;
             };
 
             it = find_if(tabelaGlobalDefinicoes.begin(), tabelaGlobalDefinicoes.end(), predicado);
-            if (it != tabelaGlobalDefinicoes.end())
+            if (it != tabelaGlobalDefinicoes.end()) {
+                contador = 0;
+                stringstream linhastream(codigoAtual);
                 posicaoTabelaDef = (int) distance(tabelaGlobalDefinicoes.begin(), it); // retorna a posicao do simbolo
+                valorAtualizado = tabelaGlobalDefinicoes[posicaoTabelaDef].posicaoCorrigida;
+                stringstream valorAtualizadoConvertido;
+                valorAtualizadoConvertido << valorAtualizado;
+                codigoAuxFinal = "";
 
-            for(int j=0; j<posicaoNoCodigo; j++){
-                token = linhaQuebrada.substr(0, linhaQuebrada.find_first_of(" "));
-                linhaQuebrada = linhaQuebrada.substr(token.size()+1, linhaQuebrada.size()-token.size());
-                cout<<endl<<linhaQuebrada;
+                while (getline(linhastream, token, ' ')) {
+                    if (contador == posicaoNoCodigo) {
+                        codigoAuxFinal.append(valorAtualizadoConvertido.str() + " ");
+                    } else {
+                        codigoAuxFinal.append(token + " ");
+                    }
+                    contador++;
+                }
+                codigoAtual = codigoAuxFinal;
+                /* Retira o token da linhaQuebrada*/
+            } else {
+                //Simbolo nao definido
             }
-            codigoFinal.append(codigoAtual.substr(0, codigoAtual.size()-linhaQuebrada.size()));
-            cout<<endl<< codigoFinal;
             /*pega o token de indice = posicaoNoCodigo*/
 
         }
-
+        codigoFinal.append(codigoAuxFinal);
+        cout<< endl<<codigoFinal;
     }
 }
 
@@ -166,8 +180,8 @@ int main(int argc, char *argv[]) {
                 cout<< tabelaGlobalDefinicoes[i].posicaoCorrigida;
 
             }*/
-            cout<< endl<<codigoA;
-            resolveReferenciasCruzadas(argc, codigoA);
+            resolveReferenciasCruzadas(argc, codigoA, tabUsoA);
+            resolveReferenciasCruzadas(argc, codigoB, tabUsoB);
         }
         arquivo1Entrada.close();
         arquivo1Entrada.close();

@@ -8,139 +8,139 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug"/>
+				<Option working_dir="D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug"/>
+				<Option working_dir="D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="ligador">
-				<Option output="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/ligador" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../include/c++/6.3.1"/>
-					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../include/c++/6.3.1/x86_64-redhat-linux"/>
-					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../include/c++/6.3.1/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 ligador"/>
-					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="ligador/fast">
-				<Option output="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/ligador" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../include/c++/6.3.1"/>
-					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../include/c++/6.3.1/x86_64-redhat-linux"/>
-					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../include/c++/6.3.1/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 ligador/fast"/>
-					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Montador_LigadorSB">
-				<Option output="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Montador_LigadorSB" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug"/>
+				<Option output="D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Montador_LigadorSB.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../include/c++/6.3.1"/>
-					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../include/c++/6.3.1/x86_64-redhat-linux"/>
-					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../include/c++/6.3.1/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/include/c++"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/include"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 Montador_LigadorSB"/>
-					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 Montador_LigadorSB"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Montador_LigadorSB/fast">
-				<Option output="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Montador_LigadorSB" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug"/>
+				<Option output="D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Montador_LigadorSB.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../include/c++/6.3.1"/>
-					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../include/c++/6.3.1/x86_64-redhat-linux"/>
-					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/../../../../include/c++/6.3.1/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/6.3.1/include"/>
-					<Add directory="/usr/local/include"/>
-					<Add directory="/usr/include"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/include/c++"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/include"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 Montador_LigadorSB/fast"/>
-					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/Vinicoreia/Documentos/github/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 Montador_LigadorSB/fast"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ligador">
+				<Option output="D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/ligador.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/include/c++"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/include"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 ligador"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ligador/fast">
+				<Option output="D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/ligador.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/include/c++"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/include"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-7.1.0-posix-seh-rt_v5-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 ligador/fast"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/ligador.cpp">
+		<Unit filename="D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/ligador.cpp">
 			<Option target="ligador"/>
 		</Unit>
-		<Unit filename="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/main.cpp">
+		<Unit filename="D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/main.cpp">
 			<Option target="Montador_LigadorSB"/>
 		</Unit>
-		<Unit filename="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/montador.cpp">
+		<Unit filename="D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/montador.cpp">
 			<Option target="Montador_LigadorSB"/>
 		</Unit>
-		<Unit filename="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/montador.h">
+		<Unit filename="D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/montador.h">
 			<Option target="Montador_LigadorSB"/>
 		</Unit>
-		<Unit filename="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/preprocessador.cpp">
+		<Unit filename="D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/preprocessador.cpp">
 			<Option target="Montador_LigadorSB"/>
 		</Unit>
-		<Unit filename="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/preprocessador.h">
+		<Unit filename="D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/preprocessador.h">
 			<Option target="Montador_LigadorSB"/>
 		</Unit>
-		<Unit filename="/home/Vinicoreia/Documentos/github/Montador-LigadorSB/CMakeLists.txt">
+		<Unit filename="D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

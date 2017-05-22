@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/Vinicoreia/Documentos/github/Montador-LigadorSB/ligador.cpp
+D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/ligador.cpp
 iostream
 -
 vector
@@ -14,5 +14,7 @@ vector
 fstream
 -
 algorithm
+-
+sstream
 -
 
