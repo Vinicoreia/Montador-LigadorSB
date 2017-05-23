@@ -84,7 +84,7 @@ void GeraTabelaInstrucoesEDiretivas() {
  * Essa funcao verifica se existe simbolo especial na linha
  *
  * */
-size_t VerificaSeLinhaValida(string checaCaracter) {
+void VerificaSeLinhaValida(string checaCaracter) {
     /*Lembrar que aqui a linha ja não é sensível ao caso
      *
      */
@@ -377,7 +377,7 @@ void SegundaPassagem(fstream &preprocessado) {
     int flagMemoria = 0;
     int flagVetorErrado = 0, flagConst = 0;
     int numerosDIV[20];
-    int checarMEM[30], espacosMEM[30], posicaoMEM[30];
+    int espacosMEM[30], posicaoMEM[30];
     int constAlterada[50];
     int posicao = 0;
     numLinha = 1;
@@ -562,7 +562,7 @@ void SegundaPassagem(fstream &preprocessado) {
                     }
                 }
                 if (!linha.empty() && retorno != 13 && flagVetorErrado == 1) {
-                    flagErros;
+                    flagErros++;
                     cout << "\nErro Sintatico na linha " << numLinha << " numero de operandos incorreto\n";
                 }
             }
@@ -756,11 +756,11 @@ int Monta(fstream &preprocessado, string nomeArquivoSaida) {
         if (arquivoObjeto.is_open()) {
             if (flagModulo != 0) {
                 arquivoObjeto << "TABLE USE\n";
-                for (int i = 0; i < vetorUso.size(); i++) {
+                for (unsigned i = 0; i < vetorUso.size(); i++) {
                     arquivoObjeto << vetorUso[i].simbolo << " " << vetorUso[i].posicao << endl;
                 }
                 arquivoObjeto << "\nTABLE DEFINITION\n";
-                for (int i = 0; i < vetorDefinicoes.size(); i++) {
+                for (unsigned i = 0; i < vetorDefinicoes.size(); i++) {
                     arquivoObjeto << vetorDefinicoes[i].simbolo << " " << vetorDefinicoes[i].posicao << "\n";
                 }
                 arquivoObjeto << "\nCODE\n";
@@ -770,4 +770,5 @@ int Monta(fstream &preprocessado, string nomeArquivoSaida) {
 
         }
     }
+    return 0;
 }

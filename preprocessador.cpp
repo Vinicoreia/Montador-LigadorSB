@@ -44,7 +44,6 @@ map<string, string> RemoveComentariosEAchaEQU(fstream &uppertexto, fstream &semc
     string macro;
     string valorMacro;
     map<string, string> macroValor;
-    int posicaoValor;
     int posicaoFimValor;
     int posicaoInicioValor;
     cout << "\nRemovendo comentarios";
@@ -91,7 +90,7 @@ void RemoveEspacosEmBrancoESubstituiEqu(fstream &semcomentarios, fstream &semEsp
             }
         }
 
-        for (int i = 0; i < v.size(); i++) {
+        for (unsigned i = 0; i < v.size(); i++) {
             if (!v[i].empty()) {
                 if (macros.find(v[i]) != macros.end()) { // se a palavra lida no momento for macro
                     cout << "\nMacro encontrada... expandindo...";

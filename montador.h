@@ -41,7 +41,7 @@ typedef struct {
 void GeraTabelaInstrucoesEDiretivas(vector<tabInstrucaoOuDiretiva> tabInstrucao,
                                     vector<tabInstrucaoOuDiretiva> tabDiretiva);
 
-size_t VerificaSeLinhaValida(string checaCaracter);
+void VerificaSeLinhaValida(string checaCaracter);
 
 int PesquisaInstrucaoEDiretiva(string instrOuDiretiva, vector<tabInstrucaoOuDiretiva> vetorInstOuDiretiva);
 
