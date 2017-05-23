@@ -386,7 +386,7 @@ void SegundaPassagem(fstream &preprocessado) {
         if (ProcuraRotulo(linha)) {
             rotulo = linha.substr(0, linha.find_first_of(":"));
             linha = linha.substr(rotulo.size() + 2, linha.size()); // retira rotulo da linha e pula o : e o ' '
-            cout<< rotulo;
+            cout << rotulo;
         }
         linha.append("\n");
         proxtoken = linha.substr(0, linha.find_first_of(" \n"));
@@ -478,10 +478,11 @@ void SegundaPassagem(fstream &preprocessado) {
                     }
                 } else if (vetorInstrucao[retorno].operando == 2) {
                     proxtoken = linha.substr(0, linha.find_first_of(", \n"));
-                    if(linha[proxtoken.size()] == ','){
+                    if (linha[proxtoken.size()] == ',') {
                         linha = linha.substr(proxtoken.size(), linha.size() - proxtoken.size() - 1); // Se for Copy
-                    }else{
-                        linha = linha.substr(proxtoken.size() + 1, linha.size() - proxtoken.size() - 1); // Se nao for Copy
+                    } else {
+                        linha = linha.substr(proxtoken.size() + 1,
+                                             linha.size() - proxtoken.size() - 1); // Se nao for Copy
                     }
                     retorno = PesquisaSimbolo(proxtoken);
 
@@ -531,7 +532,7 @@ void SegundaPassagem(fstream &preprocessado) {
                                 espacosMEM[l] = espacos;
                                 posicaoMEM[l] = vetorSimbolos[retorno].posicao;
                                 checarMEM[l] = numLinha;
-                                constAlterada[l] = flagConst;
+                                constAlterada[l-1] = flagConst;
                                 l++;
                             }
                         } else {
@@ -641,7 +642,7 @@ void SegundaPassagem(fstream &preprocessado) {
                             /*CONST*/
                             if (!linha.empty()) {
                                 proxtoken = linha.substr(0, linha.find_first_of(" \n+-"));
-                                cout<<endl<<proxtoken<<endl;
+                                cout << endl << proxtoken << endl;
                                 if (proxtoken[0] == 0 && proxtoken[1] == 'X') {
                                     stringstream(proxtoken) >> std::hex >> espacos;
                                 } else {
@@ -701,8 +702,6 @@ void SegundaPassagem(fstream &preprocessado) {
                             flagEnd++;
                             flagStop++;
                             break;
-                            //TODO: se nao for modulo deve ter ao menos uma instrucao STOP
-                            // TODO: Fazer o ligador e testar
                     }
 
                 }

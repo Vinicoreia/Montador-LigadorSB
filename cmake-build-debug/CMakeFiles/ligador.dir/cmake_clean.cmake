@@ -1,9 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/ligador.dir/ligador.cpp.obj"
+  "CMakeFiles/ligador.dir/ligador.cpp.o"
   "ligador.pdb"
-  "ligador.exe"
-  "ligador.exe.manifest"
-  "libligador.dll.a"
+  "ligador"
 )
 
 # Per-language clean rules from dependency scanning.

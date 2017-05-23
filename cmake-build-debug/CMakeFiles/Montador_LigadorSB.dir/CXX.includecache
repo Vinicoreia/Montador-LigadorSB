@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/main.cpp
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/main.cpp
 iostream
 -
 fstream
@@ -22,11 +22,11 @@ map
 algorithm
 -
 preprocessador.h
-D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/preprocessador.h
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/preprocessador.h
 montador.h
-D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/montador.h
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/montador.h
 
-D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/montador.cpp
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/montador.cpp
 iostream
 -
 fstream
@@ -46,9 +46,9 @@ vector
 numeric
 -
 montador.h
-D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/montador.h
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/montador.h
 
-D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/montador.h
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/montador.h
 iostream
 -
 fstream
@@ -68,7 +68,7 @@ vector
 numeric
 -
 
-D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/preprocessador.cpp
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/preprocessador.cpp
 iostream
 -
 fstream
@@ -88,7 +88,7 @@ vector
 numeric
 -
 
-D:/Users/x04618860146/Desktop/Vinicius/Montador-LigadorSB/preprocessador.h
+/home/Vinicius/Documentos/Área de trabalho/Vinicius/Github/Montador-LigadorSB/preprocessador.h
 fstream
 -
 sstream

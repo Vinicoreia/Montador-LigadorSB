@@ -1,11 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Montador_LigadorSB.dir/main.cpp.obj"
-  "CMakeFiles/Montador_LigadorSB.dir/preprocessador.cpp.obj"
-  "CMakeFiles/Montador_LigadorSB.dir/montador.cpp.obj"
+  "CMakeFiles/Montador_LigadorSB.dir/main.cpp.o"
+  "CMakeFiles/Montador_LigadorSB.dir/preprocessador.cpp.o"
+  "CMakeFiles/Montador_LigadorSB.dir/montador.cpp.o"
   "Montador_LigadorSB.pdb"
-  "Montador_LigadorSB.exe"
-  "Montador_LigadorSB.exe.manifest"
-  "libMontador_LigadorSB.dll.a"
+  "Montador_LigadorSB"
 )
 
 # Per-language clean rules from dependency scanning.
