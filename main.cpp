@@ -10,7 +10,11 @@
 
 using namespace std;
 
-// Essa função retorna a extensão o arquivo
+/*
+ * Essa funcao retorna a extensao o arquivo
+ *
+ *
+ * */
 string PegaExtensao(const string &FileName) {
     if (FileName.find_last_of(".") != string::npos)
         return FileName.substr(FileName.find_last_of(".") + 1);

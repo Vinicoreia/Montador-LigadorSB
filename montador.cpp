@@ -135,7 +135,7 @@ int PesquisaSimbolo(string simbol) {
 }
 
 /*
- * Essa funcao retorna 1 se existe rotulo na linha
+ * Essa funcao retorna 1 se existe rotulo na linha e 0 caso contrário
  * */
 bool ProcuraRotulo(string linha) {
     size_t posicaoChar = linha.find_first_of(":");
@@ -160,7 +160,8 @@ void ChecaSeRotuloValido(string rotulo) {
 }
 
 /*
- * Essa funcao cria e atualiza a tabela de simbolos.
+ * Essa funcao cria e atualiza a tabela de simbolos através do algoritmo de primeira passagem.
+ *
  * */
 void PrimeiraPassagem(string linha) {
     int retorno;
@@ -169,14 +170,13 @@ void PrimeiraPassagem(string linha) {
     VerificaSeLinhaValida(linha);
     if (ProcuraRotulo(linha)) {
         linha.append("\n");
-        /*Caso ache um rótulo, verifica se ta na tabela de simbolos, se não tiver adicione*/
-        string rotulo = linha.substr(0, linha.find_first_of(":")); // pega a primeira palavra como rotulo
-        linha = linha.substr(rotulo.size() + 2, linha.size()); // retira rotulo da linha e pula o : e o ' '
+        string rotulo = linha.substr(0, linha.find_first_of(":"));
+        linha = linha.substr(rotulo.size() + 2, linha.size());
         ChecaSeRotuloValido(rotulo);
-        if (PesquisaSimbolo(rotulo) != -1) { // se eu procurar na tabela o simbolo e ele já estiver lá
+        if (PesquisaSimbolo(rotulo) != -1) { // se procurar na tabela o simbolo e ele já estiver lá
             cout << "\nErro Semantico na linha " << numLinha << " Simbolo " << rotulo << " redefinido\n";
             flagErros++;
-        } else { // insere o simbolo na tabela de simbolos
+        } else { // insere o simbolo na tabela de simbolos caso nao exista
             vetorSimbolos.push_back({rotulo, posicao});
             contadorSimbolos++;
             if (linha.find_first_of(" \n") != string::npos) {
@@ -188,19 +188,23 @@ void PrimeiraPassagem(string linha) {
                 linha = linha.substr(proxtoken.size() + 1, linha.size() - proxtoken.size() - 1);
 
             }
+
             /*VERIFICA SE INSTRUCAO EH VALIDA*/
+
             retorno = PesquisaInstrucaoEDiretiva(proxtoken, vetorInstrucao);
             if (retorno != -1) {
                 posicao = posicao + vetorInstrucao[retorno].operando + 1;
             } else {
                 retorno = PesquisaInstrucaoEDiretiva(proxtoken, vetorDiretiva);
-                if (retorno != -1) { /*Se encontrar a diretiva */
+                if (retorno != -1) {
+                    //Se encontrar diretiva
                     vetorSimbolos[contadorSimbolos - 1].secdados = 0;
                     if (vetorDiretiva[retorno].instrucaoOuDiretiva == "EXTERN") {
                         vetorSimbolos[contadorSimbolos - 1].externo = 1;
                         vetorSimbolos[contadorSimbolos - 1].posicao = 0;
                         flagModulo = 1;
-                    } else {//Se a diretiva nao for extern
+                    } else {
+                        //Se a diretiva nao for extern
                         vetorSimbolos[contadorSimbolos - 1].externo = 0;
                         if (vetorDiretiva[retorno].instrucaoOuDiretiva == "SPACE") {
                             vetorSimbolos[contadorSimbolos - 1].secdados = 1;
@@ -232,7 +236,7 @@ void PrimeiraPassagem(string linha) {
         linha = linha.substr(proxtoken.size(), linha.size());
         if (proxtoken == "SECTION") {
         } else if (proxtoken == "PUBLIC") {
-            flagModulo = 1; // existe outro modulo e devemos copiar o simbolo pra a TD
+            flagModulo = 1; // existe outro modulo o simbolo deve ser copiado para a TD
             proxtoken = linha.substr(linha.find_first_not_of(" \n"), linha.find_first_of(" \n") - 1);
             vetorDefinicoes.push_back({proxtoken});
         } else {
@@ -324,7 +328,7 @@ void VerificaVetor(string token, int *espacos, int *flagVetorErrado) {
     aux.append("+");
     aux2[0] = '\0';
     aux2 = linha.substr(0, linha.find_first_not_of(
-            " \n+"));// aux 3 deve ser o proximo token lembrando que aqui a string nao possui o +
+            " \n+"));// aux 3 deve ser o proximo token lembrando que aqui a string nao possui o + pois ele foi retirado
     if (aux2[aux2.size()] < 48 || aux2[aux2.size()] > 57) {
         *flagVetorErrado = 1;
 
@@ -336,6 +340,7 @@ void VerificaVetor(string token, int *espacos, int *flagVetorErrado) {
 
 /*
  * Essa funcao checa se o formato da instrucao esta correta e se existe pulo pra secao de dados
+ *
  * */
 void ChecaArgumentos(int flagMemoria, int retorno, int numLinha) {
     if (flagMemoria == 1) {
@@ -343,7 +348,7 @@ void ChecaArgumentos(int flagMemoria, int retorno, int numLinha) {
             flagErros++;
             cout << "\nErro Semantico na linha " << numLinha << " Argumento invalido\n";
         }
-    } else if (flagMemoria == 2) {// JUMP TENTANDO ACESSAR MEM DE DADOS
+    } else if (flagMemoria == 2) {// JUMP TENTANDO ACESSAR MEMORIA DE DADOS
         if (vetorSimbolos[retorno].secdados != 0) {
             flagErros++;
             cout << "\nErro Semantico na linha " << numLinha << " Pulo para a secao de dados nao eh permitido\n";
@@ -402,7 +407,7 @@ void SegundaPassagem(fstream &preprocessado) {
             if (flagData == 0) {
                 /*copia instrucao no codigo objeto*/
                 AdicionaCodigoObjeto(retorno + 1, flagInstrucao);
-                checarDIV[k] = -1;/*Para verificar divisao por 0*/
+                checarDIV[k] = -1;/* vetor de flags que verifica divisao por 0*/
                 if (retorno == 3) {
                     checarDIV[k] = numLinha;
                 }
@@ -532,7 +537,7 @@ void SegundaPassagem(fstream &preprocessado) {
                                 espacosMEM[l] = espacos;
                                 posicaoMEM[l] = vetorSimbolos[retorno].posicao;
                                 checarMEM[l] = numLinha;
-                                constAlterada[l-1] = flagConst;
+                                constAlterada[l - 1] = flagConst;
                                 l++;
                             }
                         } else {

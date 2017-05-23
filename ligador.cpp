@@ -39,9 +39,9 @@ int contaVetorCorrecao = 1;
 int fatorCorrecao = 0;
 
 
-/*Descricao:
+/*
  * Essa funcao preenche a tabela de definicao em memoria, tabela de uso em memoria e o codigo em memoria
- * e calcula o fator de correcao
+ * e tambem calcula o fator de correcao
  * */
 
 void PreencheTabelas(fstream &arquivo, string &codigoAtual, vector<tabela> &vetorUso, vector<tabela> &vetorDefinicao) {
@@ -75,7 +75,7 @@ void PreencheTabelas(fstream &arquivo, string &codigoAtual, vector<tabela> &veto
     tabelaGlobalDefinicoes.insert(tabelaGlobalDefinicoes.end(), vetorDefinicao.begin(), vetorDefinicao.end());
     getline(arquivo, linha);
     if (linha == "CODE") {
-        while (getline(arquivo, linha)) {/*le linha de codigo para o codigo respectivo e calcula fator de correcao*/
+        while (getline(arquivo, linha)) {//le linha de codigo para o codigo respectivo e calcula fator de correcao
             codigoAtual.append(linha);
             fatorCorrecao += (int) count(linha.begin(), linha.end(), ' ') + 1;
 
@@ -85,11 +85,13 @@ void PreencheTabelas(fstream &arquivo, string &codigoAtual, vector<tabela> &veto
     contaVetorCorrecao++;
 }
 
-void resolveReferenciasCruzadas(int argumentos, string codigoAtual, vector<tabela> &tabelaDeUso) {
 /*
- * Deve substituir no codigo os enderecos relativos de acordo com a tabela de USO
+ * Essa funcao gera o codigo final calculando as referencias cruzadas e aplicando o fator de correcao
  *
  * */
+
+void resolveReferenciasCruzadas(int argumentos, string codigoAtual, vector<tabela> &tabelaDeUso) {
+
     vector<tabela>::iterator it;
     string simboloProcurado;
     string linhaQuebrada;
@@ -105,9 +107,7 @@ void resolveReferenciasCruzadas(int argumentos, string codigoAtual, vector<tabel
     int flagNaoAtualiza = 0;
     int j = 0;
 
-    /*Retira posicao no codigo da tabela de USO e atualiza com o valor na tabela de definicao
-     *
-     */
+
     stringstream linhastream(codigoAtual);
     contador = 0;
 /*
@@ -148,9 +148,10 @@ void resolveReferenciasCruzadas(int argumentos, string codigoAtual, vector<tabel
     stringstream linhastream2(codigoAtual);
     contador = 0;
     codigoAux = "";
-
+/*
+ *Resolve as referencias cruzadas
+ */
     while (getline(linhastream2, token, ' ')) {
-        /*Resolve pendencias cruzadas*/
         if (contador % 2 == 1) {
 
             for (int i = 0; i < tabelaDeUso.size(); i++) {
@@ -179,16 +180,14 @@ void resolveReferenciasCruzadas(int argumentos, string codigoAtual, vector<tabel
     contaVetorCorrecao++;
 }
 
-
+/*
+ * A funcao main eh responsavel pelo controle dos arquivos de entrada e saida
+ *
+ * */
 int main(int argc, char *argv[]) {
-    /*
-     * Os argumentos 1 2 e 3 sao os arquivos de entrada
-     * deve checar se existem 2 ou 3 arquivos
-     * */
     if (argc <= 3 || argc >= 5) {
         cout << "\nNumero de argumentos invalido, eh preciso ao menos dois arquivos objetos para ligar";
     } else {
-        /*processa os arquivos e gera o executavel com formato saida .e*/
         string arquivo1 = argv[1];
         arquivo1.append(".o");
         string arquivo2 = argv[2];
@@ -208,7 +207,6 @@ int main(int argc, char *argv[]) {
         fstream arquivo2Entrada(arquivo2);
 
         if (arquivo1Entrada.is_open() && (arquivo2Entrada.is_open())) {
-            /*Primeiro vamos escrever para dois arquivos*/
             PreencheTabelas(arquivo1Entrada, codigoA, tabUsoA, tabDefinicaoA);
             PreencheTabelas(arquivo2Entrada, codigoB, tabUsoB, tabDefinicaoB);
             if (argc == 5 && arquivo3Entrada.is_open()) {
@@ -228,7 +226,6 @@ int main(int argc, char *argv[]) {
         codigoFinal.pop_back();
         arquivoSaida << codigoFinal;
         arquivoSaida.close();
-
     }
 
     return 0;
