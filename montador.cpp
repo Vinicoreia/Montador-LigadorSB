@@ -391,7 +391,6 @@ void SegundaPassagem(fstream &preprocessado) {
         if (ProcuraRotulo(linha)) {
             rotulo = linha.substr(0, linha.find_first_of(":"));
             linha = linha.substr(rotulo.size() + 2, linha.size()); // retira rotulo da linha e pula o : e o ' '
-            cout << rotulo;
         }
         linha.append("\n");
         proxtoken = linha.substr(0, linha.find_first_of(" \n"));
@@ -644,7 +643,6 @@ void SegundaPassagem(fstream &preprocessado) {
                             /*CONST*/
                             if (!linha.empty()) {
                                 proxtoken = linha.substr(0, linha.find_first_of(" \n+-"));
-                                cout << endl << proxtoken << endl;
                                 if (proxtoken[0] == 0 && proxtoken[1] == 'X') {
                                     stringstream(proxtoken) >> std::hex >> espacos;
                                 } else {
@@ -749,7 +747,7 @@ int Monta(fstream &preprocessado, string nomeArquivoSaida) {
         nomeArquivoSaida.append(".o");
         fstream arquivoObjeto(nomeArquivoSaida, fstream::in | fstream::out | fstream::trunc);
         codigoObjeto.pop_back();
-        cout << endl << "Codigo Objeto em memoria: " << codigoObjeto;
+        cout << endl << "Codigo Objeto em memoria: " << codigoObjeto<<endl;
         if (arquivoObjeto.is_open()) {
             if (flagModulo != 0) {
                 arquivoObjeto << "TABLE USE\n";
