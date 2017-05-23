@@ -105,15 +105,13 @@ void resolveReferenciasCruzadas(int argumentos, string codigoAtual, vector<tabel
     string codigoAux;
     int valorAtualizado;
     int flagNaoAtualiza = 0;
-    int j = 0;
-
 
     stringstream linhastream(codigoAtual);
     contador = 0;
 /*
  * ATUALIZA O CODIGO DE ACORDO COM A TABELA GLOBAL DE DEFINICOES
  * */
-    for (int i = 0; i < tabelaDeUso.size(); i++) {
+    for (unsigned i = 0; i < tabelaDeUso.size(); i++) {
         simboloProcurado = tabelaDeUso[i].simbolo;
         posicaoNoCodigo = atoi(tabelaDeUso[i].valor.c_str());
 
@@ -154,7 +152,7 @@ void resolveReferenciasCruzadas(int argumentos, string codigoAtual, vector<tabel
     while (getline(linhastream2, token, ' ')) {
         if (contador % 2 == 1) {
 
-            for (int i = 0; i < tabelaDeUso.size(); i++) {
+            for (unsigned i = 0; i < tabelaDeUso.size(); i++) {
                 if (atoi(tabelaDeUso[i].valor.c_str()) == contador) {
                     codigoAux.append(token + " ");
                     flagNaoAtualiza = 1;

@@ -13,9 +13,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="111c6592-d687-4820-b969-ab7fda1445f4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/saida.o" afterPath="$PROJECT_DIR$/saida.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ligador.cpp" afterPath="$PROJECT_DIR$/ligador.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/montador.cpp" afterPath="$PROJECT_DIR$/montador.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/montador.h" afterPath="$PROJECT_DIR$/montador.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/preprocessador.cpp" afterPath="$PROJECT_DIR$/preprocessador.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +31,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="32" column="12" lean-forward="false" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+            <state relative-caret-position="220">
+              <caret line="36" column="10" lean-forward="false" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -41,8 +41,8 @@
       <file leaf-file-name="preprocessador.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/preprocessador.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="99" column="43" lean-forward="true" selection-start-line="99" selection-start-column="43" selection-end-line="99" selection-end-column="43" />
+            <state relative-caret-position="220">
+              <caret line="23" column="23" lean-forward="false" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -60,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="montador.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="montador.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/montador.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="769" column="0" lean-forward="true" selection-start-line="769" selection-start-column="0" selection-end-line="769" selection-end-column="0" />
+            <state relative-caret-position="256">
+              <caret line="284" column="74" lean-forward="true" selection-start-line="284" selection-start-column="74" selection-end-line="284" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -82,16 +82,22 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ligador.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ligador.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="107" column="0" lean-forward="true" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+              <folding>
+                <element signature="e#235#254#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>AtualizaTabelaDeDefinicao</find>
-      <find>codigoObjeto</find>
-      <find>AdicionaCodigoObjeto</find>
-      <find>vetorSimbolos</find>
-      <find>contadorSimbolos</find>
-      <find>Erro Semantico</find>
       <find>retorno = Pe</find>
       <find>Pesquisa</find>
       <find>PesquisaS</find>
@@ -113,9 +119,15 @@
       <find>verifica</find>
       <find>Segunda</find>
       <find>flagErros;</find>
-      <find>checarMem</find>
       <find>vetorUso.si</find>
       <find>remove</find>
+      <find>checarMem</find>
+      <find>checar</find>
+      <find>vetorDefin</find>
+      <find>vetor</find>
+      <find>for int</find>
+      <find>for(int</find>
+      <find>for</find>
     </findStrings>
     <replaceStrings>
       <replace>linha</replace>
@@ -166,11 +178,11 @@
         <option value="$PROJECT_DIR$/modB.o" />
         <option value="$PROJECT_DIR$/triangulo.asm" />
         <option value="$PROJECT_DIR$/modA.o" />
-        <option value="$PROJECT_DIR$/ligador.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/montador.h" />
-        <option value="$PROJECT_DIR$/montador.cpp" />
         <option value="$PROJECT_DIR$/preprocessador.cpp" />
+        <option value="$PROJECT_DIR$/montador.cpp" />
+        <option value="$PROJECT_DIR$/ligador.cpp" />
       </list>
     </option>
   </component>
@@ -543,12 +555,12 @@
       <workItem from="1495372876836" duration="20183000" />
       <workItem from="1495400122354" duration="31387000" />
       <workItem from="1495464190346" duration="4951000" />
-      <workItem from="1495486846318" duration="14720000" />
+      <workItem from="1495486846318" duration="14967000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="213437000" />
+    <option name="totallyTimeSpent" value="213684000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1366" y="104" width="1920" height="1053" extended-state="6" />
@@ -779,16 +791,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ligador.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="213" column="6" lean-forward="false" selection-start-line="213" selection-start-column="6" selection-end-line="213" selection-end-column="6" />
-          <folding>
-            <element signature="e#235#254#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/preprocessador.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -796,14 +798,6 @@
           <folding>
             <element signature="e#132#150#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="32" column="12" lean-forward="false" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -819,17 +813,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/preprocessador.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="99" column="43" lean-forward="true" selection-start-line="99" selection-start-column="43" selection-end-line="99" selection-end-column="43" />
+        <state relative-caret-position="220">
+          <caret line="23" column="23" lean-forward="false" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="36" column="10" lean-forward="false" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/montador.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="769" column="0" lean-forward="true" selection-start-line="769" selection-start-column="0" selection-end-line="769" selection-end-column="0" />
+        <state relative-caret-position="256">
+          <caret line="284" column="74" lean-forward="true" selection-start-line="284" selection-start-column="74" selection-end-line="284" selection-end-column="74" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ligador.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="107" column="0" lean-forward="true" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+          <folding>
+            <element signature="e#235#254#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

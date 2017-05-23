@@ -280,7 +280,7 @@ void AtualizaTabelaDeDefinicao() {
     int indice;
     if (flagModulo == 1) {
 
-        for (int i = 0; i < vetorDefinicoes.size(); i++) {
+        for (unsigned i = 0; i < vetorDefinicoes.size(); i++) {
             simboloProcurado = vetorDefinicoes[i].simbolo; // procura esse simbolo na tabela de Simbolos.
             auto predicado = [simboloProcurado](const tabSimbolos &item) {
                 return item.simbolo == simboloProcurado;
@@ -460,7 +460,6 @@ void SegundaPassagem(fstream &preprocessado) {
                                     posicao++;
                                     espacosMEM[l] = espacos;
                                     posicaoMEM[l] = vetorSimbolos[retorno].posicao;
-                                    checarMEM[l] = numLinha;
                                     constAlterada[l] = flagConst;
                                     l++;
                                     if (checarDIV[k] != -1) {
@@ -506,7 +505,6 @@ void SegundaPassagem(fstream &preprocessado) {
                             posicao++;
                             espacosMEM[l] = espacos;
                             posicaoMEM[l] = vetorSimbolos[retorno].posicao;
-                            checarMEM[l] = numLinha;
                             constAlterada[l] = flagConst;
                             l++;
                         }
@@ -536,7 +534,6 @@ void SegundaPassagem(fstream &preprocessado) {
                                 posicao++;
                                 espacosMEM[l] = espacos;
                                 posicaoMEM[l] = vetorSimbolos[retorno].posicao;
-                                checarMEM[l] = numLinha;
                                 constAlterada[l - 1] = flagConst;
                                 l++;
                             }
